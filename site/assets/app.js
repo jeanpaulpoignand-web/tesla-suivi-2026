@@ -254,7 +254,8 @@
   Promise.all([load('entrees'), load('historique'), load('journal')]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
     D.historique = r[1]; D.journal = r[2];
-    route(true);
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
+    route(false);
   }).catch(function (err) {
     app.innerHTML = '<div class="wrap"><p class="notice"><b>La veille est momentanément indisponible.</b> Les données n’ont pas pu être lues. Rien n’a été modifié ; réessayez plus tard.<br><span class="addr">' + esc(err && err.message) + '</span></p></div>';
   });
