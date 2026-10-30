@@ -1,1 +1,81 @@
-[]
+[
+  {
+    "date_releve": "2026-10-30T12:02:41+01:00",
+    "statut_lecture": "complet",
+    "source_url_model3": "https://www.tesla.com/fr_fr/model3/design",
+    "source_url_modely": "https://www.tesla.com/fr_fr/modely/design",
+    "versions": [
+      {
+        "modele": "Model 3",
+        "version": "Propulsion",
+        "catalogue_eur": 36990,
+        "aides": [
+          {
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichée sans code postal ; éligibilité non validée"
+          },
+          {
+            "libelle": "Bonus de reprise Tesla",
+            "montant_eur": -3000,
+            "condition": "uniquement en cas de reprise"
+          }
+        ]
+      },
+      {
+        "modele": "Model 3",
+        "version": "Grande Autonomie, Propulsion",
+        "catalogue_eur": 44990,
+        "aides": []
+      },
+      {
+        "modele": "Model 3",
+        "version": "Grande Autonomie Transmission Intégrale",
+        "catalogue_eur": 49990,
+        "aides": []
+      },
+      {
+        "modele": "Model 3",
+        "version": "Performance",
+        "catalogue_eur": 57490,
+        "aides": []
+      },
+      {
+        "modele": "Model Y",
+        "version": "Propulsion",
+        "catalogue_eur": 40990,
+        "aides": [
+          {
+            "libelle": "Prime CEE (Coup de Pouce)",
+            "montant_eur": -3600,
+            "condition": "de 3 600 à 5 700 € selon les revenus"
+          },
+          {
+            "libelle": "Bonus de reprise Tesla",
+            "montant_eur": -5000,
+            "condition": "uniquement en cas de reprise"
+          }
+        ]
+      },
+      {
+        "modele": "Model Y",
+        "version": "Grande Autonomie Propulsion",
+        "catalogue_eur": 46990,
+        "aides": []
+      },
+      {
+        "modele": "Model Y",
+        "version": "Grande Autonomie Transmission Intégrale",
+        "catalogue_eur": 53990,
+        "aides": []
+      },
+      {
+        "modele": "Model Y",
+        "version": "Performance",
+        "catalogue_eur": 62990,
+        "aides": []
+      }
+    ],
+    "note": "Lecture réelle en mode Personnel : Comptant, sans code postal. Huit tarifs catalogue lus ; aides détaillées uniquement sur les versions Propulsion sélectionnées, sans extrapolation ni recalcul."
+  }
+]
