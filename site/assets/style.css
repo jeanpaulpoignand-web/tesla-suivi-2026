@@ -160,3 +160,42 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .expired{font-family:var(--mono);font-size:13px;border:1px solid var(--muted);padding:0 6px;border-radius:2px;white-space:nowrap}
 .list{margin:6px 0 12px 22px;max-width:66ch}
 .list li{margin-bottom:6px}
+
+/* Grille des prix */
+.lede2{color:var(--soft);max-width:62ch;margin:6px 0 18px}
+.prixpage{max-width:900px}
+.prixpage h2{font-family:var(--serif);font-size:34px;letter-spacing:0;text-transform:none;color:var(--ink);margin:44px 0 10px}
+.ptable,.vtable{width:100%;border-collapse:collapse;font-size:16.5px}
+.ptable th,.ptable td,.vtable th,.vtable td{text-align:left;padding:12px 10px 12px 0;border-bottom:1px solid var(--faint);vertical-align:top}
+.ptable thead th,.vtable thead th{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--ink)}
+.ptable tbody th{font-weight:600}
+.num{font-family:var(--mono);white-space:nowrap}
+.chart{margin:26px 0 8px}
+.chart figcaption{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.chart-box{position:relative;width:100%;min-height:250px}
+.chart-box svg{display:block;max-width:100%;overflow:visible;touch-action:pan-y}
+.chart-box text{font:13px var(--sans);fill:var(--muted)}
+.chart-box text.dl{fill:var(--ink);font-weight:500}
+.chart-box .g{stroke:var(--faint);stroke-width:1}
+.chart-box .xh{stroke:var(--muted);stroke-width:1}
+.tip{position:absolute;z-index:5;background:var(--paper2);border:1px solid var(--ink);padding:8px 12px;font-size:14px;line-height:1.5;pointer-events:none;min-width:190px}
+.tip-d{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:4px}
+.tip-r{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.tip-r b{font-family:var(--mono);font-weight:600;min-width:84px}
+.legend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:10px 0 0;font-size:15px}
+.legend li{display:flex;align-items:center;gap:8px}
+.chart-note{color:var(--soft);font-size:15.5px;margin:10px 0 0;max-width:62ch}
+.vals{margin:14px 0 0}
+.vals summary{cursor:pointer;font-weight:600;font-size:16px;min-height:44px;display:flex;align-items:center}
+.vals-wrap{overflow-x:auto}
+.vtable{min-width:420px}
+@media(max-width:640px){
+ .ptable thead{display:none}
+ .ptable tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+ .ptable th,.ptable td{display:flex;justify-content:space-between;gap:16px;border:0;padding:4px 0;text-align:right}
+ .ptable th[scope=row]{text-align:left;font-size:17px}
+ .ptable td:before,.ptable th[scope=row]:before{content:attr(data-label);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left}
+ .ptable th[scope=row]:before{display:none}
+}
+
+.prixpage .veille{text-align:left;margin:0 0 26px;max-width:none}
