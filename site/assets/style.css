@@ -1,4 +1,4 @@
-/* Tesla suivi 2026 : feuille de style V1.
+/* Tesla suivi : feuille de style V1.3.
    Polices, papier, encre, filet et rythme repris de la Doctrine Éconologique.
    Aucune couleur d'accent, aucun filigrane, aucune ombre, étiquettes d'au moins 13 px. */
 :root{
@@ -199,3 +199,8 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 }
 
 .prixpage .veille{text-align:left;margin:0 0 26px;max-width:none}
+
+/* V1.3 : année discrète, page Mentions */
+.hero h1 .an{font-family:var(--mono);font-size:.2em;font-weight:400;letter-spacing:.14em;color:var(--muted);vertical-align:middle;margin-left:.9em}
+.mentions h2{font-size:26px;margin:30px 0 8px}
+.mentions p{max-width:66ch;margin-bottom:10px}

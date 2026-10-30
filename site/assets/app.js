@@ -1,4 +1,4 @@
-/* Tesla suivi 2026 : code du site V1.
+/* Tesla suivi : code du site V1.3.
    Le site ne contient aucune donnée de veille. Il lit quatre fichiers :
    data/entrees.json, data/historique.json, data/journal.json et data/prix.json (voir « Interface de données du site »). V1.1. */
 (function () {
@@ -17,6 +17,7 @@
   var D = { entrees: [], historique: [], journal: [], prix: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
+  var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
 
   /* ---------- Outils ---------- */
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -124,7 +125,7 @@
       return '<option value="">Tous</option>' + list.map(function (a) { var v = Array.isArray(a) ? a[0] : a, l = Array.isArray(a) ? a[1] : a; return '<option value="' + esc(v) + '"' + (cur === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
-    return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>Tesla suivi 2026</h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + veilleHTML() + '</section>' +
+    return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + veilleHTML() + '</section>' +
       '<div class="wrap">' + retenirHTML() + '<div class="layout"><div>' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<label class="sr" for="q">Rechercher dans la veille</label><input class="search" id="q" type="search" placeholder="Rechercher : prix, FSD, calculateur…" value="' + esc(F.q) + '" autocomplete="off">' +
@@ -362,6 +363,21 @@
   var rz = null;
   window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(drawCharts, 150); });
 
+  /* ---------- Mentions légales et méthode ---------- */
+  function mentionsHTML() {
+    var u = ['vttpolux25', 'gmail.com'].join('@');
+    return '<div class="wrap"><section class="arch mentions"><a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a><h1>Mentions légales et méthode</h1>' +
+      '<h2>Éditeur</h2><p>Site personnel, non professionnel, édité par un particulier qui souhaite rester anonyme. Conformément à l’article 6 de la loi du 21 juin 2004 pour la confiance dans l’économie numérique, son identité a été communiquée à l’hébergeur.</p>' +
+      '<h2>Hébergeur</h2><p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (service GitHub Pages).</p>' +
+      '<h2>Contact, corrections et droit de réponse</h2><p>Pour signaler une erreur, demander une correction ou exercer un droit de réponse : <a href="mailto:' + u + '">' + u + '</a>. Toute information corrigée garde une trace datée de la correction.</p>' +
+      '<h2>Indépendance</h2><p>Ce site est indépendant et n’a aucun lien avec Tesla, Inc. Tesla, Model 3 et Model Y sont des marques de leurs propriétaires, citées uniquement pour désigner les produits dont il est question. Le site ne contient ni publicité, ni lien d’affiliation, ni parrainage.</p>' +
+      '<h2>Méthode</h2><p>Chaque information est rattachée à ses sources, avec sa date de publication et sa date de vérification. Un statut indique son degré de certitude : <b>Confirmé</b> (source d’origine accessible), <b>Annoncé, déploiement à vérifier</b>, <b>Retour d’expérience</b>, <b>Rumeur non confirmée</b>, <b>Corrigé</b>. Un titre, une miniature ou une vidéo promotionnelle ne constituent jamais une preuve suffisante.</p>' +
+      '<p>La veille est préparée avec l’aide d’outils d’intelligence artificielle, puis validée par l’éditeur avant publication. Les prix sont lus sur le configurateur officiel de Tesla France, avec la date de chaque relevé ; un prix qui n’a pas pu être lu n’est jamais remplacé par un ancien prix.</p>' +
+      '<h2>Limites</h2><p>Ce site est une veille d’information personnelle. Il ne constitue ni un conseil d’achat, ni un devis, ni une offre. Les prix et conditions sont indicatifs : seuls font foi le configurateur et les conditions de Tesla au moment de la commande.</p>' +
+      '<h2>Données personnelles</h2><p>Le site n’utilise ni cookie, ni outil de mesure d’audience, ni publicité. Il est hébergé par GitHub Pages, qui peut enregistrer des données techniques de connexion (dont l’adresse IP) selon sa propre politique. Les polices de caractères sont actuellement chargées depuis le service Google Fonts, ce qui transmet l’adresse IP du visiteur à Google ; elles seront prochainement hébergées sur le site même.</p>' +
+      '</section></div>';
+  }
+
   /* ---------- Routage ---------- */
   function setNav(view, theme) {
     document.querySelectorAll('#navlinks a').forEach(function (a) {
@@ -372,12 +388,13 @@
   }
   function route(noScroll) {
     var h = location.hash || '#/', m = h.match(/^#\/info\/(.+)$/), id = m ? decodeURIComponent(m[1]) : '';
-    if (m && byId(id)) { app.innerHTML = detailHTML(byId(id)); setNav('detail'); document.title = byId(id).titre + ' — Tesla suivi 2026'; }
-    else if (h === '#/prix') { app.innerHTML = prixPageHTML(); setNav('prix'); document.title = 'Grille des prix — Tesla suivi 2026'; drawCharts(); }
-    else if (h === '#/archives') { app.innerHTML = archivesHTML(); setNav('archives'); document.title = 'Archives — Tesla suivi 2026'; }
+    if (m && byId(id)) { app.innerHTML = detailHTML(byId(id)); setNav('detail'); document.title = byId(id).titre + ' — ' + NOM; }
+    else if (h === '#/prix') { app.innerHTML = prixPageHTML(); setNav('prix'); document.title = 'Grille des prix — ' + NOM; drawCharts(); }
+    else if (h === '#/mentions') { app.innerHTML = mentionsHTML(); setNav('mentions'); document.title = 'Mentions légales et méthode — ' + NOM; }
+    else if (h === '#/archives') { app.innerHTML = archivesHTML(); setNav('archives'); document.title = 'Archives — ' + NOM; }
     else {
-      if (m) { app.innerHTML = '<div class="wrap"><p class="notice"><b>Information introuvable.</b> Cette adresse ne correspond à aucune entrée. <a href="#/">Retour au fil</a>.</p></div>'; setNav('detail'); document.title = 'Information introuvable — Tesla suivi 2026'; }
-      else { app.innerHTML = homeHTML(); updateFeed(); setNav('home', F.theme); document.title = 'Tesla suivi 2026'; }
+      if (m) { app.innerHTML = '<div class="wrap"><p class="notice"><b>Information introuvable.</b> Cette adresse ne correspond à aucune entrée. <a href="#/">Retour au fil</a>.</p></div>'; setNav('detail'); document.title = 'Information introuvable — ' + NOM; }
+      else { app.innerHTML = homeHTML(); updateFeed(); setNav('home', F.theme); document.title = NOM; }
     }
     if (!noScroll) window.scrollTo(0, 0);
   }
@@ -404,7 +421,8 @@
   Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; })]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
     D.historique = r[1]; D.journal = r[2]; D.prix = r[3];
-    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
+    try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);
   }).catch(function (err) {
     app.innerHTML = '<div class="wrap"><p class="notice"><b>La veille est momentanément indisponible.</b> Les données n’ont pas pu être lues. Rien n’a été modifié ; réessayez plus tard.<br><span class="addr">' + esc(err && err.message) + '</span></p></div>';
