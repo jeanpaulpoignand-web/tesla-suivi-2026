@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "date_execution": "2026-10-30T10:55:37+01:00",
+    "resultat": "succes",
+    "lot_id": "2026-10-30_Grok_Veille_Tesla-2026_V2",
+    "lot_type": "initial",
+    "nouveautes": true,
+    "entrees_ajoutees": 13,
+    "message": "lot initial, relevé de départ, en attente de relecture"
+  }
+]
