@@ -68,7 +68,7 @@
   }
   function metaHTML(e) {
     var dup = e.modeles.length === 1 && e.modeles[0] === e.theme;
-    return fr(e.date_publication) + '<span class="sep">·</span>' + esc(e.theme) + (dup || !e.modeles.length ? '' : '<span class="sep">·</span>' + esc(e.modeles.join(' / '))) + '<span class="sep">·</span>' + esc(e.territoire) + (isExpired(e) ? ' <span class="expired">offre échue</span>' : '');
+    return (isNew(e) ? '<b class="new">Nouveau</b> ' : '') + fr(e.date_publication) + '<span class="sep">·</span>' + esc(e.theme) + (dup || !e.modeles.length ? '' : '<span class="sep">·</span>' + esc(e.modeles.join(' / '))) + '<span class="sep">·</span>' + esc(e.territoire) + (isExpired(e) ? ' <span class="expired">offre échue</span>' : '');
   }
   function videoHTML(v) {
     var img = safeUrl(v.miniature_url), href = safeUrl(v.url);
@@ -105,11 +105,32 @@
     var base = sorted(D.entrees.filter(inFeed));
     var choix = base.filter(function (e) { return e.alerte === true; }).concat(base.filter(function (e) { return e.alerte !== true; })).slice(0, 3);
     if (!choix.length) return '';
-    return '<section class="retenir" aria-labelledby="h-ret"><h2 id="h-ret">À retenir</h2><p class="sub">Les points essentiels de la veille</p><ol>' + choix.map(function (e) {
+    return '<section class="retenir" aria-labelledby="h-ret"><h2 id="h-ret">À retenir</h2><p class="sub">Les points essentiels de la veille</p><ol class="cards">' + choix.map(function (e, i) {
       var c = String(e.consequence || '').split(/(?<=[.!?])\s/)[0];
-      return '<li><p><strong>' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '.</strong> ' + esc(c) + ' <a href="#/info/' + encodeURIComponent(e.id) + '">Détail</a></p></li>';
+      return '<li class="card"><span class="cn">' + ('0' + (i + 1)).slice(-2) + '</span><span class="ct">' + esc(e.theme) + (isNew(e) ? ' · <b class="new">Nouveau</b>' : '') + '</span><a class="ctitle" href="#/info/' + encodeURIComponent(e.id) + '">' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '</a><span class="cc">' + esc(c) + '</span><span class="cgo">Lire <span aria-hidden="true">→</span></span></li>';
     }).join('') + '</ol></section>';
   }
+
+  /* ---------- Accueil vivant : bande des prix, silhouette, cartes ---------- */
+  var SILH = '<svg class="silh" viewBox="0 0 260 96" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 70 L16 56 C16 51 20 48 28 47 C44 45 56 42 68 36 C88 22 120 18 148 22 C170 26 188 38 206 45 L224 50 C230 52 232 58 232 70"/><path d="M16 70 L40 70 M92 70 L148 70 M200 70 L232 70"/><path d="M40 70 A26 26 0 0 1 92 70"/><path d="M148 70 A26 26 0 0 1 200 70"/><circle cx="66" cy="70" r="15"/><circle cx="174" cy="70" r="15"/><path d="M82 40 C96 30 118 27 142 29 C158 31 172 38 186 44 Z"/></svg>';
+  function eur(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, String.fromCharCode(8239)) + String.fromCharCode(160) + '€'; }
+  function stripHTML() {
+    var ok = relevesLisibles(), last = ok[ok.length - 1];
+    if (!last) return '';
+    var prev = ok.length > 1 ? ok[ok.length - 2] : null;
+    function carte(modele) {
+      var v = versionsDe(last, modele).filter(function (x) { return x.version === 'Propulsion'; })[0] || versionsDe(last, modele)[0];
+      if (!v) return '';
+      var pv = prev && versionsDe(prev, modele).filter(function (x) { return x.version === v.version; })[0];
+      var d = pv ? v.catalogue_eur - pv.catalogue_eur : null;
+      var delta = d === null ? 'Premier relevé' : (d === 0 ? 'Inchangé depuis le relevé précédent' : (d > 0 ? '▲ +' : '▼ ') + eur(d).replace('+', ''));
+      return '<a class="pcard" href="#/prix"><span class="pl">' + modele + ' · à partir de</span><span class="pv">' + eur(v.catalogue_eur) + '</span><span class="pd">' + esc(v.version) + ' · ' + delta + '</span></a>';
+    }
+    return '<div class="pstrip" role="group" aria-label="Prix catalogue du jour">' + carte('Model 3') + carte('Model Y') +
+      '<p class="pnote">Prix catalogue lus sur le configurateur Tesla France le ' + esc(fr(last.date_releve)) + '. <a href="#/prix">Grille complète et évolution →</a></p></div>';
+  }
+  function refDay() { var m = ''; D.entrees.forEach(function (e) { if ((e.date_verification || '') > m) m = e.date_verification; }); return m; }
+  function isNew(e) { var r = parseDay(refDay()), d = parseDay(e.date_publication); return r && d && (r - d) <= 2 * 864e5; }
   function veilleHTML() {
     var ok = derniere(journalOk()), nv = derniere(journalOk().filter(function (r) { return r.nouveautes === true; }));
     if (!ok) return '<p class="veille"><b>Veille :</b> aucune exécution enregistrée pour l’instant.</p>';
@@ -125,7 +146,7 @@
       return '<option value="">Tous</option>' + list.map(function (a) { var v = Array.isArray(a) ? a[0] : a, l = Array.isArray(a) ? a[1] : a; return '<option value="' + esc(v) + '"' + (cur === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
-    return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + veilleHTML() + '</section>' +
+    return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + SILH + stripHTML() + veilleHTML() + '</section>' +
       '<div class="wrap">' + retenirHTML() + '<div class="layout"><div>' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<label class="sr" for="q">Rechercher dans la veille</label><input class="search" id="q" type="search" placeholder="Rechercher : prix, FSD, calculateur…" value="' + esc(F.q) + '" autocomplete="off">' +

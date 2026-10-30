@@ -204,3 +204,27 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .hero h1 .an{font-family:var(--mono);font-size:.2em;font-weight:400;letter-spacing:.14em;color:var(--muted);vertical-align:middle;margin-left:.9em}
 .mentions h2{font-size:26px;margin:30px 0 8px}
 .mentions p{max-width:66ch;margin-bottom:10px}
+
+/* Accueil vivant */
+.hero{position:relative;overflow:hidden}
+.hero .silh{display:block;width:min(420px,70%);margin:6px auto 20px;color:var(--line);stroke-width:1.2}
+.pstrip{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px;margin:6px auto 26px;text-align:left}
+.pcard{display:flex;flex-direction:column;gap:2px;border:1px solid var(--ink);border-radius:4px;padding:18px 20px;background:var(--paper2);text-decoration:none;transition:transform .15s}
+.pcard:hover{transform:translateY(-2px);box-shadow:0 0 0 1px var(--ink)}
+.pl{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pv{font-family:var(--serif);font-weight:600;font-size:clamp(38px,6vw,54px);line-height:1.05}
+.pd{font-size:14.5px;color:var(--soft)}
+.pnote{grid-column:1/-1;font-size:14.5px;color:var(--soft);text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.retenir li.card{display:flex;flex-direction:column;gap:8px;grid-template-columns:none;border:1px solid var(--line);border-radius:4px;padding:20px 20px 18px;background:var(--paper2)}
+.retenir li.card::before{content:none}
+.cn{font-family:var(--serif);font-size:44px;line-height:1;color:var(--line);font-weight:600}
+.ct{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ctitle{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.2;text-decoration:none}
+.ctitle:hover{text-decoration:underline;text-decoration-thickness:2px}
+.cc{font-size:15.5px;color:var(--soft)}
+.cgo{margin-top:auto;font-weight:600;font-size:15px}
+.new{display:inline-block;font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;background:var(--ink);color:var(--paper);padding:1px 8px;border-radius:2px}
+@media(max-width:560px){.pstrip{grid-template-columns:1fr}.hero .silh{width:80%}}
+.retenir li a.ctitle{white-space:normal;overflow-wrap:anywhere;min-width:0}
+.retenir li.card{min-width:0}
