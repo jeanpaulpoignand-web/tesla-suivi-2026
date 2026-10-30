@@ -1,1 +1,246 @@
-[]
+[
+  {
+    "id": "2026-10-30-prix-france-offres-t4-2026",
+    "titre": "Tesla France prolonge ses offres de financement et de reprise jusqu'au 31 décembre 2026",
+    "date_publication": "2026-10-01",
+    "date_verification": "2026-10-30",
+    "theme": "Prix France",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": "",
+    "territoire": "France",
+    "resume": "Selon Mobiwisy (1er octobre 2026), l'offre de LOA Model Y Propulsion (36 mois, 10 000 km/an, premier loyer 9 200 € incluant la prime CEE de 3 600 €, option d'achat 23 774 €) est reconduite pour les dossiers déposés du 1er octobre au 31 décembre 2026, ainsi que le bonus de reprise sur Model Y Propulsion. Un bonus de reprise de 3 000 € est aussi annoncé sur la Model 3 Propulsion pour des commandes du 1er octobre au 31 décembre 2026, livrées au plus tard le 31 décembre.",
+    "consequence": "Un acheteur dispose jusqu'à fin décembre pour profiter de ces conditions, sous réserve de stock et de livraison avant le 31 décembre ; la LOA et le bonus de reprise ne se cumulent pas sur le Model Y Propulsion selon Mobiwisy. Les montants exacts doivent être relus sur le configurateur avant toute décision.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "prix": {
+      "version": "Model Y Propulsion",
+      "catalogue_eur": null,
+      "remise_eur": null,
+      "apres_aides_eur": null,
+      "conditions": "Non relevé sur la source officielle pendant cette exécution (configurateur Tesla France inaccessible). Conditions rapportées par la presse : LOA 36 mois / 10 000 km/an, premier loyer 9 200 € incluant la prime CEE de 3 600 €, option d'achat 23 774 €, dossiers du 2026-10-01 au 2026-12-31, livraison avant le 2026-12-31, sous réserve d'acceptation et de stock.",
+      "echeance": "2026-12-31",
+      "date_releve": "",
+      "source_url": ""
+    },
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Tesla France",
+        "type": "Tesla",
+        "url": "https://www.tesla.com/fr_fr",
+        "date": "",
+        "interet_commercial": "oui",
+        "accessible": false
+      },
+      {
+        "role": "reprise",
+        "nom": "Mobiwisy – Tesla Model Y : les offres prolongées jusqu'à fin décembre",
+        "type": "média spécialisé",
+        "url": "https://mobiwisy.fr/voiture/electrique/tesla-model-y-les-offres-prolongees-jusqua-fin-decembre-sans-baisse-des-mensualites",
+        "date": "2026-10-01",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "Tesla Mag – Prix des Tesla en France (octobre 2026)",
+        "type": "média spécialisé",
+        "url": "https://www.tesla-mag.com/prix-tesla-france/",
+        "date": "2026-10-26",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Dealabs – Model 3 Propulsion bonus reprise 3 000 €",
+        "type": "forum",
+        "url": "https://www.dealabs.com/bons-plans/bonus-reprise-tesla-3-000-eur-pour-lachat-dune-tesla-model-3-propulsion-sous-conditions-3433381",
+        "date": "",
+        "interet_commercial": "oui",
+        "accessible": false
+      }
+    ],
+    "contradictions": [
+      "Loyer LOA Model Y Propulsion : 229 €/mois selon Mobiwisy (2026-10-01) et l'extrait d'index de la page Tesla France, contre 245 €/mois selon la simulation Tesla relevée par Tesla Mag le 2026-10-13 (immatriculation Île-de-France). Non arbitré : configurateur inaccessible.",
+      "Prime CEE sur Model 3 : l'extrait d'index de la page Tesla France mentionne une « prime CEE d'un montant de 400 € » pour la Model 3, alors que Tesla Mag (correction du 2026-10-26) indique qu'aucune Model 3 ne figure sur la liste ADEME des véhicules éligibles à la prime « coup de pouce ». Non arbitré."
+    ]
+  },
+  {
+    "id": "2026-10-30-model-y-gamme-france-model-y-l-absent",
+    "titre": "Model Y : seul SUV Tesla à la commande en France, le Model Y L toujours absent",
+    "date_publication": "2026-10-27",
+    "date_verification": "2026-10-30",
+    "theme": "Model Y",
+    "modeles": [
+      "Model Y"
+    ],
+    "hardware": "",
+    "territoire": "France",
+    "resume": "D'après un relevé du site Tesla France fait par Tesla Mag le 26 octobre 2026, le Model Y est le seul SUV Tesla configurable et commandable en France ; la version 7 places y est proposée depuis le 27 février 2026. Le Model Y L (six places, empattement 3 040 mm, vendu en Chine depuis septembre 2025) n'apparaît pas sur le site français et aucune date n'est annoncée pour la France.",
+    "consequence": "Pour une famille, la seule option Tesla neuve à trois rangées commandable en France reste le Model Y 7 places ; attendre un Model Y L n'est appuyé par aucune annonce pour la France.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Tesla France – page Model Y",
+        "type": "Tesla",
+        "url": "https://www.tesla.com/fr_fr/modely/design",
+        "date": "",
+        "interet_commercial": "oui",
+        "accessible": false
+      },
+      {
+        "role": "reprise",
+        "nom": "Tesla Mag – Gamme Tesla 2027 en France",
+        "type": "média spécialisé",
+        "url": "https://www.tesla-mag.com/gamme-suv-tesla-2027-france-model-x-model-y-l-cybertruck/",
+        "date": "2026-10-27",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "id": "2026-10-30-model-3-powershare-home-backup-etats-unis",
+    "titre": "Powershare Home Backup activé sur les Model 3 et Model Y neuves aux États-Unis, sans date pour l'Europe",
+    "date_publication": "2026-10-06",
+    "date_verification": "2026-10-30",
+    "theme": "Model 3",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": "",
+    "territoire": "International (États-Unis, Porto Rico)",
+    "resume": "Tesla Energy a annoncé le 6 octobre 2026 sur X que Powershare Home Backup est disponible pour les Model 3 et Model Y neuves équipées d'un Powerwall 3 : la voiture prolonge l'alimentation de secours de la maison de plus de deux jours. Selon Les Numériques, la compatibilité n'est garantie que pour les voitures commandées après le 1er octobre 2026, uniquement aux États-Unis et à Porto Rico, sans revente au réseau.",
+    "consequence": "Aucun effet en France à ce jour : aucune date ni annonce européenne. Utile comme indicateur d'une possible évolution de la recharge bidirectionnelle à surveiller pour la France.",
+    "statut": "Confirmé",
+    "alerte": false,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Tesla Energy (@teslaenergy) sur X",
+        "type": "réseau social",
+        "url": "https://x.com/teslaenergy/status/2107502621384991059",
+        "date": "2026-10-06",
+        "interet_commercial": "oui",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Les Numériques – Tesla transforme ses Model 3 et Model Y en batteries de secours",
+        "type": "presse",
+        "url": "https://www.lesnumeriques.com/voiture-electrique/tesla-transforme-ses-model-3-et-model-y-en-batteries-de-secours-pour-la-maison-mais-il-y-a-un-hic-n262949.html",
+        "date": "2026-10-07",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "id": "2026-10-30-hardware-hw3-aucun-plan-mise-a-niveau-t3",
+    "titre": "HW3 : toujours aucun plan de mise à niveau, question ignorée lors de l'appel du T3 2026",
+    "date_publication": "2026-10-22",
+    "date_verification": "2026-10-30",
+    "theme": "Hardware",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": "HW3 (calculateur de conduite) ; HW4/AI4 ; AI5 et carte intermédiaire envisagées",
+    "territoire": "International (États-Unis)",
+    "resume": "Selon Electrek, Tesla n'a pas répondu, lors de l'appel des résultats du T3 2026 (21 octobre), à la question d'actionnaires sur une mise à niveau gratuite des voitures HW3. Elon Musk avait reconnu au T1 2026 que le HW3 ne peut pas atteindre le FSD non supervisé ; au T2, il évoquait une future mise à niveau vers une carte de nouvelle génération ou l'AI5, sans coût ni calendrier. Les voitures HW3 reçoivent en Amérique du Nord la version supervisée « FSD v14.3 Lite » (mise à jour 2026.38.5.11, à partir du 24 octobre selon Tesla Oracle).",
+    "consequence": "Un propriétaire ou acheteur d'occasion d'une Model 3 ou Model Y HW3 ne peut compter sur aucune mise à niveau datée ; l'homologation européenne (RDW) ne couvre que le HW4, selon Electrek. Vérifier la génération de calculateur avant tout achat d'occasion.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Electrek – Tesla skipped the most important shareholder question",
+        "type": "média spécialisé",
+        "url": "https://electrek.co/2026/10/22/tesla-skipped-hw3-shareholder-question-earnings-call/",
+        "date": "2026-10-22",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "Tesla Oracle – rollout 2026.38.5.11 : FSD v14.3.13 (HW4) et v14.3 Lite (HW3)",
+        "type": "média spécialisé",
+        "url": "https://www.teslaoracle.com/2026/10/26/tesla-expands-the-rollout-of-2026-38-5-11-update-fsd-v14-3-13-hw4-and-fsd-v14-3-lite-hw3/",
+        "date": "2026-10-26",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "id": "2026-10-30-fsd-tad-dix-pays-ue-france-en-examen",
+    "titre": "Tesla Assisted Driving (ex-FSD Supervisé) reconnu dans 10 pays de l'UE ; France toujours en examen, vote UE pas avant décembre",
+    "date_publication": "2026-10-26",
+    "date_verification": "2026-10-30",
+    "theme": "FSD",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": "HW4/AI4 uniquement (homologation RDW)",
+    "territoire": "Europe",
+    "resume": "La RDW néerlandaise a délivré le 10 avril 2026 une homologation provisoire du FSD Supervisé, système d'assistance supervisé et non autonome, valable aux Pays-Bas. Selon le tracker indépendant tad-tracker.eu, la Lettonie est devenue le 26 octobre 2026 le dixième pays de l'UE à la reconnaître ; le système est renommé « Tesla Assisted Driving » en Europe depuis le 9 octobre. Le comité TCMV n'a pas voté le 6 octobre ; un vote européen n'est possible qu'à partir de décembre 2026. La France n'a pas adopté de reconnaissance nationale et teste deux véhicules depuis septembre.",
+    "consequence": "En France, le système n'est toujours pas utilisable ; une voiture immatriculée en France ne peut pas l'activer dans un pays qui l'autorise. La prochaine étape possible pour la France est le vote européen, au plus tôt en décembre 2026.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "fsd": {
+      "etape": "autorisation",
+      "supervision": "Supervision permanente du conducteur, qui reste responsable (assistance de niveau 2, pas de conduite sans conducteur)."
+    },
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "RDW – explanation of European type approval Tesla",
+        "type": "autorité",
+        "url": "https://www.rdw.nl/en/news/2026/rdw-explanation-of-european-type-approval-tesla-with-provisional-validity-in-the-netherlands",
+        "date": "2026-04-10",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "tad-tracker.eu – statut par pays",
+        "type": "média spécialisé",
+        "url": "https://tad-tracker.eu/en/",
+        "date": "2026-10-30",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "electrive – EU vote on Tesla FSD not expected before December",
+        "type": "média spécialisé",
+        "url": "https://www.electrive.com/2026/09/28/eu-vote-on-tesla-fsd-not-expected-before-december/",
+        "date": "2026-09-28",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Tesla Drives (@TeslaDrivesX) sur X – Latvia tenth EU country",
+        "type": "réseau social",
+        "url": "https://x.com/TeslaDrivesX/status/2114831250548781521",
+        "date": "2026-10-26",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": [
+      "Nombre de pays : electrive (2026-09-28) en comptait 7 et Electrek (2026-10-08) 8 ; tad-tracker.eu en compte 10 au 2026-10-30 après la Slovaquie (16 octobre) et la Lettonie (26 octobre). Écart dû aux dates, pas à un désaccord ; sources originales nationales non ouvertes."
+    ]
+  }
+]
