@@ -193,7 +193,7 @@
     return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + SILH + stripHTML() + veilleHTML() + '</section>' +
       '<div class="wrap"><div class="layout">' + retenirHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
-      '<label class="sr" for="q">Rechercher dans la veille</label><input class="search" id="q" type="search" placeholder="Rechercher : prix, FSD, calculateur…" value="' + esc(F.q) + '" autocomplete="off">' +
+      '<form class="searchrow" id="sform" role="search"><label class="sr" for="q">Rechercher dans la veille</label><span class="sbox"><input class="search" id="q" type="search" enterkeyhint="search" placeholder="Rechercher : prix, FSD, calculateur\u2026" value="' + esc(F.q) + '" autocomplete="off"><button class="qclear" type="button" id="qclear" aria-label="Effacer la recherche">\u00d7</button></span><button class="btn-s" type="submit">Rechercher</button></form>' +
       '<div class="chips" role="group" aria-label="Filtrer par thème">' + chips + '</div>' +
       '<details class="more"' + ((F.model || F.terr || F.status || F.period) ? ' open' : '') + '><summary>Plus de filtres : modèle, territoire, statut, période</summary><div class="more-grid">' +
       '<div class="field"><label for="f-model">Modèle</label><select id="f-model">' + opts(['Model 3', 'Model Y'], F.model) + '</select></div>' +
@@ -212,8 +212,10 @@
     var feed = document.getElementById('feed'), count = document.getElementById('count');
     if (!feed) return;
     var items = feedItems();
-    feed.innerHTML = items.length ? items.map(itemHTML).join('') : (D.entrees.length ? '<li class="item"><p class="resume">Aucune information ne correspond à ces filtres.</p></li>' : '');
-    count.textContent = items.length + (items.length > 1 ? ' informations affichées' : ' information affichée');
+    var q = String(F.q || '').trim();
+    feed.innerHTML = items.length ? items.map(itemHTML).join('') : (D.entrees.length ? '<li class="item"><p class="resume">Aucune information ne correspond \u00e0 ' + (q ? 'la recherche \u00ab\u00a0' + esc(q) + '\u00a0\u00bb' : 'ces filtres') + '.</p></li>' : '');
+    count.textContent = q ? (items.length ? items.length + (items.length > 1 ? ' r\u00e9sultats' : ' r\u00e9sultat') : 'Aucun r\u00e9sultat') + ' pour \u00ab\u00a0' + q + '\u00a0\u00bb' : items.length + (items.length > 1 ? ' informations affich\u00e9es' : ' information affich\u00e9e');
+    var qc = document.getElementById('qclear'); if (qc) qc.hidden = !q;
   }
 
   /* ---------- Détail ---------- */
@@ -521,6 +523,17 @@
     if (ev.target.id === 'reset') { F = { q: '', theme: '', model: '', terr: '', status: '', period: '' }; route(true); }
   });
   document.addEventListener('input', function (ev) { if (ev.target.id === 'q') { F.q = ev.target.value; updateFeed(); } });
+  document.addEventListener('submit', function (ev) {
+    if (ev.target.id !== 'sform') return;
+    ev.preventDefault();
+    var q = document.getElementById('q'); F.q = q ? q.value : ''; updateFeed();
+    if (q) q.blur();
+    setTimeout(function () { var el = document.getElementById('count'), hd = document.querySelector('header'); if (el) { var h = hd ? hd.getBoundingClientRect().height : 0; window.scrollTo({ top: Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - h - 16), behavior: 'smooth' }); } }, 60);
+  });
+  document.addEventListener('click', function (ev) {
+    if (ev.target.id !== 'qclear') return;
+    var q = document.getElementById('q'); F.q = ''; if (q) { q.value = ''; q.focus(); } updateFeed();
+  });
   document.addEventListener('change', function (ev) {
     var map = { 'f-model': 'model', 'f-terr': 'terr', 'f-status': 'status', 'f-period': 'period' };
     if (map[ev.target.id]) { F[map[ev.target.id]] = ev.target.value; updateFeed(); }

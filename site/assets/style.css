@@ -273,3 +273,12 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .arch ul.avenir li{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--faint);list-style:none}
 .avenir .badge{margin-left:0;flex:0 0 auto;min-width:96px;text-align:center}
 .atable td.num{font-weight:600;white-space:nowrap}
+/* V1.7 recherche */
+.searchrow{display:flex;gap:8px;align-items:stretch}
+.sbox{position:relative;flex:1;min-width:0;display:block}
+.sbox .search{padding-right:46px}
+.btn-s{min-height:48px;padding:0 18px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:4px;font-size:17px;font-weight:600;cursor:pointer}
+.qclear{position:absolute;right:2px;top:2px;bottom:2px;width:44px;background:none;border:0;font-size:26px;line-height:1;cursor:pointer;color:var(--soft)}
+.qclear[hidden]{display:none}
+#count{font-weight:600;color:var(--ink)}
+.search::-webkit-search-cancel-button,.search::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}

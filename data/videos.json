@@ -1,0 +1,112 @@
+{
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=03x-gQjru4A",
+      "titre": "Dormir dans sa Tesla : test du matelas gonflable Havnby (Model 3/Y)",
+      "chaine": "Tesla Burger",
+      "langue": "fr",
+      "mot_cle": "Model 3",
+      "id_video": "03x-gQjru4A",
+      "date_publication": "2026-10-31"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=DbzEcphf-VM",
+      "titre": "Tesla Model Y 2026 : Le Bilan sans Filtre après Plusieurs Mois !",
+      "chaine": "Juste Tomy",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "DbzEcphf-VM",
+      "date_publication": "2026-10-30"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RDWmxrDWlq8",
+      "titre": "Tesla Model Y d'entrée de gamme : 5 TOPS et 5 FLOPS !",
+      "chaine": "Simplement Julien",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "RDWmxrDWlq8",
+      "date_publication": "2026-10-25"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GXnEl5N9-qE",
+      "titre": "Tesla Cybercab, nouveau Roadster (inutile) et nouveau Model 3 2027",
+      "chaine": "Eric's Tech",
+      "langue": "fr",
+      "mot_cle": "Model 3",
+      "id_video": "GXnEl5N9-qE",
+      "date_publication": "2026-10-21"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=f0VrnaWQA7E",
+      "titre": "TESLA ROADSTER : l'effet WOW ...et après ?",
+      "chaine": "S3XYcars & Bots",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "f0VrnaWQA7E",
+      "date_publication": "2026-10-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=20AdJXJiGKg",
+      "titre": "Roadster 2026 : ce que TESLA ne nous a PAS dit !",
+      "chaine": "TESLA Geek",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "20AdJXJiGKg",
+      "date_publication": "2026-10-17"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=-QjvKLZiZeU",
+      "titre": "Mise à jour Tesla 2026.38.3 : le mode Halloween et toutes les nouveautés",
+      "chaine": "Tesla Burger",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "-QjvKLZiZeU",
+      "date_publication": "2026-10-16"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=-2MmgWln6-U",
+      "titre": "TESLA, IL MANQUE ÇA ! (pour une voiture parfaite!)",
+      "chaine": "TESLA Geek",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "-2MmgWln6-U",
+      "date_publication": "2026-10-15"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=OdNb7ZknFkI",
+      "titre": "Je Teste la Mise à Jour d'Halloween sur ma Tesla Model Y !",
+      "chaine": "Juste Tomy",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "OdNb7ZknFkI",
+      "date_publication": "2026-10-15"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bMmfIsb3ebU",
+      "titre": "TESLA : test du FSD à Paris lors du mondial de l'auto.",
+      "chaine": "S3XYcars & Bots",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "bMmfIsb3ebU",
+      "date_publication": "2026-10-14"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=NnObztZ6gS0",
+      "titre": "Conduire sans les mains, ni les pieds dans Paris en Tesla Assisted Driving",
+      "chaine": "Eric's Tech",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "NnObztZ6gS0",
+      "date_publication": "2026-10-13"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GoJip21Ujbs",
+      "titre": "XPeng NGP vs Tesla FSD : qui conduit le mieux dans Paris ? (Essai sur la Xpeng L03)",
+      "chaine": "Weelyke ⚡",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "GoJip21Ujbs",
+      "date_publication": "2026-10-13"
+    }
+  ]
+}
