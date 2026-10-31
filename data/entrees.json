@@ -3,7 +3,7 @@
     "id": "2026-10-30-prix-france-offres-t4-loa-model-y-reprise",
     "titre": "Tesla France reconduit jusqu'au 31 décembre 2026 la LOA du Model Y Propulsion et ses bonus de reprise",
     "date_publication": "2026-10-01",
-    "date_verification": "2026-10-30",
+    "date_verification": "2026-10-31",
     "theme": "Prix France",
     "modeles": [
       "Model Y",
@@ -11,29 +11,29 @@
     ],
     "hardware": "",
     "territoire": "France",
-    "resume": "Selon Mobiwisy (1er octobre 2026), Tesla France reconduit du 1er octobre au 31 décembre 2026 sa location avec option d'achat du Model Y Propulsion sans changer ni le premier loyer ni la mensualité : 36 mois et 10 000 km par an, premier loyer de 9 200 € incluant une prime CEE de 3 600 € sous conditions, puis 35 loyers de 229 €. Le bonus de reprise reste proposé sur le Model Y Propulsion ; un bonus de reprise de 3 000 € est rapporté sur la Model 3 (relevé Tesla Mag du 23 septembre). Ces montants n'ont pas été lus sur le site Tesla pendant l'exécution.",
+    "resume": "Selon Mobiwisy (1er octobre 2026), Tesla France reconduit du 1er octobre au 31 décembre 2026 sa location avec option d'achat du Model Y Propulsion sans changer ni le premier loyer ni la mensualité : 36 mois et 10 000 km par an, premier loyer de 9 200 € incluant une prime CEE de 3 600 € sous conditions, puis 35 loyers de 229 €. Le bonus de reprise reste proposé sur le Model Y Propulsion ; un bonus de reprise de 3 000 € est rapporté sur la Model 3 (relevé Tesla Mag du 23 septembre). Lecture officielle comptant du 31/10 : reprises conditionnelles de 3 000 € (Model 3) et 5 000 € (Model Y), Propulsion ; anciennes simulations LOA 229/245 € non revérifiées. Ces affichages commerciaux ne prouvent pas l'éligibilité légale. Les chiffres LOA ci-dessus restent attribués à la presse et ne constituent pas un relevé Tesla du 31/10.",
     "consequence": "Un acheteur a jusqu'à fin décembre pour ces conditions, sous réserve de livraison avant le 31 décembre ; selon Mobiwisy, le coût réel de la LOA revient à environ 478 € par mois sur trois ans une fois le premier loyer réparti. Relire le configurateur avant toute décision.",
-    "statut": "Annoncé, déploiement à vérifier",
+    "statut": "Corrigé",
     "alerte": false,
     "prix": {
       "version": "Model Y Propulsion (LOA)",
       "catalogue_eur": null,
       "remise_eur": null,
       "apres_aides_eur": null,
-      "conditions": "Offre de location avec option d'achat et bonus de reprise reconduits pour les commandes du 2026-10-01 au 2026-12-31, livraison avant le 2026-12-31, sous réserve d'acceptation et d'éligibilité à la prime CEE. Aucun montant lu sur la source officielle pendant l'exécution.",
+      "conditions": "Lecture officielle Personnel / Comptant du 31/10 : bonus de reprise Propulsion, commandes du 01/10 au 31/12/2026, stocks disponibles, conditions de livraison et de titulaire ; financement/leasing Tesla exclus. Simulations LOA de presse non revérifiées ; aucun prix net calculé. Ces affichages commerciaux ne prouvent pas l'éligibilité légale.",
       "echeance": "2026-12-31",
-      "date_releve": null,
-      "source_url": null
+      "date_releve": "2026-10-31",
+      "source_url": "https://www.tesla.com/fr_fr/modely/design#overview"
     },
     "sources": [
       {
         "role": "originale",
-        "nom": "Tesla France (site et configurateur)",
+        "nom": "Tesla France — configurateur Model Y (Personnel / Comptant)",
         "type": "Tesla",
-        "url": "https://www.tesla.com/fr_fr",
-        "date": null,
+        "url": "https://www.tesla.com/fr_fr/modely/design#overview",
+        "date": "2026-10-31",
         "interet_commercial": "oui",
-        "accessible": false
+        "accessible": true
       },
       {
         "role": "reprise",
@@ -52,17 +52,26 @@
         "date": "2026-10-14",
         "interet_commercial": "inconnu",
         "accessible": true
+      },
+      {
+        "role": "originale",
+        "nom": "Tesla France — configurateur Model 3 (Personnel / Comptant)",
+        "type": "Tesla",
+        "url": "https://www.tesla.com/fr_fr/model3/design#overview",
+        "date": "2026-10-31",
+        "interet_commercial": "oui",
+        "accessible": true
       }
     ],
     "contradictions": [
-      "Mensualité de la LOA Model Y Propulsion : 229 € par mois selon Mobiwisy (2026-10-01), contre 245 € par mois selon la simulation du configurateur relevée par Tesla Mag le 2026-10-13 (immatriculation Île-de-France). Non arbitré : configurateur inaccessible."
+      "Mensualité de la LOA Model Y Propulsion : 229 € par mois selon Mobiwisy (2026-10-01), contre 245 € par mois selon la simulation du configurateur relevée par Tesla Mag le 2026-10-13 (immatriculation Île-de-France). Non arbitré : la lecture du 31/10 porte sur le comptant ; simulations LOA non revérifiées."
     ]
   },
   {
     "id": "2026-10-30-prix-france-catalogue-inchange-prime-cee-model-3-exclue",
     "titre": "Prix catalogue Tesla stables en France depuis septembre ; la Model 3 reste exclue de la prime « coup de pouce »",
     "date_publication": "2026-10-14",
-    "date_verification": "2026-10-30",
+    "date_verification": "2026-10-31",
     "theme": "Prix France",
     "modeles": [
       "Model 3",
@@ -70,29 +79,29 @@
     ],
     "hardware": "",
     "territoire": "France",
-    "resume": "D'après les relevés du configurateur publiés par Tesla Mag (23 septembre et 13 octobre 2026), la gamme française va de 36 990 € (Model 3 Propulsion) à 62 990 € (Model Y Performance), Model Y Propulsion à 40 990 €, sans changement de prix catalogue sur la période. Tesla Mag indique que, selon la liste ADEME mise à jour le 21 septembre 2026, aucune Model 3 n'est éligible à la prime CEE « coup de pouce », alors que les Model Y Propulsion et Premium Grande Autonomie Propulsion le sont (prime de 3 600 € à 5 700 € selon les revenus, d'après Tesla cité par Tesla Mag). Montants non relus sur la source officielle.",
+    "resume": "D'après les relevés du configurateur publiés par Tesla Mag (23 septembre et 13 octobre 2026), la gamme française va de 36 990 € (Model 3 Propulsion) à 62 990 € (Model Y Performance), Model Y Propulsion à 40 990 €, sans changement de prix catalogue sur la période. Tesla Mag indique que, selon la liste ADEME mise à jour le 21 septembre 2026, aucune Model 3 n'est éligible à la prime CEE « coup de pouce », alors que les Model Y Propulsion et Premium Grande Autonomie Propulsion le sont (prime de 3 600 € à 5 700 € selon les revenus, d'après Tesla cité par Tesla Mag). Lecture officielle du 31/10 : Prime CEE de 400 € affichée sur les quatre Model 3 et sur Model Y Grande Autonomie Transmission Intégrale et Performance ; Prime CEE (Coup de Pouce) de 3 600 € affichée sur Model Y Propulsion et Premium Grande Autonomie Propulsion. Le bandeau Tesla annonce de 3 600 à 5 700 € selon conditions ; cette fourchette commerciale n'est pas une garantie individuelle. Ces affichages commerciaux ne prouvent pas l'éligibilité légale ; la liste réglementaire n'a pas été réauditée ici.",
     "consequence": "Pour un ménage éligible, l'écart de prix réel entre Model 3 et Model Y Propulsion se réduit fortement grâce à la prime réservée au Model Y. À vérifier sur le configurateur et la liste ADEME avant commande.",
-    "statut": "Annoncé, déploiement à vérifier",
+    "statut": "Corrigé",
     "alerte": false,
     "prix": {
       "version": "Gamme Model 3 et Model Y France",
       "catalogue_eur": null,
       "remise_eur": null,
       "apres_aides_eur": null,
-      "conditions": "Non relevé sur une source officielle Tesla France pendant l'exécution (configurateur inaccessible). Montants rapportés par la presse : voir le résumé de l'entrée.",
+      "conditions": "Lecture officielle du 31/10, Personnel / Comptant ; versions et aides détaillées dans data/prix.json. Codes postaux Besançon et Cannes reconnus ; champ vide conservant les taxes précédentes, lecture sans localisation partielle. Ces affichages commerciaux ne prouvent pas l'éligibilité légale ; aucune déduction ni estimation de prix net.",
       "echeance": null,
-      "date_releve": null,
-      "source_url": null
+      "date_releve": "2026-10-31",
+      "source_url": "https://www.tesla.com/fr_fr/modely/design#overview"
     },
     "sources": [
       {
         "role": "originale",
-        "nom": "Tesla France (site et configurateur)",
+        "nom": "Tesla France — configurateur Model Y (Personnel / Comptant)",
         "type": "Tesla",
-        "url": "https://www.tesla.com/fr_fr",
-        "date": null,
+        "url": "https://www.tesla.com/fr_fr/modely/design#overview",
+        "date": "2026-10-31",
         "interet_commercial": "oui",
-        "accessible": false
+        "accessible": true
       },
       {
         "role": "complementaire",
@@ -120,10 +129,19 @@
         "date": "2026-09-17",
         "interet_commercial": "inconnu",
         "accessible": true
+      },
+      {
+        "role": "originale",
+        "nom": "Tesla France — configurateur Model 3 (Personnel / Comptant)",
+        "type": "Tesla",
+        "url": "https://www.tesla.com/fr_fr/model3/design#overview",
+        "date": "2026-10-31",
+        "interet_commercial": "oui",
+        "accessible": true
       }
     ],
     "contradictions": [
-      "Prime CEE sur la Model 3 : un extrait d'index de la page Tesla France vu lors du lot test mentionnait une prime CEE de 400 € pour la Model 3, alors que Tesla Mag (2026-10-14) indique qu'aucune Model 3 ne figure sur la liste ADEME. Non arbitré : ni la page Tesla ni la liste ADEME n'ont été ouvertes."
+      "Lecture directe du 31/10 : Tesla distingue Prime CEE sur Model 3 et Prime CEE (Coup de Pouce) sur les deux Model Y Propulsion. L'affichage commercial de la première ne démontre pas l'éligibilité à la seconde. L'exclusion du Model 3 de la liste ADEME reste rapportée par Tesla Mag ; la liste réglementaire n'a pas été réauditée ici."
     ]
   },
   {
