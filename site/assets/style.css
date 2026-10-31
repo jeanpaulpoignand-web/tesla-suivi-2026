@@ -228,3 +228,48 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 @media(max-width:560px){.pstrip{grid-template-columns:1fr}.hero .silh{width:80%}}
 .retenir li a.ctitle{white-space:normal;overflow-wrap:anywhere;min-width:0}
 .retenir li.card{min-width:0}
+
+/* Colonne Videos */
+.layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"vid" "ret" "feed" "aside"}
+.layout>.vids{grid-area:vid}.layout>.retenir{grid-area:ret;min-width:0}.layout>.feed{grid-area:feed;min-width:0}.layout>.aside{grid-area:aside}
+@media(min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"ret vid" "feed vid" "feed aside";grid-template-rows:auto auto 1fr;gap:0 56px}.aside{position:static}.layout>.retenir{margin-bottom:40px}.vids{margin-top:20px}.layout>.retenir .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.layout>.retenir li.card{padding:16px 14px}.layout>.retenir .ctitle{font-size:18px}.layout>.retenir .cc{font-size:15px}}
+.vids{border-top:2px solid var(--ink);padding-top:20px;margin-bottom:34px;min-width:0}
+.vids h2{font-family:var(--serif);font-size:30px;margin-bottom:16px}
+.vlist{display:flex;flex-direction:column;gap:26px}
+.vid{display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
+.vthumb{position:relative;display:block;aspect-ratio:16/9;background:#2c3338;border-radius:6px;overflow:hidden}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid:hover .vtitle{text-decoration:underline;text-decoration-thickness:2px}
+.vmeta{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:4px}
+.vfr{background:var(--ink);color:var(--paper);padding:0 6px;border-radius:2px;font-size:12px}
+.vtitle{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.25}
+.vchan{font-size:15px;color:var(--soft)}
+.vplay{font-size:11px;margin-right:2px}
+.vnote{font-size:14px;color:var(--muted);margin-top:16px}
+@media(max-width:999px){.vlist{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:10px}.vid{flex:0 0 min(78%,300px);scroll-snap-align:start}}
+/* Aides publiques, liens Tesla, coulisses */
+.pcard-aides{grid-column:1/-1;gap:6px}
+.pd-aides{font-size:16px;color:var(--ink);max-width:62ch}
+.pcard-aides .cgo{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.tlink{margin:16px 0 8px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.btn-t{display:inline-block;border:1px solid var(--ink);border-radius:4px;padding:12px 18px;font-weight:600;font-size:16.5px;text-decoration:none;background:var(--paper2)}
+.btn-t:hover{box-shadow:0 0 0 1px var(--ink)}
+.tl-note{font-size:14.5px;color:var(--soft);max-width:62ch}
+.aidespage h3{font-family:var(--serif);font-size:24px;font-weight:600;margin:0 0 8px;line-height:1.2}
+.aidespage h4{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px;font-weight:600}
+.acard{border:1px solid var(--line);border-radius:4px;padding:20px;margin:14px 0;background:var(--paper2)}
+.acard p{margin:6px 0}
+.acols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.acols .acard{margin:14px 0 6px}
+@media(max-width:700px){.acols{grid-template-columns:1fr}}
+.plain{list-style:disc;padding-left:20px}
+.arch ul.plain li{display:list-item;grid-template-columns:none;padding:5px 0;border-bottom:0;font-size:16.5px}
+.arch ul.team li{padding:8px 0}
+.soft{color:var(--soft);font-size:15.5px}
+.src{font-size:14.5px;color:var(--muted)}
+.badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);border-radius:3px;padding:2px 8px;margin-left:6px;vertical-align:middle;font-weight:600}
+.b-vigueur,.b-oui{background:var(--ink);color:var(--paper)}
+.b-non{background:transparent;color:var(--ink);border-style:dashed}
+.arch ul.avenir li{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--faint);list-style:none}
+.avenir .badge{margin-left:0;flex:0 0 auto;min-width:96px;text-align:center}
+.atable td.num{font-weight:600;white-space:nowrap}

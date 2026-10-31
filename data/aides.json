@@ -1,0 +1,154 @@
+{
+  "contrat": "tesla-aides-v1",
+  "releve_le": "2026-10-31T05:56:53+01:00",
+  "verifie_le": "2026-10-31",
+  "source_releve": "2026-10-31_Grok_Aides-publiques_Tesla-suivi_V3.json ; 2026-10-31_Grok_Procedure-commande-aides_Tesla-suivi_V1.json",
+  "resume_accueil": "Model Y : versions inscrites sur la liste officielle du coup de pouce, sous plafond de prix. Model 3 : aucune version inscrite. Montants en euros non confirm\u00e9s.",
+  "principale": {
+    "nom": "Coup de pouce \u00ab V\u00e9hicules particuliers \u00e9lectriques \u00bb",
+    "nature": "Prime financ\u00e9e par les certificats d\u2019\u00e9conomies d\u2019\u00e9nergie (CEE), cadre fix\u00e9 par l\u2019\u00c9tat. Ce n\u2019est pas le bonus \u00e9cologique, supprim\u00e9 en juillet 2025.",
+    "statut": "en vigueur",
+    "periode": "Depuis le 1er juillet 2025 ; engagement possible jusqu\u2019au 31 ao\u00fbt 2029.",
+    "montants": [
+      {
+        "profil": "M\u00e9nages en pr\u00e9carit\u00e9 \u00e9nerg\u00e9tique (revenus les plus faibles)",
+        "texte": "environ 5 700 \u20ac"
+      },
+      {
+        "profil": "M\u00e9nages modestes",
+        "texte": "environ 4 700 \u20ac"
+      },
+      {
+        "profil": "Autres m\u00e9nages",
+        "texte": "environ 3 500 \u20ac"
+      }
+    ],
+    "avertissement_montants": "Ordres de grandeur indicatifs publi\u00e9s par l\u2019\u00c9tat (economie.gouv.fr, 26 d\u00e9cembre 2025 ; electrifions-la-france.gouv.fr, 27 octobre 2026). Depuis le 1er septembre 2026, aucune page officielle ouverte ne publie de montant en euros : le montant exact d\u00e9pend du cours des CEE et de votre tranche de revenus. Tesla affiche de 3 600 \u00e0 5 700 \u20ac sur le Model Y.",
+    "conditions": [
+      "Voiture particuli\u00e8re neuve 100 % \u00e9lectrique, achat ou location d\u2019au moins 2 ans.",
+      "Prix d\u2019acquisition de 47 000 \u20ac TTC au plus, batterie incluse : au-del\u00e0, pas de prime m\u00eame si la version est inscrite.",
+      "Masse en ordre de marche inf\u00e9rieure \u00e0 2 400 kg.",
+      "Score environnemental d\u2019au moins 60 : la version doit figurer sur la liste officielle (ADEME).",
+      "Demande faite avant la commande, aupr\u00e8s d\u2019un signataire de la charte ou d\u2019un partenaire.",
+      "Non cumulable avec une autre aide CEE, dont le leasing social."
+    ],
+    "source": {
+      "nom": "Service-public.fr, coup de pouce v\u00e9hicules particuliers \u00e9lectriques",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36844",
+      "date": "2026-10-09"
+    }
+  },
+  "eligibilite": [
+    {
+      "modele": "Model Y",
+      "resultat": "Inscrit sur la liste officielle",
+      "detail": "15 versions techniques sur la liste ADEME mise \u00e0 jour le 21 septembre 2026 ; 16 \u00e0 partir du 24 novembre 2026 (arr\u00eat\u00e9 du 22 octobre 2026). La correspondance avec les noms commerciaux (Propulsion, Grande Autonomie\u2026) reste \u00e0 v\u00e9rifier sur le bon de commande. Le plafond de 47 000 \u20ac TTC, options comprises, est \u00e0 contr\u00f4ler version par version."
+    },
+    {
+      "modele": "Model 3",
+      "resultat": "Non inscrit",
+      "detail": "Aucune version sur la liste actuelle ni sur celle du 24 novembre 2026. Tesla affiche cependant une ligne \u00ab Prime CEE \u00bb de 400 \u20ac sur le Model 3 : ce n\u2019est pas le coup de pouce, et son \u00e9ligibilit\u00e9 l\u00e9gale n\u2019est pas valid\u00e9e."
+    },
+    {
+      "modele": "Bonification \u00ab production europ\u00e9enne \u00bb",
+      "resultat": "Aucune version Tesla inscrite",
+      "detail": "Au 31 octobre 2026, l\u2019ADEME n\u2019attribue de date de bonification europ\u00e9enne \u00e0 aucune version Tesla. Pour y pr\u00e9tendre, v\u00e9hicule et batterie doivent \u00eatre produits dans l\u2019Espace \u00e9conomique europ\u00e9en. Le site d\u2019assemblage et l\u2019origine des batteries par version ne sont pas v\u00e9rifi\u00e9s ; cette liste peut \u00e9voluer."
+    }
+  ],
+  "commande": {
+    "officiel": [
+      "La demande se fait avant la signature du devis ou du bon de commande (service-public.fr, v\u00e9rifi\u00e9 le 9 octobre 2026).",
+      "Justificatifs demand\u00e9s : pi\u00e8ce d\u2019identit\u00e9, avis d\u2019imposition, devis ou bon de commande, attestation sur l\u2019honneur.",
+      "Les revenus sont v\u00e9rifi\u00e9s par l\u2019entreprise signataire de la charte, qui contr\u00f4le au moins 15 % des dossiers avant d\u00e9p\u00f4t.",
+      "La prime est d\u00e9duite de la facture ou vers\u00e9e apr\u00e8s l\u2019achat."
+    ],
+    "a_confirmer": [
+      "D\u2019apr\u00e8s un acheteur Tesla : la commande se fait dans l\u2019application Tesla, en une dizaine d\u2019\u00e9tapes, avec la transmission de l\u2019avis d\u2019imposition ; un vendeur en concession peut aider, mais tout passe par l\u2019application.",
+      "Non publi\u00e9 : le moment o\u00f9 le montant d\u00e9finitif est connu et l\u2019\u00e9ventuel \u00e9cart avec l\u2019estimation du configurateur.",
+      "Non publi\u00e9 : l\u2019organisme ou le partenaire qui valide les revenus pour Tesla. Tesla ne figure pas dans la liste des signataires de la charte (13 octobre 2026)."
+    ],
+    "avertissement": "La proc\u00e9dure \u00e9volue avec les aides : v\u00e9rifier dans l\u2019application Tesla au moment de la commande."
+  },
+  "autres": [
+    {
+      "nom": "Compl\u00e9ment \u00ab production europ\u00e9enne \u00bb (ex-soutien de 1 000 \u20ac)",
+      "texte": "Compl\u00e9ment du coup de pouce pour les v\u00e9hicules et batteries produits dans l\u2019Espace \u00e9conomique europ\u00e9en, en vigueur depuis le 1er octobre 2025. Aucune version Tesla n\u2019y est inscrite au 31 octobre 2026.",
+      "statut": "en vigueur",
+      "url": "https://www.electrifions-la-france.gouv.fr/je-roule-lelectrique"
+    },
+    {
+      "nom": "Leasing social 2026",
+      "texte": "Location \u00e0 200 \u20ac par mois au plus, hors options, pour les m\u00e9nages dont le revenu fiscal par part ne d\u00e9passe pas 16 880 \u20ac. Liste de v\u00e9hicules d\u00e9di\u00e9e : non ouverte, aucune Tesla v\u00e9rifi\u00e9e. Non cumulable avec le coup de pouce.",
+      "statut": "en vigueur",
+      "url": "https://www.ecologie.gouv.fr/leasing-social"
+    },
+    {
+      "nom": "Malus CO2 et malus au poids",
+      "texte": "Un v\u00e9hicule 100 % \u00e9lectrique n\u2019est pas concern\u00e9 par le malus CO2 et est exon\u00e9r\u00e9 de la taxe sur la masse.",
+      "statut": "en vigueur",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35950"
+    },
+    {
+      "nom": "Aides r\u00e9gionales",
+      "texte": "Aucune aide r\u00e9gionale notable pour une voiture \u00e9lectrique neuve n\u2019a \u00e9t\u00e9 trouv\u00e9e sur un site officiel. L\u2019\u00e9co-ch\u00e8que d\u2019Occitanie concerne uniquement les v\u00e9hicules d\u2019occasion. Les autres r\u00e9gions, d\u00e9partements et communes n\u2019ont pas \u00e9t\u00e9 v\u00e9rifi\u00e9s.",
+      "statut": "non v\u00e9rifi\u00e9",
+      "url": "https://www.laregion.fr/eco-cheque-mobilite-vehicule-electrique-occasion"
+    }
+  ],
+  "a_venir": [
+    {
+      "statut": "publi\u00e9",
+      "date": "2026-11-24",
+      "sujet": "Nouvelle liste officielle des v\u00e9hicules (arr\u00eat\u00e9 du 22 octobre 2026) : 16 versions Model Y, aucune Model 3. L\u2019ancienne liste reste valable pour les commandes avant le 24 novembre 2026, factur\u00e9es au plus tard le 6 f\u00e9vrier 2027."
+    },
+    {
+      "statut": "publi\u00e9",
+      "date": "2026-12-31",
+      "sujet": "Fin du bonus \u00ab gros rouleurs \u00bb (tranches D6 \u00e0 D8) pour les op\u00e9rations engag\u00e9es apr\u00e8s le 31 d\u00e9cembre 2026."
+    },
+    {
+      "statut": "projet",
+      "date": "2026-12-31",
+      "sujet": "Projet de loi de finances 2027, article 28 : le score \u00ab faible empreinte carbone \u00bb deviendrait un score \u00ab durable et r\u00e9silient \u00bb. Rien n\u2019est vot\u00e9."
+    },
+    {
+      "statut": "projet",
+      "date": "2027-01-01",
+      "sujet": "Annonce d\u2019une aide de 500 \u20ac pour une borne de recharge pilotable, int\u00e9gr\u00e9e \u00e0 la prime CEE (annonce gouvernementale)."
+    },
+    {
+      "statut": "proposition",
+      "date": "",
+      "sujet": "Montants en euros du coup de pouce pour 2027 et nouvelle prolongation : aucun texte officiel ouvert. Les d\u00e9cisions tombent g\u00e9n\u00e9ralement en fin d\u2019ann\u00e9e."
+    }
+  ],
+  "non_verifie": [
+    "Les textes sur L\u00e9gifrance (site inaccessible aux outils de veille) : les arr\u00eat\u00e9s sont lus via les pages officielles et la notification europ\u00e9enne.",
+    "Les montants en euros du coup de pouce depuis le 1er septembre 2026.",
+    "La correspondance entre les noms commerciaux Tesla et les versions techniques de la liste officielle.",
+    "Le site d\u2019assemblage et l\u2019origine de la batterie de chaque version.",
+    "Les aides locales hors Occitanie, la TVA et les aides europ\u00e9ennes."
+  ],
+  "liens": [
+    {
+      "nom": "Coup de pouce : service-public.fr",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36844"
+    },
+    {
+      "nom": "Coup de pouce : ecologie.gouv.fr",
+      "url": "https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-vehicules-particuliers-electriques"
+    },
+    {
+      "nom": "Simulateur officiel : electrifions-la-france.gouv.fr",
+      "url": "https://www.electrifions-la-france.gouv.fr/je-roule-lelectrique"
+    },
+    {
+      "nom": "Liste des v\u00e9hicules : ADEME",
+      "url": "https://score-environnemental-bonus.ademe.fr/"
+    },
+    {
+      "nom": "Leasing social : ecologie.gouv.fr",
+      "url": "https://www.ecologie.gouv.fr/leasing-social"
+    }
+  ]
+}

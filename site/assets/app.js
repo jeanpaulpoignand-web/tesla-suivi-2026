@@ -14,7 +14,7 @@
   };
   var ROLES = { originale: 'Originale', reprise: 'Reprise', complementaire: 'Complémentaire' };
   var JOURS_FIL = 60;
-  var D = { entrees: [], historique: [], journal: [], prix: [] };
+  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
   var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
@@ -37,6 +37,17 @@
   function byId(id) { return D.entrees.filter(function (e) { return e.id === id; })[0]; }
 
   /* ---------- Données ---------- */
+  function loadAides() {
+    return fetch('data/aides.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { return j && typeof j === 'object' && !Array.isArray(j) ? j : null; }).catch(function () { return null; });
+  }
+  function loadVideos() {
+    return fetch('data/videos.json', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('videos : HTTP ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      return Array.isArray(j && j.videos) ? j.videos : [];
+    }).catch(function () { return []; });
+  }
   function load(name) {
     return fetch('data/' + name + '.json', { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error(name + ' : HTTP ' + r.status);
@@ -82,6 +93,9 @@
   }
 
   /* ---------- Accueil ---------- */
+  function norm(t) {
+    return String(t == null ? '' : t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/model(e|es|s)?\b/g, 'model').replace(/[^a-z0-9]+/g, ' ').trim();
+  }
   function feedItems() {
     return sorted(D.entrees.filter(inFeed)).filter(function (e) {
       if (F.theme && e.theme !== F.theme) return false;
@@ -90,8 +104,9 @@
       if (F.status && e.statut !== F.status) return false;
       if (F.period && ageDays(e.date_publication) > parseInt(F.period, 10)) return false;
       if (F.q) {
-        var h = [e.titre, e.resume, e.theme, e.modeles.join(' '), e.hardware, e.territoire].join(' ').toLowerCase();
-        if (h.indexOf(F.q.toLowerCase()) < 0) return false;
+        var h = norm([e.titre, e.resume, e.theme, e.modeles.join(' '), e.hardware, e.territoire, e.statut].join(' '));
+        var mots = norm(F.q).split(' ').filter(Boolean);
+        for (var i = 0; i < mots.length; i++) { if (h.indexOf(mots[i]) < 0) return false; }
       }
       return true;
     });
@@ -114,6 +129,11 @@
   /* ---------- Accueil vivant : bande des prix, silhouette, cartes ---------- */
   var SILH = '<svg class="silh" viewBox="0 0 260 96" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 70 L16 56 C16 51 20 48 28 47 C44 45 56 42 68 36 C88 22 120 18 148 22 C170 26 188 38 206 45 L224 50 C230 52 232 58 232 70"/><path d="M16 70 L40 70 M92 70 L148 70 M200 70 L232 70"/><path d="M40 70 A26 26 0 0 1 92 70"/><path d="M148 70 A26 26 0 0 1 200 70"/><circle cx="66" cy="70" r="15"/><circle cx="174" cy="70" r="15"/><path d="M82 40 C96 30 118 27 142 29 C158 31 172 38 186 44 Z"/></svg>';
   function eur(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, String.fromCharCode(8239)) + String.fromCharCode(160) + '€'; }
+  function aidesCarte() {
+    var a = D.aides;
+    if (!a || !a.resume_accueil) return '';
+    return '<a class="pcard pcard-aides" href="#/aides"><span class="pl">Aides publiques &middot; relev&eacute; du ' + esc(fr(a.verifie_le)) + '</span><span class="pd pd-aides">' + esc(a.resume_accueil) + '</span><span class="cgo">Voir le d&eacute;tail <span aria-hidden="true">&rarr;</span></span></a>';
+  }
   function stripHTML() {
     var ok = relevesLisibles(), last = ok[ok.length - 1];
     if (!last) return '';
@@ -121,16 +141,40 @@
     function carte(modele) {
       var v = versionsDe(last, modele).filter(function (x) { return x.version === 'Propulsion'; })[0] || versionsDe(last, modele)[0];
       if (!v) return '';
-      var pv = prev && versionsDe(prev, modele).filter(function (x) { return x.version === v.version; })[0];
+      var pv = prev && versionsDe(prev, modele).filter(function (x) { return vNom(x) === vNom(v); })[0];
       var d = pv ? v.catalogue_eur - pv.catalogue_eur : null;
       var delta = d === null ? 'Premier relevé' : (d === 0 ? 'Inchangé depuis le relevé précédent' : (d > 0 ? '▲ +' : '▼ ') + eur(d).replace('+', ''));
       return '<a class="pcard" href="#/prix"><span class="pl">' + modele + ' · à partir de</span><span class="pv">' + eur(v.catalogue_eur) + '</span><span class="pd">' + esc(v.version) + ' · ' + delta + '</span></a>';
     }
     return '<div class="pstrip" role="group" aria-label="Prix catalogue du jour">' + carte('Model 3') + carte('Model Y') +
+      aidesCarte() +
       '<p class="pnote">Prix catalogue lus sur le configurateur Tesla France le ' + esc(fr(last.date_releve)) + '. <a href="#/prix">Grille complète et évolution →</a></p></div>';
   }
   function refDay() { var m = ''; D.entrees.forEach(function (e) { if ((e.date_verification || '') > m) m = e.date_verification; }); return m; }
   function isNew(e) { var r = parseDay(refDay()), d = parseDay(e.date_publication); return r && d && (r - d) <= 2 * 864e5; }
+  /* ---------- Colonne Videos ---------- */
+  function ilya(iso) {
+    var d = parseDay(iso), r = parseDay(new Date().toISOString().slice(0, 10));
+    if (!d || !r) return '';
+    var n = Math.round((r - d) / 864e5);
+    return n <= 0 ? 'aujourd' + String.fromCharCode(8217) + 'hui' : (n === 1 ? 'hier' : 'il y a ' + n + ' jours');
+  }
+  function ytUrl(u, host) {
+    var x = safeUrl(u);
+    return x && x.indexOf('https://' + host + '/') === 0 ? x : '';
+  }
+  function videosListe() {
+    return D.videos.filter(function (v) { return v && ytUrl(v.url, 'www.youtube.com') && v.titre && v.chaine; }).slice(0, 12);
+  }
+  function videosHTML() {
+    var l = videosListe();
+    if (!l.length) return '';
+    return '<section class="vids" aria-labelledby="h-vid"><h2 id="h-vid">Vid&eacute;os r&eacute;centes</h2><div class="vlist">' + l.map(function (v) {
+      var img = ytUrl(v.miniature_url, 'i.ytimg.com');
+      return '<a class="vid" href="' + esc(ytUrl(v.url, 'www.youtube.com')) + '" target="_blank" rel="noopener noreferrer"><span class="vthumb">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" referrerpolicy="no-referrer">' : '') + '<span class="play" aria-hidden="true"></span></span>' +
+        '<span class="vmeta">' + esc(ilya(v.date_publication)) + (v.langue === 'fr' ? ' &middot; <b class="vfr">FR</b>' : '') + '</span><span class="vtitle">' + esc(v.titre) + '</span><span class="vchan"><span class="vplay" aria-hidden="true">&#9654;</span> ' + esc(v.chaine) + '</span></a>';
+    }).join('') + '</div><p class="vnote">S&eacute;lection automatique, non v&eacute;rifi&eacute;e : une vid&eacute;o n&rsquo;est jamais une preuve. Les liens s&rsquo;ouvrent sur YouTube. Certaines cha&icirc;nes proposent des liens de parrainage dans leurs descriptions ; ce site n&rsquo;en propose aucun.</p></section>';
+  }
   function veilleHTML() {
     var ok = derniere(journalOk()), nv = derniere(journalOk().filter(function (r) { return r.nouveautes === true; }));
     if (!ok) return '<p class="veille"><b>Veille :</b> aucune exécution enregistrée pour l’instant.</p>';
@@ -147,7 +191,7 @@
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
     return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + SILH + stripHTML() + veilleHTML() + '</section>' +
-      '<div class="wrap">' + retenirHTML() + '<div class="layout"><div>' +
+      '<div class="wrap"><div class="layout">' + retenirHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<label class="sr" for="q">Rechercher dans la veille</label><input class="search" id="q" type="search" placeholder="Rechercher : prix, FSD, calculateur…" value="' + esc(F.q) + '" autocomplete="off">' +
       '<div class="chips" role="group" aria-label="Filtrer par thème">' + chips + '</div>' +
@@ -245,17 +289,19 @@
     return D.prix.filter(function (r) { return r && typeof r === 'object' && !isNaN(new Date(r.date_releve)) && arr(r.versions).length && r.statut_lecture !== 'indisponible'; })
       .sort(function (a, b) { return new Date(a.date_releve) - new Date(b.date_releve); });
   }
+  var ALIAS = { 'Model Y|Grande Autonomie Propulsion': 'Premium Grande Autonomie Propulsion' };
+  function vNom(v) { return ALIAS[v.modele + '|' + v.version] || v.version; }
   function versionsDe(r, modele) {
     return arr(r.versions).filter(function (v) { return v && v.modele === modele && typeof v.catalogue_eur === 'number' && isFinite(v.catalogue_eur); });
   }
   function series(modele) {
     var days = {}, order = [], names = [];
     relevesLisibles().forEach(function (r) { var k = dayKey(r.date_releve); if (!days[k]) order.push(k); days[k] = r; });
-    order.forEach(function (k) { versionsDe(days[k], modele).forEach(function (v) { if (names.indexOf(v.version) < 0) names.push(v.version); }); });
+    order.forEach(function (k) { versionsDe(days[k], modele).forEach(function (v) { if (names.indexOf(vNom(v)) < 0) names.push(vNom(v)); }); });
     return {
       days: order,
       names: names.map(function (n) {
-        return { nom: n, pts: order.map(function (k) { var v = versionsDe(days[k], modele).filter(function (x) { return x.version === n; })[0]; return v ? { k: k, v: v.catalogue_eur } : null; }).filter(Boolean) };
+        return { nom: n, pts: order.map(function (k) { var v = versionsDe(days[k], modele).filter(function (x) { return vNom(x) === n; })[0]; return v ? { k: k, v: v.catalogue_eur } : null; }).filter(Boolean) };
       })
     };
   }
@@ -265,7 +311,7 @@
   function grilleHTML(modele) {
     var ok = relevesLisibles(), last = ok[ok.length - 1], prev = ok.length > 1 ? ok[ok.length - 2] : null;
     var rows = versionsDe(last, modele).map(function (v) {
-      var pv = prev ? versionsDe(prev, modele).filter(function (x) { return x.version === v.version; })[0] : null;
+      var pv = prev ? versionsDe(prev, modele).filter(function (x) { return vNom(x) === vNom(v); })[0] : null;
       var evo = !pv ? '—' : (v.catalogue_eur === pv.catalogue_eur ? 'inchangé' : (v.catalogue_eur > pv.catalogue_eur ? '+ ' : '− ') + euros(Math.abs(v.catalogue_eur - pv.catalogue_eur)));
       var aides = arr(v.aides).map(function (a) {
         return esc(a.libelle) + ' : ' + (typeof a.montant_eur === 'number' ? esc(euros(a.montant_eur)) : 'montant non relevé') + (a.condition ? ' (' + esc(a.condition) + ')' : '');
@@ -290,6 +336,11 @@
     var note = s.days.length < 2 ? '<p class="chart-note">Un seul jour de relevé pour l’instant. La courbe se dessinera dès le deuxième relevé ; un prix qui ne change pas reste une ligne droite.</p>' : '';
     return '<figure class="chart"><figcaption>Évolution du prix catalogue, ' + esc(modele) + '</figcaption><div class="chart-box" data-chart="' + esc(modele) + '"></div><ul class="legend">' + s.names.map(function (n, i) { return '<li>' + lineKey(i) + '<span>' + esc(n.nom) + '</span></li>'; }).join('') + '</ul>' + note + valeursHTML(modele) + '</figure>';
   }
+  function teslaLien(modele, last) {
+    var u = safeUrl(modele === 'Model 3' ? last.source_url_model3 : last.source_url_modely);
+    if (!u) return '';
+    return '<p class="tlink"><a class="btn-t" href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">Voir et commander le ' + esc(modele) + ' sur tesla.com <span aria-hidden="true">&nearr;</span></a><span class="tl-note">Site officiel de Tesla, ouvert dans un nouvel onglet. Ce site est ind&eacute;pendant ; le prix final est celui affich&eacute; par Tesla &agrave; la commande. Si vous demandez le coup de pouce, faites-le <a href="#/aides">avant de commander</a>.</span></p>';
+  }
   function prixPageHTML() {
     var ok = relevesLisibles(), last = ok[ok.length - 1];
     var tous = D.prix.filter(function (r) { return r && !isNaN(new Date(r.date_releve)); }).sort(function (a, b) { return new Date(a.date_releve) - new Date(b.date_releve); });
@@ -303,8 +354,8 @@
     if (dernierTentative && dernierTentative !== last && new Date(dernierTentative.date_releve) > new Date(last.date_releve)) {
       h += '<div class="callout"><strong>Relevé du ' + esc(frDT(dernierTentative.date_releve)) + ' : indisponible.</strong> Les prix ci-dessous datent du relevé précédent' + (dernierTentative.note ? ' (' + esc(dernierTentative.note) + ')' : '') + '.</div>';
     }
-    ['Model 3', 'Model Y'].forEach(function (m) { h += '<h2>' + m + '</h2>' + grilleHTML(m) + chartHTML(m); });
-    h += '<div class="callout"><strong>Ce ne sont pas des devis.</strong> Les montants sont ceux que le configurateur affiche sans code postal ; l’éligibilité aux aides n’est pas validée. Relire le configurateur avant toute décision.</div>' +
+    ['Model 3', 'Model Y'].forEach(function (m) { h += '<h2>' + m + '</h2>' + grilleHTML(m) + teslaLien(m, last) + chartHTML(m); });
+    h += '<div class="callout"><strong>Ce ne sont pas des devis.</strong> Les prix catalogue et les lignes d\u2019aide sont identiques dans les trois lectures du 31 octobre (sans code postal, Besan\u00e7on, Cannes) ; seule la carte grise varie l\u00e9g\u00e8rement selon la r\u00e9gion. L\u2019\u00e9ligibilit\u00e9 aux aides n\u2019est pas valid\u00e9e : voir la page <a href="#/aides">Aides publiques</a>. Relire le configurateur avant toute d\u00e9cision.</div>' +
       '<p><a class="more-link" href="#/" data-theme="Prix France">Voir les actualités sur les prix <span aria-hidden="true">&nbsp;→</span></a></p></section></div>';
     return h;
   }
@@ -399,11 +450,46 @@
       '</section></div>';
   }
 
+
+  /* ---------- Aides publiques (data/aides.json) ---------- */
+  function liste(a) { return '<ul class="plain">' + arr(a).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'; }
+  function aidesHTML() {
+    var a = D.aides, back = '<a class="back" href="#/"><span aria-hidden="true">\u2190&nbsp;</span> Retour au fil</a>';
+    if (!a || !a.principale) return '<div class="wrap"><section class="arch aidespage">' + back + '<h1>Aides publiques</h1><div class="callout"><strong>Page momentan\u00e9ment indisponible.</strong> Les donn\u00e9es sur les aides n\u2019ont pas pu \u00eatre lues. Rien n\u2019est affich\u00e9 tant qu\u2019elles ne sont pas v\u00e9rifi\u00e9es.</div></section></div>';
+    var p = a.principale, h = '<div class="wrap"><section class="arch aidespage">' + back + '<h1>Aides publiques</h1>' +
+      '<p class="lede2">Ce que l\u2019\u00c9tat accorde \u00e0 l\u2019achat d\u2019une voiture \u00e9lectrique neuve, et ce qui concerne le Model 3 et le Model Y. Chaque montant porte sa source, sa date et son statut ; ce qui n\u2019a pas pu \u00eatre v\u00e9rifi\u00e9 est \u00e9crit tel quel.</p>' +
+      '<p class="veille"><b>Relev\u00e9 du :</b> ' + esc(frDT(a.releve_le)) + '<br><b>Montants en euros :</b> indicatifs, non confirm\u00e9s par un texte officiel depuis le 1er septembre 2026.</p>' +
+      '<h2>L\u2019aide principale</h2><div class="acard"><h3>' + esc(p.nom) + ' <span class="badge b-vigueur">' + esc(p.statut) + '</span></h3><p>' + esc(p.nature) + '</p><p class="soft">' + esc(p.periode) + '</p>' +
+      '<table class="ptable atable"><caption class="sr">Ordres de grandeur du coup de pouce</caption><thead><tr><th scope="col">Profil</th><th scope="col">Ordre de grandeur</th></tr></thead><tbody>' + arr(p.montants).map(function (m) { return '<tr><th scope="row" data-label="Profil">' + esc(m.profil) + '</th><td data-label="Ordre de grandeur" class="num">' + esc(m.texte) + '</td></tr>'; }).join('') + '</tbody></table>' +
+      '<div class="callout">' + esc(p.avertissement_montants) + '</div>' +
+      '<h4>Conditions</h4>' + liste(p.conditions) + '<p class="src">Source : ' + link(p.source && p.source.url, p.source ? p.source.nom : '') + ' (v\u00e9rifi\u00e9 le ' + esc(fr(p.source && p.source.date)) + ')</p></div>' +
+      '<h2>Et pour une Tesla ?</h2>' + arr(a.eligibilite).map(function (e) { return '<div class="acard"><h3>' + esc(e.modele) + ' <span class="badge b-' + (e.resultat.indexOf('Non') === 0 || e.resultat.indexOf('Aucune') === 0 ? 'non' : 'oui') + '">' + esc(e.resultat) + '</span></h3><p>' + esc(e.detail) + '</p></div>'; }).join('') +
+      '<p class="tlink"><a class="btn-t" href="#/prix">Voir les aides affich\u00e9es par Tesla, version par version <span aria-hidden="true">\u2192</span></a></p>';
+    if (a.commande) {
+      h += '<h2>Comment \u00e7a se passe \u00e0 la commande</h2><div class="acols"><div class="acard"><h3>\u00c9tabli par les textes officiels</h3>' + liste(a.commande.officiel) + '</div><div class="acard"><h3>\u00c0 confirmer</h3>' + liste(a.commande.a_confirmer) + '</div></div><p class="soft">' + esc(a.commande.avertissement) + '</p>';
+    }
+    h += '<h2>Autres dispositifs</h2>' + arr(a.autres).map(function (o) { return '<div class="acard"><h3>' + esc(o.nom) + ' <span class="badge b-' + (o.statut === 'en vigueur' ? 'vigueur' : 'non') + '">' + esc(o.statut) + '</span></h3><p>' + esc(o.texte) + '</p>' + (safeUrl(o.url) ? '<p class="src">' + link(o.url, 'Source officielle') + '</p>' : '') + '</div>'; }).join('') +
+      '<h2>\u00c0 venir</h2><ul class="avenir">' + arr(a.a_venir).map(function (x) { return '<li><span class="badge b-' + (x.statut === 'publi\u00e9' ? 'vigueur' : 'non') + '">' + esc(x.statut) + '</span><span>' + (x.date ? '<b>' + esc(fr(x.date)) + '</b> \u00b7 ' : '') + esc(x.sujet) + '</span></li>'; }).join('') + '</ul>' +
+      '<p class="soft">Un projet n\u2019est pas une d\u00e9cision : seuls les textes \u00ab publi\u00e9s \u00bb s\u2019appliquent.</p>' +
+      '<h2>Ce que nous n\u2019avons pas pu v\u00e9rifier</h2>' + liste(a.non_verifie) +
+      '<h2>Sources officielles</h2><ul class="plain">' + arr(a.liens).map(function (l) { return '<li>' + link(l.url, l.nom) + '</li>'; }).join('') + '</ul>' +
+      '<div class="callout">Ce ne sont ni un conseil ni une promesse de prime. Seuls les textes officiels et le signataire de la charte qui instruit votre dossier font foi.</div></section></div>';
+    return h;
+  }
+  /* ---------- Les coulisses ---------- */
+  function coulissesHTML() {
+    return '<div class="wrap"><section class="arch mentions"><a class="back" href="#/"><span aria-hidden="true">\u2190&nbsp;</span> Retour au fil</a><h1>Les coulisses</h1>' +
+      '<p class="lede2">Ce site est le fruit d\u2019un travail d\u2019\u00e9quipe. Son \u00e9diteur, un particulier passionn\u00e9, d\u00e9cide de tout ce qui est publi\u00e9. Il s\u2019appuie sur trois assistants d\u2019intelligence artificielle.</p>' +
+      '<ul class="plain team"><li><b>Grok</b> : la recherche et la veille quotidienne.</li><li><b>ChatGPT</b> : la lecture des prix sur les configurateurs et la mise en ligne des donn\u00e9es.</li><li><b>Claude</b> : la conception, le code et les contr\u00f4les.</li></ul>' +
+      '<p>Ces assistants sont des outils : aucun n\u2019est partenaire du site, et leurs soci\u00e9t\u00e9s ne l\u2019ont ni relu ni approuv\u00e9. Chaque information renvoie \u00e0 sa source, et les erreurs restent de la responsabilit\u00e9 de l\u2019\u00e9diteur. Rien n\u2019est publi\u00e9 sans son accord explicite.</p>' +
+      '<p><a class="more-link" href="#/mentions">Mentions l\u00e9gales et m\u00e9thode <span aria-hidden="true">&nbsp;\u2192</span></a></p></section></div>';
+  }
+
   /* ---------- Routage ---------- */
   function setNav(view, theme) {
     document.querySelectorAll('#navlinks a').forEach(function (a) {
       a.removeAttribute('aria-current');
-      if ((view === 'archives' || view === 'prix') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
+      if ((view === 'archives' || view === 'prix' || view === 'aides') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
       if (view === 'home' && !a.dataset.view && (a.dataset.theme || '') === (theme || '')) a.setAttribute('aria-current', 'page');
     });
   }
@@ -411,6 +497,8 @@
     var h = location.hash || '#/', m = h.match(/^#\/info\/(.+)$/), id = m ? decodeURIComponent(m[1]) : '';
     if (m && byId(id)) { app.innerHTML = detailHTML(byId(id)); setNav('detail'); document.title = byId(id).titre + ' — ' + NOM; }
     else if (h === '#/prix') { app.innerHTML = prixPageHTML(); setNav('prix'); document.title = 'Grille des prix — ' + NOM; drawCharts(); }
+    else if (h === '#/aides') { app.innerHTML = aidesHTML(); setNav('aides'); document.title = 'Aides publiques \u2014 ' + NOM; }
+    else if (h === '#/coulisses') { app.innerHTML = coulissesHTML(); setNav('coulisses'); document.title = 'Les coulisses \u2014 ' + NOM; }
     else if (h === '#/mentions') { app.innerHTML = mentionsHTML(); setNav('mentions'); document.title = 'Mentions légales et méthode — ' + NOM; }
     else if (h === '#/archives') { app.innerHTML = archivesHTML(); setNav('archives'); document.title = 'Archives — ' + NOM; }
     else {
@@ -439,9 +527,9 @@
   });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; })]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);
