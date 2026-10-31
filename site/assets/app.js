@@ -45,6 +45,7 @@
       if (!r.ok) throw new Error('videos : HTTP ' + r.status);
       return r.json();
     }).then(function (j) {
+      D.videosReleve = (j && typeof j.releve_le === 'string') ? j.releve_le : '';
       return Array.isArray(j && j.videos) ? j.videos : [];
     }).catch(function () { return []; });
   }
@@ -164,13 +165,16 @@
     return x && x.indexOf('https://' + host + '/') === 0 ? x : '';
   }
   function videosListe() {
-    return D.videos.filter(function (v) { return v && ytUrl(v.url, 'www.youtube.com') && v.titre && v.chaine; }).slice(0, 12);
+    var l = D.videos.filter(function (v) { return v && ytUrl(v.url, 'www.youtube.com') && v.titre && v.chaine; }).slice(0, 12);
+    var ref = D.videosReleve || l.reduce(function (m, v) { return String(v.date_publication || '') > m ? String(v.date_publication || '') : m; }, '');
+    if (!l.length || !ref || isNaN(Date.parse(ref)) || ageDays(ref) > 30) return [];
+    return l;
   }
   function videosHTML() {
     var l = videosListe();
     if (!l.length) return '';
     return '<section class="vids" aria-labelledby="h-vid"><h2 id="h-vid">Vid&eacute;os r&eacute;centes</h2><div class="vlist">' + l.map(function (v) {
-      var img = ytUrl(v.miniature_url, 'i.ytimg.com');
+      var img = ytUrl(v.miniature_url, 'i.ytimg.com') || (/^[A-Za-z0-9_-]{11}$/.test(String(v.id_video || '')) ? 'https://i.ytimg.com/vi/' + v.id_video + '/mqdefault.jpg' : '');
       return '<a class="vid" href="' + esc(ytUrl(v.url, 'www.youtube.com')) + '" target="_blank" rel="noopener noreferrer"><span class="vthumb">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" referrerpolicy="no-referrer">' : '') + '<span class="play" aria-hidden="true"></span></span>' +
         '<span class="vmeta">' + esc(ilya(v.date_publication)) + (v.langue === 'fr' ? ' &middot; <b class="vfr">FR</b>' : '') + '</span><span class="vtitle">' + esc(v.titre) + '</span><span class="vchan"><span class="vplay" aria-hidden="true">&#9654;</span> ' + esc(v.chaine) + '</span></a>';
     }).join('') + '</div><p class="vnote">S&eacute;lection automatique, non v&eacute;rifi&eacute;e : une vid&eacute;o n&rsquo;est jamais une preuve. Les liens s&rsquo;ouvrent sur YouTube. Certaines cha&icirc;nes proposent des liens de parrainage dans leurs descriptions ; ce site n&rsquo;en propose aucun.</p></section>';
@@ -448,7 +452,7 @@
       '<h2>Méthode</h2><p>Chaque information est rattachée à ses sources, avec sa date de publication et sa date de vérification. Un statut indique son degré de certitude : <b>Confirmé</b> (source d’origine accessible), <b>Annoncé, déploiement à vérifier</b>, <b>Retour d’expérience</b>, <b>Rumeur non confirmée</b>, <b>Corrigé</b>. Un titre, une miniature ou une vidéo promotionnelle ne constituent jamais une preuve suffisante.</p>' +
       '<p>La veille est préparée avec l’aide d’outils d’intelligence artificielle, puis validée par l’éditeur avant publication. Les prix sont lus sur le configurateur officiel de Tesla France, avec la date de chaque relevé ; un prix qui n’a pas pu être lu n’est jamais remplacé par un ancien prix.</p>' +
       '<h2>Limites</h2><p>Ce site est une veille d’information personnelle. Il ne constitue ni un conseil d’achat, ni un devis, ni une offre. Les prix et conditions sont indicatifs : seuls font foi le configurateur et les conditions de Tesla au moment de la commande.</p>' +
-      '<h2>Données personnelles</h2><p>Le site n’utilise ni cookie, ni outil de mesure d’audience, ni publicité. Il est hébergé par GitHub Pages, qui peut enregistrer des données techniques de connexion (dont l’adresse IP) selon sa propre politique. Les polices de caractères sont actuellement chargées depuis le service Google Fonts, ce qui transmet l’adresse IP du visiteur à Google ; elles seront prochainement hébergées sur le site même.</p>' +
+      '<h2>Données personnelles</h2><p>Le site n’utilise ni cookie, ni outil de mesure d’audience, ni publicité. Il est hébergé par GitHub Pages, qui peut enregistrer des données techniques de connexion (dont l’adresse IP) selon sa propre politique. Les polices de caractères sont actuellement chargées depuis le service Google Fonts, ce qui transmet l’adresse IP du visiteur à Google ; elles seront prochainement hébergées sur le site même. Les miniatures de la colonne \u00ab\u00a0Vid\u00e9os r\u00e9centes\u00a0\u00bb sont chargées depuis YouTube (Google), ce qui transmet aussi l\u2019adresse IP du visiteur à Google ; aucune miniature n\u2019est copiée sur ce site.</p>' +
       '</section></div>';
   }
 
@@ -522,6 +526,7 @@
     }
     if (ev.target.id === 'reset') { F = { q: '', theme: '', model: '', terr: '', status: '', period: '' }; route(true); }
   });
+  document.addEventListener('error', function (ev) { var t = ev.target; if (t && t.tagName === 'IMG' && t.closest && t.closest('.vthumb')) t.remove(); }, true);
   document.addEventListener('input', function (ev) { if (ev.target.id === 'q') { F.q = ev.target.value; updateFeed(); } });
   document.addEventListener('submit', function (ev) {
     if (ev.target.id !== 'sform') return;
