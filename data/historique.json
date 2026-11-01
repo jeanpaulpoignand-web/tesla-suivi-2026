@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "date": "2026-11-01",
+    "id_entree": "2026-10-30-fsd-reconnaissances-nationales-dix-pays-ue-vote-decembre",
+    "type": "correction",
+    "champs_modifies": [
+      "titre",
+      "date_verification",
+      "resume",
+      "consequence",
+      "statut",
+      "sources",
+      "contradictions"
+    ],
+    "ancienne_valeur": {
+      "titre": "FSD Supervised : homologation provisoire aux Pays-Bas ; neuf pays de l'UE selon Tesla (rapport T3) ; vote européen non confirmé",
+      "statut": "Confirmé"
+    },
+    "nouvelle_valeur": {
+      "titre": "Tesla Assisted Driving : dix pays de l’UE reconnaissent l’homologation néerlandaise après la décision lettone du 26 octobre",
+      "statut": "Corrigé"
+    },
+    "motif": "Lettonie déjà mentionnée dans l’entrée : correction sur preuve officielle, sans doublon ni nouvel identifiant pour ce fait.",
+    "source_url": "https://www.sam.gov.lv/lv/jaunums/latvija-atzist-niderlande-izsniegto-provizorisko-tipa-apstiprinajumu-tesla-izstradatajai-vaditaja-paligsistemai"
+  }
+]
