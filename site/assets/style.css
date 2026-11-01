@@ -230,9 +230,9 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .retenir li.card{min-width:0}
 
 /* Colonne Videos */
-.layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"vid" "ret" "feed" "aside"}
-.layout>.vids{grid-area:vid}.layout>.retenir{grid-area:ret;min-width:0}.layout>.feed{grid-area:feed;min-width:0}.layout>.aside{grid-area:aside}
-@media(min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"ret vid" "feed vid" "feed aside";grid-template-rows:auto auto 1fr;gap:0 56px}.aside{position:static}.layout>.retenir{margin-bottom:40px}.vids{margin-top:20px}.layout>.retenir .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.layout>.retenir li.card{padding:16px 14px}.layout>.retenir .ctitle{font-size:18px}.layout>.retenir .cc{font-size:15px}}
+.layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"vid" "ret" "fab" "feed" "aside"}
+.layout>.vids{grid-area:vid}.layout>.retenir{grid-area:ret;min-width:0}.layout>.fab{grid-area:fab;min-width:0}.layout>.feed{grid-area:feed;min-width:0}.layout>.aside{grid-area:aside}
+@media(min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"ret vid" "fab vid" "feed vid" "feed aside";grid-template-rows:auto auto auto 1fr;gap:0 56px}.aside{position:static}.layout>.retenir{margin-bottom:40px}.vids{margin-top:20px}.layout>.retenir .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.layout>.retenir li.card{padding:16px 14px}.layout>.retenir .ctitle{font-size:18px}.layout>.retenir .cc{font-size:15px}}
 .vids{border-top:2px solid var(--ink);padding-top:20px;margin-bottom:34px;min-width:0}
 .vids h2{font-family:var(--serif);font-size:30px;margin-bottom:16px}
 .vlist{display:flex;flex-direction:column;gap:26px}
@@ -282,3 +282,14 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .qclear[hidden]{display:none}
 #count{font-weight:600;color:var(--ink)}
 .search::-webkit-search-cancel-button,.search::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
+
+/* === Encart « Côté pays de fabrication » — Porte 6 === */
+.fab{grid-area:fab;min-width:0;background:var(--paper2);border:1px solid var(--line);padding:16px 18px;margin:0 0 20px}
+.fab h2{font-family:var(--serif);font-size:1.35rem;margin:0 0 10px;color:var(--ink)}
+.fab-list{list-style:none;margin:0;padding:0}
+.fab-item{padding:10px 0;border-top:1px solid var(--faint)}
+.fab-item:first-child{border-top:0}
+.fab-meta{font-size:.78rem;color:var(--muted)}
+.fab-titre{display:block;color:var(--ink);font-weight:600;margin:2px 0 4px;text-decoration:none;overflow-wrap:anywhere}
+.fab-titre:hover{text-decoration:underline}
+.fab-note{font-size:.78rem;color:var(--soft);margin:10px 0 0;border-top:1px solid var(--line);padding-top:8px}

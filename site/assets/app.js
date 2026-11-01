@@ -184,6 +184,31 @@
     if (!ok) return '<p class="veille"><b>Veille :</b> aucune exécution enregistrée pour l’instant.</p>';
     return '<p class="veille"><b>Dernière veille réussie :</b> ' + esc(frDT(ok.date_execution)) + '<br><b>Dernière nouveauté trouvée :</b> ' + (nv ? esc(frDT(nv.date_execution)) : 'aucune pour l’instant') + '</p>';
   }
+  /* === Encart « Côté pays de fabrication » — Porte 6 === */
+  var JOURS_FAB = 30, MAX_FAB = 5;
+  function fabEntries() {
+    var list = (D && D.entrees) || [];
+    return sorted(list.filter(function (e) {
+      var t = String(e.territoire || '');
+      var pays = t.indexOf('International (États-Unis') === 0 || t.indexOf('International (Chine') === 0;
+      var st = e.statut === 'Confirmé' || e.statut === 'Annoncé, déploiement à vérifier';
+      return pays && st && ageDays(e.date_publication) < JOURS_FAB;
+    })).slice(0, MAX_FAB);
+  }
+  function fabricationHTML() {
+    var L = fabEntries();
+    if (!L.length) return '';
+    var items = L.map(function (e) {
+      return '<li class="fab-item"><div class="fab-meta">' + esc(fr(e.date_publication)) +
+        ' · ' + esc(e.territoire) + '</div>' +
+        '<a class="fab-titre" href="#/info/' + encodeURIComponent(e.id) + '">' + esc(e.titre) + '</a>' +
+        '<div class="fab-statut">' + statusHTML(e) + '</div></li>';
+    }).join('');
+    return '<section class="fab" aria-labelledby="fab-h"><h2 id="fab-h">Côté pays de fabrication</h2>' +
+      '<ul class="fab-list">' + items + '</ul>' +
+      '<p class="fab-note">Annonces officielles hors France : aucune disponibilité ni aucun prix en France n\'est sous-entendu.</p></section>';
+  }
+
   function homeHTML() {
     var counts = {};
     D.entrees.filter(inFeed).forEach(function (e) { counts[e.theme] = (counts[e.theme] || 0) + 1; });
@@ -195,7 +220,7 @@
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
     return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + SILH + stripHTML() + veilleHTML() + '</section>' +
-      '<div class="wrap"><div class="layout">' + retenirHTML() + videosHTML() + '<div class="feed">' +
+      '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<form class="searchrow" id="sform" role="search"><label class="sr" for="q">Rechercher dans la veille</label><span class="sbox"><input class="search" id="q" type="search" enterkeyhint="search" placeholder="Rechercher : prix, FSD, calculateur\u2026" value="' + esc(F.q) + '" autocomplete="off"><button class="qclear" type="button" id="qclear" aria-label="Effacer la recherche">\u00d7</button></span><button class="btn-s" type="submit">Rechercher</button></form>' +
       '<div class="chips" role="group" aria-label="Filtrer par thème">' + chips + '</div>' +
