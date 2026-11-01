@@ -612,9 +612,9 @@
   },
   {
     "id": "2026-10-30-fsd-reconnaissances-nationales-dix-pays-ue-vote-decembre",
-    "titre": "FSD Supervised : homologation provisoire aux Pays-Bas ; neuf pays de l'UE selon Tesla (rapport T3) ; vote européen non confirmé",
+    "titre": "Tesla Assisted Driving : la Lettonie reconnaît l'homologation néerlandaise (dix pays selon la presse)",
     "date_publication": "2026-10-26",
-    "date_verification": "2026-10-30",
+    "date_verification": "2026-11-01",
     "theme": "FSD",
     "modeles": [
       "Model 3",
@@ -622,8 +622,8 @@
     ],
     "hardware": "HW4/AI4",
     "territoire": "Europe",
-    "resume": "Le RDW établit une homologation provisoire du FSD Supervised valable aux Pays-Bas, sous supervision du conducteur. Le rapport du T3 de Tesla déposé à la SEC (dépôt 0001628280-26-066738) fait état de neuf pays de l’UE et de plus de 100 000 clients ; il nomme quatre approbations depuis la fin du T2 : Croatie, Slovénie, République tchèque et Slovaquie. Avec les Pays-Bas, cinq pays sont ainsi explicitement nommés dans les sources officielles ouvertes. Tesla Europe a annoncé sur X la Tchéquie le 21 septembre, la Croatie le 29 septembre, la Slovaquie le 16 octobre et la Lettonie le 26 octobre, après le rapport SEC. Ces posts sont des annonces de Tesla, pas des preuves nationales d’homologation. Le total de dix pays et le calendrier du vote européen restent non prouvés, presse seulement ; l’examen du 6 octobre sans vote et un vote en décembre restent à vérifier.",
-    "consequence": "Les sources RDW et SEC établissent le cadre néerlandais supervisé et les chiffres déclarés par Tesla à la date de son rapport ; elles ne suffisent pas à établir la disponibilité actuelle en France. Le passage à dix pays, les dates des reconnaissances, l’absence de vote et un éventuel vote en décembre restent à vérifier avant d’en tirer une conclusion pour un propriétaire français. Aucun calendrier de déploiement en France n’est garanti par ces sources.",
+    "resume": "Dans son communiqué du 10 avril 2026, le RDW indique avoir délivré une homologation provisoire du système Tesla Assisted Driving, qui reste une assistance sous la responsabilité du conducteur et non un système autonome, précise le RDW. Le rapport T3 de Tesla, déposé à la SEC le 21 octobre 2026, annonçait neuf pays de l’UE et plus de 100 000 clients. Le 26 octobre, l’autorité lettone CSDD a officiellement reconnu l’homologation néerlandaise, selon les ministères lettons des Transports (communiqué du 26 octobre) et de l’Économie (27 octobre). Selon Tesla News Wire et TAD Tracker, cette décision porte le total à dix pays de l’UE à cette date. Il s’agit de reconnaissances nationales, non d’une autorisation générale dans l’Union européenne ; la décision lettone ne prouve aucun déploiement logiciel en France.",
+    "consequence": "Le passage de neuf pays déclarés par Tesla le 21 octobre à dix après la Lettonie le 26 octobre est désormais étayé par une décision officielle lettone. Aucun droit d’utilisation nouveau ni aucune date de déploiement n’en découlent pour la France. La tenue et la date d’un vote européen ne sont pas établies par cette décision.",
     "statut": "Confirmé",
     "alerte": false,
     "fsd": {
@@ -702,11 +702,78 @@
         "date": "2026-09-28",
         "interet_commercial": "inconnu",
         "accessible": true
+      },
+      {
+        "role": "originale",
+        "nom": "Ministère letton des Transports — reconnaissance CSDD de l’homologation RDW",
+        "type": "autorité",
+        "url": "https://www.sam.gov.lv/lv/jaunums/latvija-atzist-niderlande-izsniegto-provizorisko-tipa-apstiprinajumu-tesla-izstradatajai-vaditaja-paligsistemai",
+        "date": "2026-10-26",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "originale",
+        "nom": "Ministère letton de l’Économie — confirmation de la reconnaissance CSDD",
+        "type": "autorité",
+        "url": "https://www.em.gov.lv/lv/jaunums/valainis-tesla-vaditaja-paligsistemas-atzisana-apliecina-latvijas-atvertibu-modernajam-tehnologijam",
+        "date": "2026-10-27",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "Tesla News Wire — Lettonie dixième pays UE",
+        "type": "presse",
+        "url": "https://teslanewswire.com/articles/latvia-approves-tesla-fsd-supervised-tenth-eu-country-csdd-rdw-oct-26-2026",
+        "date": "2026-10-26",
+        "interet_commercial": "inconnu",
+        "accessible": true
       }
     ],
     "contradictions": [
-      "Nombre de pays : electrive en comptait 7 le 2026-09-28, Electrek 8 le 2026-10-09, le rapport T3 de Tesla 9 le 2026-10-21, tad-tracker.eu 10 après la Lettonie le 2026-10-26. Écart lié aux dates.",
-      "tad-tracker.eu affiche « Last updated: 10 Oct 2026 » mais liste des reconnaissances du 16 et du 26 octobre : date de mise à jour de la page incohérente, non arbitré."
+      "Le rapport T3 de Tesla mentionne neuf pays au 21 octobre ; la reconnaissance lettone officielle date du 26 octobre et porte le total à dix selon les sources citées. Les chiffres concernent des dates différentes, non des autorisations contradictoires.",
+      "Le calendrier d’un éventuel vote européen demeure distinct de la décision lettone et n’est pas confirmé ici."
+    ]
+  },
+  {
+    "id": "2026-11-01-logiciel-v2l-adaptateurs-tiers-2026-38-5-1-temoignages",
+    "titre": "Logiciel 2026.38.5.1 : des propriétaires signalent des coupures d’adaptateurs V2L tiers",
+    "date_publication": "2026-10-31",
+    "date_verification": "2026-11-01",
+    "theme": "Logiciel",
+    "modeles": [
+      "Model 3"
+    ],
+    "hardware": null,
+    "territoire": "International (témoignages ; effet en France non établi)",
+    "resume": "Selon Tesla Mag (31 octobre 2026), des propriétaires, dont un conducteur de Model 3, signalent sur Tesla Motors Club que des adaptateurs V2L tiers tels qu’Elejoy cessent de fournir du courant après quelques minutes sous le logiciel 2026.38.5.1. Le média rapporte un défaut BMS_a076_SW_Dch_While_Charging et des coupures après environ 3 à 20 minutes suivant les témoignages. Ces observations n’ont pas été reproduites indépendamment ici ; ni Tesla ni Elejoy n’ont confirmé une incompatibilité générale ou sa cause.",
+    "consequence": "Information utile uniquement aux utilisateurs d’adaptateurs V2L non homologués : vérifier leur version logicielle et demander au fabricant de l’adaptateur des éléments de compatibilité. Les signalements ne prouvent ni un blocage volontaire par Tesla ni un problème sur les voitures françaises.",
+    "statut": "Retour d’expérience",
+    "alerte": false,
+    "sources": [
+      {
+        "role": "reprise",
+        "nom": "Tesla Mag — mise à jour 2026.38.5.1 et adaptateurs V2L tiers",
+        "type": "média spécialisé",
+        "url": "https://www.tesla-mag.com/tesla-mise-a-jour-2026-38-5-1-adaptateurs-v2l/",
+        "date": "2026-10-31",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "Not a Tesla App — témoignages V2L après 2026.38.5.1",
+        "type": "média spécialisé",
+        "url": "https://www.notateslaapp.com/news/4916/tesla-breaks-compatibility-with-third-party-v2l-devices",
+        "date": "2026-10-29",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": [
+      "Le fil original Tesla Motors Club n’a pas été ouvert directement par ChatGPT ; il est rapporté par les deux médias cités.",
+      "Aucune confirmation constructeur et aucune preuve d’un impact sur les véhicules français."
     ]
   }
 ]
