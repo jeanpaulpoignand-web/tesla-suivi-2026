@@ -7,21 +7,5 @@
     "nouveautes": true,
     "entrees_ajoutees": 13,
     "message": "lot initial, relevé de départ, en attente de relecture"
-  },
-  {
-    "date_execution": "2026-11-01T09:00:54+01:00",
-    "resultat": "succes",
-    "lot_id": "2026-11-01_Grok_Veille_Tesla-suivi_V1",
-    "lot_type": "quotidien",
-    "lot_presse_id": "2026-11-01_Grok_Veille-presse_Tesla-suivi_V1",
-    "nouveautes": true,
-    "entrees_ajoutees": 1,
-    "entrees_corrigees": 1,
-    "maillon_a": "anomalie : configurateurs dynamiques illisibles, aucune écriture prix",
-    "maillon_b": "une correction Lettonie (sans nouvel ID), un retour d’expérience V2L attribué à la presse",
-    "maillon_c": "12 vidéos valides, octets identiques à main ; aucune modification",
-    "publication": true,
-    "branche": "essai-9h-2026-11-01",
-    "message": "Publication après audit de Claude et accord de Jean Paul (porte 5e)"
   }
 ]
