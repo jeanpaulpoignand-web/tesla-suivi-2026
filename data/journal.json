@@ -10,7 +10,7 @@
   },
   {
     "date_execution": "2026-11-01T09:00:54+01:00",
-    "resultat": "essai",
+    "resultat": "essai en attente de fusion",
     "lot_id": "2026-11-01_Grok_Veille_Tesla-suivi_V1",
     "lot_type": "quotidien",
     "lot_presse_id": "2026-11-01_Grok_Veille-presse_Tesla-suivi_V1",
@@ -22,6 +22,6 @@
     "maillon_c": "12 vidéos valides, octets identiques à main ; aucune modification",
     "publication": false,
     "branche": "essai-9h-2026-11-01",
-    "message": "Essai Porte 5b uniquement ; aucune fusion ni publication ; audit humain requis."
+    "message": "Essai Porte 5c corrigé sur la branche ; résultat en attente d'audit Claude et de l'accord de fusion ; aucune fusion ni publication. Passage au statut publié sur ordre séparé uniquement."
   }
 ]
