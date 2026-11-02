@@ -670,7 +670,88 @@ function efficienceHTML() {
       '<p class="lede2">Ce site est le fruit d\u2019un travail d\u2019\u00e9quipe. Son \u00e9diteur, un particulier passionn\u00e9, d\u00e9cide de tout ce qui est publi\u00e9. Il s\u2019appuie sur trois assistants d\u2019intelligence artificielle et un outil d\u2019automatisation.</p>' +
       '<ul class="plain team"><li><b>' + link('https://grok.com', 'Grok') + '</b> : la recherche et la veille quotidienne.</li><li><b>' + link('https://chatgpt.com', 'ChatGPT') + '</b> : la lecture des prix sur les configurateurs et la mise en ligne des donn\u00e9es.</li><li><b>' + link('https://claude.ai', 'Claude') + '</b> : la conception, le code et les contr\u00f4les.</li><li><b>' + link('https://www.make.com', 'Make') + '</b> : l\u2019automatisation, qui rassemble chaque matin les vid\u00e9os publi\u00e9es sur YouTube.</li></ul>' +
       '<p>Ces assistants et cet outil sont des instruments : aucun n\u2019est partenaire du site, et leurs soci\u00e9t\u00e9s ne l\u2019ont ni relu ni approuv\u00e9. Chaque information renvoie \u00e0 sa source, et les erreurs restent de la responsabilit\u00e9 de l\u2019\u00e9diteur. Rien n\u2019est publi\u00e9 sans son accord explicite.</p>' +
+      '<p><a class="more-link" href="#/methode">Comment ils travaillent ensemble : la méthode <span aria-hidden="true">&nbsp;\u2192</span></a></p>' +
       '<p><a class="more-link" href="#/mentions">Mentions l\u00e9gales et m\u00e9thode <span aria-hidden="true">&nbsp;\u2192</span></a></p></section></div>';
+  }
+
+  /* === Page « Méthode » — Version 1 (novembre 2026) === */
+  function methodeHTML() {
+    var back = '<a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a>';
+    function role(nom, qui, fait, jamais) {
+      return '<li class="mt-role"><div class="mt-rh"><b>' + nom + '</b><span>' + qui + '</span></div>' +
+        '<p><span class="mt-k">Fait</span> ' + fait + '</p><p><span class="mt-k mt-k2">Ne fait jamais</span> ' + jamais + '</p></li>';
+    }
+    function plus(titre, corps) {
+      return '<details class="mt-plus"><summary>' + titre + '</summary><div class="mt-pc">' + corps + '</div></details>';
+    }
+    var jour = [
+      ['07 h', 'Grok', 'Cherche les nouveautés sur Tesla en France : annonces officielles, prix, aides, logiciel, presse. Il dépose un lot de résultats, chaque information avec son adresse.'],
+      ['08 h', 'Make', 'Rassemble les nouvelles vidéos YouTube sur Tesla et les dépose dans un fichier du dossier commun.'],
+      ['09 h', 'ChatGPT', 'Contrôle le lot : les sources sont-elles là, les dates, le format ? Il inscrit le résultat au journal, prépare les nouveautés à part et recopie les vidéos.'],
+      ['Ensuite', 'Claude', 'Relit le travail, recalcule les chiffres, vérifie chaque source et signale ce qui ne va pas.'],
+      ['Enfin', 'L’éditeur', 'Décide. Rien n’est mis en ligne sur le site sans son accord.']
+    ];
+    var jourHTML = jour.map(function (j) {
+      return '<li><span class="mt-h">' + j[0] + '</span><span class="mt-w"><b>' + j[1] + '</b> ' + j[2] + '</span></li>';
+    }).join('');
+    var chaine = ['Grok cherche', 'Un dossier commun reçoit le lot', 'ChatGPT contrôle', 'Une copie de travail est préparée', 'Claude audite', 'L’éditeur autorise', 'Le site se met à jour'];
+    var chaineHTML = chaine.map(function (c, i) { return '<li><span class="mt-n">' + (i + 1 < 10 ? '0' : '') + (i + 1) + '</span>' + c + '</li>'; }).join('');
+    return '<div class="wrap"><section class="arch mt">' + back + '<h1>La méthode</h1>' +
+      '<p class="mt-ver">Version 1 · novembre 2026</p>' +
+      '<p class="lede2">Ce site est préparé par plusieurs intelligences artificielles qui se passent le travail, sous le contrôle d’un éditeur humain. Cette page montre comment, pour que vous puissiez juger de la fiabilité de ce que vous lisez, et pourquoi pas vous en inspirer.</p>' +
+
+
+      '<h2>Une journée type</h2>' +
+      '<ol class="mt-jour">' + jourHTML + '</ol>' +
+
+
+      '<h2>Le chemin d’une information</h2>' +
+      '<p class="mt-intro">Aucune information ne va directement de la recherche au site. Elle passe par sept étapes, et chacune est confiée à quelqu’un d’autre que celui qui précède.</p>' +
+      '<ol class="mt-chaine">' + chaineHTML + '</ol>' +
+
+
+      '<h2>Le rôle de chacun</h2>' +
+      '<ul class="mt-roles">' +
+      role('L’éditeur', 'un particulier passionné', 'Fixe le sujet et les règles, tranche les cas douteux, autorise chaque mise en ligne.', 'Publier sans relecture, ni laisser une machine décider seule d’un point sensible.') +
+      role('Grok', 'assistant IA, la recherche', 'Parcourt le web et dépose ce qu’il trouve, avec l’adresse de chaque source.', 'Publier, corriger le site, ou combler un trou par une supposition.') +
+      role('Make', 'outil d’automatisation, pas une IA', 'Exécute chaque matin la même tâche à heure fixe : collecter les vidéos.', 'Juger ou choisir : il ne fait que déplacer.') +
+      role('ChatGPT', 'assistant IA, le contrôle et la mise en ligne', 'Vérifie le format et la présence des sources, tient le journal, prépare les changements à part.', 'Modifier le site en ligne sans ordre explicite, ni accepter un lot qui n’est pas conforme.') +
+      role('Claude', 'assistant IA, la conception et l’audit', 'Écrit les règles et le code, relit tout, recalcule, relit les sources officielles.', 'Mettre en ligne seul : il recommande, l’éditeur décide.') +
+      '</ul>' +
+
+
+      '<h2>Les règles du jeu</h2>' +
+      '<ul class="plain mt-regles">' +
+      '<li><b>Une source pour chaque chiffre.</b> Pas d’adresse, pas d’affichage.</li>' +
+      '<li><b>Trois sortes de sources.</b> Originale (le texte officiel), reprise (un média qui la cite), complémentaire (un autre éclairage). Le site dit toujours laquelle.</li>' +
+      '<li><b>Une page illisible n’est jamais devinée.</b> On note qu’elle n’a pas pu être lue, et rien d’autre.</li>' +
+      '<li><b>Un essai n’est pas un succès.</b> Un lot de test ne compte jamais comme une journée réussie.</li>' +
+      '<li><b>Les calculs sont dits.</b> Un écart en pourcentage ou un coût au kilomètre est marqué comme calculé par le site.</li>' +
+      '<li><b>On ne dit pas « ventes » pour « immatriculations ».</b> Les mots restent exacts.</li>' +
+      '<li><b>Une erreur se corrige à la vue de tous.</b> La correction garde une trace datée.</li>' +
+      '</ul>' +
+
+
+      '<h2>Pour aller plus loin</h2>' +
+      '<p class="mt-intro">Pour celles et ceux qui veulent comprendre comment on fait travailler plusieurs IA ensemble.</p>' +
+      plus('Pourquoi plusieurs IA, plutôt qu’une seule ?',
+        '<p>Une IA qui rédige et qui vérifie son propre travail a tendance à confirmer ce qu’elle a écrit. En séparant les rôles, celui qui cherche n’est pas celui qui contrôle, et celui qui contrôle n’est pas celui qui décide. C’est le même principe qu’une rédaction : un journaliste, un secrétaire de rédaction, un rédacteur en chef.</p>') +
+      plus('Comment elles se transmettent le travail',
+        '<p>Elles ne se parlent pas. Chacune dépose un fichier dans un dossier commun et la suivante vient le lire. Les fichiers portent un nom régulier, par exemple <code>date_auteur_sujet_version</code>, ce qui permet de retrouver qui a fait quoi et quand. La mémoire du projet, ce sont ces fichiers, pas une conversation.</p>') +
+      plus('Un contrat entre les IA',
+        '<p>Les résultats de Grok suivent un format fixe : un objet par information, avec son titre, sa date, sa source et le rôle de cette source. Si un champ manque, ChatGPT refuse le lot au lieu de le corriger. Les deux n’ont pas à se faire confiance : le contrat décide.</p>') +
+      plus('Pourquoi une IA ne se relit pas elle-même',
+        '<p>Un exemple vécu : en lisant un communiqué officiel, un outil a pris la ligne « Autres marques » pour celle de Tesla, parce que les libellés et les chiffres étaient séparés dans le texte extrait. L’erreur a été trouvée en recalculant les totaux à la main, ce qui ne tombait pas juste. Une seconde lecture, par quelqu’un d’autre, avec un calcul de contrôle, l’a corrigée.</p>') +
+      plus('Un test attrape ce que l’œil ne voit pas',
+        '<p>Autre exemple : un coût au kilomètre était d’abord divisé deux fois par cent. L’affichage semblait normal. Le test avec un cas connu (12,2 kWh aux 100 km au tarif d’heures creuses doit donner 1,94 €) a révélé l’erreur avant la mise en ligne.</p>') +
+      plus('Le vocabulaire',
+        '<dl><dt>Lot</dt><dd>L’ensemble des informations déposées en une fois.</dd><dt>Branche</dt><dd>Une copie de travail du site, où l’on prépare un changement sans toucher à la version en ligne.</dd><dt>Fusion</dt><dd>Le moment où la copie de travail devient la version en ligne.</dd><dt>Audit</dt><dd>Une relecture indépendante, avec recalcul.</dd><dt>Automatisation</dt><dd>Une tâche répétée à heure fixe par un outil, sans intervention.</dd></dl>') +
+
+
+      '<h2>Et après ?</h2>' +
+      '<p>La version 1, c’est ce que vous venez de lire. Elle repose sur un éditeur qui transmet le travail d’un assistant à l’autre. Une version 2 est à l’étude : les assistants pourraient échanger entre eux, dans un cadre fixé, avant de présenter leur conclusion. Elle <b>n’est pas en service</b> et cette page sera mise à jour le jour où elle le sera.</p>' +
+      '<p class="mt-fin"><a class="more-link" href="#/coulisses">Les coulisses <span aria-hidden="true">&nbsp;→</span></a> &nbsp; <a class="more-link" href="#/mentions">Mentions légales <span aria-hidden="true">&nbsp;→</span></a></p>' +
+      '</section></div>';
   }
 
   /* ---------- Routage ---------- */
@@ -687,6 +768,7 @@ function efficienceHTML() {
     else if (h === '#/prix') { app.innerHTML = prixPageHTML(); setNav('prix'); document.title = 'Grille des prix — ' + NOM; drawCharts(); }
     else if (h === '#/marche') { app.innerHTML = marchePageHTML(); setNav('marche'); document.title = 'Marché France — ' + NOM; }
     else if (h === '#/efficience') { app.innerHTML = efficienceHTML(); setNav('efficience'); document.title = 'Efficience — ' + NOM; }
+    else if (h === '#/methode') { app.innerHTML = methodeHTML(); setNav('methode'); document.title = 'La méthode — ' + NOM; }
     else if (h === '#/aides') { app.innerHTML = aidesHTML(); setNav('aides'); document.title = 'Aides publiques \u2014 ' + NOM; }
     else if (h === '#/coulisses') { app.innerHTML = coulissesHTML(); setNav('coulisses'); document.title = 'Les coulisses \u2014 ' + NOM; }
     else if (h === '#/mentions') { app.innerHTML = mentionsHTML(); setNav('mentions'); document.title = 'Mentions légales et méthode — ' + NOM; }
