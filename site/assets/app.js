@@ -14,7 +14,7 @@
   };
   var ROLES = { originale: 'Originale', reprise: 'Reprise', complementaire: 'Complémentaire' };
   var JOURS_FIL = 60;
-  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [] };
+  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
   var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
@@ -48,6 +48,7 @@
       return r.json();
     }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; });
   }
+  function loadEfficience() { return fetch('data/efficience.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('efficience : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
   function loadVideos() {
     return fetch('data/videos.json', { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error('videos : HTTP ' + r.status);
@@ -323,6 +324,47 @@
      '<details class="mkt-lire"><summary>Comment lire ces chiffres</summary><p>Une immatriculation, c’est une voiture neuve enregistrée en France (la carte grise). Ce n’est ni une commande ni une livraison. Tesla livre beaucoup en fin de trimestre : comparez toujours avec le même mois de l’an dernier. L’année ' + esc(an0) + ' ayant été difficile pour Tesla en France, une forte hausse en pourcentage ne veut pas dire un niveau record.</p></details>' +
      '</section></div>';
   }
+
+function effReleve() {
+  var L = arr(D.efficience).filter(function (r) { return r && typeof r === 'object' && typeof r.date_releve === 'string' && Array.isArray(r.versions); });
+  if (!L.length) return null;
+  L.sort(function (a, b) { return a.date_releve < b.date_releve ? -1 : 1; });
+  return L[L.length - 1]; /* le relevé le plus récent ; les anciens restent dans le fichier */
+}
+function eur2(n) { return typeof n === 'number' && isFinite(n) ? new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + ' €' : null; }
+function efficienceHTML() {
+  var back = '<a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a>';
+  var R = effReleve();
+  if (!R) return '<div class="wrap"><section class="arch efficpage">' + back + '<h1>Efficience</h1><div class="callout"><strong>Page momentanément indisponible.</strong> Les données de consommation n’ont pas pu être lues. Rien n’est affiché tant qu’elles ne sont pas disponibles.</div></section></div>';
+  var T = R.tarif || {}, hp = typeof T.prix_hp === 'number' ? T.prix_hp : null, hc = typeof T.prix_hc === 'number' ? T.prix_hc : null;
+  var V = R.versions.filter(function (v) { return v && typeof v.conso_kwh_100km === 'number' && isFinite(v.conso_kwh_100km) && v.conso_kwh_100km > 0 && v.modele && v.version; });
+  var max = V.reduce(function (m, v) { return Math.max(m, v.conso_kwh_100km); }, 0);
+  function ligne(v) {
+    var l = v.conso_kwh_100km, w = max > 0 ? Math.max(2, Math.round(l / max * 100)) : 0;
+    return '<tr><th scope="row">' + esc(v.version) + '</th>' +
+      '<td class="eff-bar" aria-hidden="true"><span class="ebar" style="width:' + w + '%"></span></td>' +
+      '<td class="mkt-v">' + esc(new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(l)) + '</td>' +
+      '<td>' + (hc === null ? '<span class="mkt-nd">non lu</span>' : esc(eur2(l * hc))) + '</td>' +
+      '<td>' + (hp === null ? '<span class="mkt-nd">non lu</span>' : esc(eur2(l * hp))) + '</td></tr>';
+  }
+  function tableau(modele, actuelles) {
+    var rows = V.filter(function (v) { return v.modele === modele && (v.actuelle !== false) === actuelles; }).sort(function (a, b) { return a.conso_kwh_100km - b.conso_kwh_100km; });
+    if (!rows.length) return '';
+    return '<table class="mkt-table eff-table"><caption>' + esc(modele) + '</caption><thead><tr><th scope="col">Version</th><th scope="col"><span class="sr">Barre</span></th><th scope="col">kWh pour 100 km</th><th scope="col">Coût, heures creuses</th><th scope="col">Coût, heures pleines</th></tr></thead><tbody>' + rows.map(ligne).join('') + '</tbody></table>';
+  }
+  var actuel = ['Model 3', 'Model Y'].map(function (m) { return '<div class="mkt-scroll">' + tableau(m, true) + '</div>'; }).join('');
+  var ancien = ['Model 3', 'Model Y'].map(function (m) { return '<div class="mkt-scroll">' + tableau(m, false) + '</div>'; }).join('');
+  var vide = !actuel.replace(/<[^>]*>/g, '').trim();
+  var tarifTxt = (hp !== null || hc !== null)
+    ? 'Prix du kWh utilisés : ' + (hc !== null ? 'heures creuses ' + esc(String(hc).replace('.', ',')) + ' €' : '') + (hc !== null && hp !== null ? ', ' : '') + (hp !== null ? 'heures pleines ' + esc(String(hp).replace('.', ',')) + ' €' : '') + ' TTC (' + link(T.source_url, T.nom || 'Tarif Bleu EDF') + (T.applicable_depuis ? ', applicable depuis le ' + esc(fr(T.applicable_depuis)) : '') + ').' : 'Prix du kWh : non lu.';
+  return '<div class="wrap"><section class="arch efficpage">' + back + '<h1>Efficience</h1>' +
+    '<p class="lede2">L’énergie nécessaire pour rouler 100 km. Plus le chiffre est bas, plus la voiture est efficiente : elle consomme moins, coûte moins à faire rouler et va plus loin avec la même batterie.</p>' +
+    '<details class="mkt-lire" open><summary>Comment lire ces chiffres</summary><p>Les consommations sont officielles, mesurées dans des conditions standard (norme WLTP). En vrai, la vitesse, le froid, les pneus et la conduite les font varier : comparez les versions entre elles, pas un chiffre officiel avec une consommation vécue. Le coût est un calcul du site : consommation × prix du kWh. Il ne tient pas compte des pertes éventuelles à la recharge, ni du prix payé aux bornes publiques. La page Tesla ne précise pas si la consommation est mesurée à la prise ou à la batterie.</p></details>' +
+    (vide ? '<p class="mkt-nd">Aucune version lue pour l’instant.</p>' : actuel) +
+    (ancien.replace(/<[^>]*>/g, '').trim() ? '<details class="mkt-lire"><summary>Versions plus anciennes</summary>' + ancien + '</details>' : '') +
+    '<p class="mkt-src">' + tarifTxt + ' Consommations : ' + link(R.source_url, R.source_nom || 'Tesla France, consommation d’énergie du véhicule') + ' (lu le ' + esc(fr(String(R.date_releve).slice(0, 10))) + '). Coûts calculés par le site.</p>' +
+    '</section></div>';
+}
 
   function homeHTML() {
     var counts = {};
@@ -635,7 +677,7 @@
   function setNav(view, theme) {
     document.querySelectorAll('#navlinks a').forEach(function (a) {
       a.removeAttribute('aria-current');
-      if ((view === 'archives' || view === 'prix' || view === 'aides' || view === 'marche') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
+      if ((view === 'archives' || view === 'prix' || view === 'aides' || view === 'marche' || view === 'efficience') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
       if (view === 'home' && !a.dataset.view && (a.dataset.theme || '') === (theme || '')) a.setAttribute('aria-current', 'page');
     });
   }
@@ -644,6 +686,7 @@
     if (m && byId(id)) { app.innerHTML = detailHTML(byId(id)); setNav('detail'); document.title = byId(id).titre + ' — ' + NOM; }
     else if (h === '#/prix') { app.innerHTML = prixPageHTML(); setNav('prix'); document.title = 'Grille des prix — ' + NOM; drawCharts(); }
     else if (h === '#/marche') { app.innerHTML = marchePageHTML(); setNav('marche'); document.title = 'Marché France — ' + NOM; }
+    else if (h === '#/efficience') { app.innerHTML = efficienceHTML(); setNav('efficience'); document.title = 'Efficience — ' + NOM; }
     else if (h === '#/aides') { app.innerHTML = aidesHTML(); setNav('aides'); document.title = 'Aides publiques \u2014 ' + NOM; }
     else if (h === '#/coulisses') { app.innerHTML = coulissesHTML(); setNav('coulisses'); document.title = 'Les coulisses \u2014 ' + NOM; }
     else if (h === '#/mentions') { app.innerHTML = mentionsHTML(); setNav('mentions'); document.title = 'Mentions légales et méthode — ' + NOM; }
@@ -688,9 +731,9 @@
   document.addEventListener('click', function (ev) { var b = ev.target.closest && ev.target.closest('[data-msel]'); if (b) { MSEL = b.dataset.msel; route(true); } });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche()]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);

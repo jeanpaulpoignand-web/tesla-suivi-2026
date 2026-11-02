@@ -322,3 +322,9 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .mkt-leg{font-size:.78rem;color:var(--soft);margin:8px 0 0}
 .mkey{display:inline-block;width:12px;height:8px;margin:0 4px 0 8px;vertical-align:middle}
 .mkt-more{margin:10px 0 0;font-size:.9rem}
+
+.efficpage .eff-table{margin:18px 0 0}
+.eff-table caption{caption-side:top;text-align:left;font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);padding:0 0 6px}
+.eff-table td.eff-bar{width:26%;min-width:90px;text-align:left;padding-right:10px}
+.ebar{display:block;height:8px;background:var(--ink)}
+.eff-table tbody th{white-space:normal;min-width:150px}

@@ -1,0 +1,36 @@
+[
+  {
+    "date_releve": "2026-11-02T11:30:00+01:00",
+    "source_nom": "Tesla France, consommation d'énergie du véhicule",
+    "source_url": "https://www.tesla.com/fr_fr/support/power-consumption",
+    "tarif": {
+      "nom": "Tarif Bleu EDF, option Heures Creuses, 3 kVA, TTC",
+      "source_url": "https://particulier.edf.fr/content/dam/2-Actifs/Documents/Offres/Grille_prix_Tarif_Bleu.pdf",
+      "prix_hp": 0.2142,
+      "prix_hc": 0.1589,
+      "applicable_depuis": "2026-08-01"
+    },
+    "versions": [
+      {"modele": "Model 3", "version": "Propulsion", "conso_kwh_100km": 12.2, "actuelle": true},
+      {"modele": "Model 3", "version": "Premium Propulsion", "conso_kwh_100km": 13.8, "actuelle": true},
+      {"modele": "Model 3", "version": "Premium Grande Autonomie Propulsion", "conso_kwh_100km": 13.6, "actuelle": true},
+      {"modele": "Model 3", "version": "Premium Grande Autonomie Transmission Intégrale", "conso_kwh_100km": 14.3, "actuelle": true},
+      {"modele": "Model 3", "version": "Performance Transmission Intégrale", "conso_kwh_100km": 15.8, "actuelle": true},
+      {"modele": "Model 3", "version": "Propulsion (2017-2023)", "conso_kwh_100km": 14.4, "actuelle": false},
+      {"modele": "Model 3", "version": "Grande Autonomie (2017-2023)", "conso_kwh_100km": 14.7, "actuelle": false},
+      {"modele": "Model 3", "version": "Performance (2018-2023)", "conso_kwh_100km": 16.5, "actuelle": false},
+      {"modele": "Model Y", "version": "Propulsion", "conso_kwh_100km": 14.0, "actuelle": true},
+      {"modele": "Model Y", "version": "Premium Propulsion", "conso_kwh_100km": 13.9, "actuelle": true},
+      {"modele": "Model Y", "version": "Grande Autonomie, Propulsion", "conso_kwh_100km": 12.7, "actuelle": true},
+      {"modele": "Model Y", "version": "Premium Grande Autonomie Propulsion", "conso_kwh_100km": 14.0, "actuelle": true},
+      {"modele": "Model Y", "version": "Premium Grande Autonomie Transmission Intégrale", "conso_kwh_100km": 15.6, "actuelle": true},
+      {"modele": "Model Y", "version": "Performance Transmission Intégrale", "conso_kwh_100km": 16.2, "actuelle": true},
+      {"modele": "Model Y", "version": "Propulsion (2020-2024)", "conso_kwh_100km": 15.7, "actuelle": false},
+      {"modele": "Model Y", "version": "Grande Autonomie, Propulsion (2020-2024)", "conso_kwh_100km": 15.5, "actuelle": false},
+      {"modele": "Model Y", "version": "Grande Autonomie, transmission intégrale (2020-2024)", "conso_kwh_100km": 16.9, "actuelle": false},
+      {"modele": "Model Y", "version": "Performance (2020-2024)", "conso_kwh_100km": 17.3, "actuelle": false}
+    ],
+    "sources_inaccessibles": [],
+    "remarques": "Consommations lues sur la page Tesla France le 2 novembre 2026 (WLTP combiné). Les onze versions actuelles ont été relues deux fois (1er et 2 novembre). La page ne précise pas si la valeur est mesurée à la prise ou à la batterie. Tarif repris du relevé du 2 novembre (grille PDF EDF applicable au 1er août 2026)."
+  }
+]
