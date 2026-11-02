@@ -14,7 +14,7 @@
   };
   var ROLES = { originale: 'Originale', reprise: 'Reprise', complementaire: 'Complémentaire' };
   var JOURS_FIL = 60;
-  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [] };
+  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [], occasion: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
   var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
@@ -49,6 +49,7 @@
     }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; });
   }
   function loadEfficience() { return fetch('data/efficience.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('efficience : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
+  function loadOccasion() { return fetch('data/occasion.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('occasion : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
   function loadVideos() {
     return fetch('data/videos.json', { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error('videos : HTTP ' + r.status);
@@ -754,11 +755,71 @@ function efficienceHTML() {
       '</section></div>';
   }
 
+  /* === Page « Occasion et décote » — Porte 10 === */
+  function occReleves() {
+    return arr(D.occasion).filter(function (r) { return r && typeof r === 'object' && typeof r.date_releve === 'string' && Array.isArray(r.lignes); })
+      .sort(function (a, b) { return a.date_releve < b.date_releve ? -1 : 1; });
+  }
+  function occNeuf(modele) {
+    var P = arr(D.prix).filter(function (r) { return r && typeof r === 'object' && !isNaN(new Date(r.date_releve)) && arr(r.versions).length && r.statut_lecture !== 'indisponible'; })
+      .sort(function (a, b) { return new Date(a.date_releve) - new Date(b.date_releve); });
+    for (var i = P.length - 1; i >= 0; i--) {
+      var v = arr(P[i].versions).filter(function (x) { return x && x.modele === modele && x.version === 'Propulsion' && typeof x.catalogue_eur === 'number'; })[0];
+      if (v) return { prix: v.catalogue_eur, date: String(P[i].date_releve).slice(0, 10) };
+    }
+    return null;
+  }
+  function eur0(n) { var s = nbFr(n); return s === null ? null : s + ' €'; }
+  function occHTML() {
+    var back = '<a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a>';
+    var RS = occReleves();
+    if (!RS.length) return '<div class="wrap"><section class="arch occpage">' + back + '<h1>Occasion et décote</h1><div class="callout"><strong>Page momentanément indisponible.</strong> Les données d’occasion n’ont pas pu être lues. Rien n’est affiché tant qu’elles ne sont pas disponibles.</div></section></div>';
+    var R = RS[RS.length - 1], PREV = RS.length > 1 ? RS[RS.length - 2] : null;
+    function lignes(rel, modele) {
+      return arr(rel && rel.lignes).filter(function (l) { return l && l.modele === modele && typeof l.annee_modele === 'number' && typeof l.voitures === 'number' && l.voitures > 0 && typeof l.prix_median_eur === 'number'; });
+    }
+    var faible = false;
+    function tableau(modele) {
+      var L = lignes(R, modele).sort(function (a, b) { return b.annee_modele - a.annee_modele; });
+      if (!L.length) return '';
+      var neuf = occNeuf(modele), prevL = PREV ? lignes(PREV, modele) : [];
+      var rows = L.map(function (l) {
+        var peu = l.voitures < 5; if (peu) faible = true;
+        var ecart = (neuf && !peu) ? varPct(l.prix_median_eur, neuf.prix) : null;
+        var p = prevL.filter(function (x) { return x.annee_modele === l.annee_modele; })[0], d = null;
+        if (p) { var dd = l.prix_median_eur - p.prix_median_eur; d = (dd > 0 ? '+' : dd < 0 ? '−' : '') + nbFr(Math.abs(dd)) + ' €'; }
+        return '<tr><th scope="row">' + esc(String(l.annee_modele)) + '</th>' +
+          '<td>' + esc(nbFr(l.voitures)) + (peu ? '<sup title="Moins de 5 voitures : à lire avec prudence">†</sup>' : '') + '</td>' +
+          '<td class="mkt-v">' + (eur0(l.prix_median_eur) ? esc(eur0(l.prix_median_eur)) : '—') + '</td>' +
+          '<td class="mkt-v">' + (ecart || '—') + '</td>' +
+          '<td>' + (typeof l.km_median === 'number' ? esc(nbFr(l.km_median)) + ' km' : '<span class="mkt-nd">non lu</span>') + '</td>' +
+          '<td>' + (typeof l.prix_min_eur === 'number' ? esc(eur0(l.prix_min_eur)) : '<span class="mkt-nd">non lu</span>') + '</td>' +
+          (PREV ? '<td>' + (d || '—') + '</td>' : '') + '</tr>';
+      }).join('');
+      var n = L.reduce(function (s, l) { return s + l.voitures; }, 0);
+      return '<div class="mkt-scroll"><table class="mkt-table eff-table occ-table"><caption>' + esc(modele) + ' <span class="occ-n">' + esc(nbFr(n)) + ' voitures</span></caption><thead><tr><th scope="col">Année</th><th scope="col">Voitures</th><th scope="col">Prix médian</th><th scope="col">Écart avec le neuf</th><th scope="col">Kilométrage médian</th><th scope="col">Prix le plus bas</th>' + (PREV ? '<th scope="col">Depuis le relevé précédent</th>' : '') + '</tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        '<p class="occ-neuf">' + (neuf ? 'Neuf d’entrée de gamme (' + esc(modele) + ' Propulsion) : <b>' + esc(eur0(neuf.prix)) + '</b>, prix catalogue Tesla France avant aides, relevé du ' + esc(fr(neuf.date)) + '.' : 'Prix du neuf : non lu, l’écart n’est pas calculé.') + '</p>';
+    }
+    var t3 = tableau('Model 3'), ty = tableau('Model Y');
+    var src = R.source || {};
+    var date = String(R.date_releve).slice(0, 10);
+    return '<div class="wrap"><section class="arch occpage">' + back + '<h1>Occasion et décote</h1>' +
+      '<p class="lede2">Quand on achète une voiture électrique, on achète aussi sa décote. Cette page suit chaque mois ce que valent les Tesla d’occasion certifiées en France, par rapport au prix du neuf.</p>' +
+      '<details class="mkt-lire" open><summary>Comment lire ces chiffres</summary>' +
+      '<p><b>Ce n’est pas « le marché ».</b> Ce sont les voitures du stock « Occasion certifiée » de Tesla France, aux prix fixés par Tesla. Les ventes entre particuliers et les autres sites d’annonces n’y figurent pas. Ce sont des prix demandés, pas des prix de vente.</p>' +
+      '<p><b>L’écart se calcule avec le prix du neuf d’aujourd’hui</b>, pas avec ce que le premier propriétaire a payé : les prix du neuf ont baissé, une voiture plus ancienne a coûté plus cher neuve. Le prix du neuf utilisé est celui de la version d’entrée de gamme, avant aides, alors que le stock d’occasion mélange plusieurs versions : l’écart est une indication, pas la décote d’une version précise.</p>' +
+      '<p>Le prix médian est celui du milieu : la moitié des voitures coûtent moins, l’autre moitié plus. Quand il y a moins de 5 voitures (signalé par †), le chiffre est fragile et l’écart avec le neuf n’est pas calculé.</p></details>' +
+      (t3 || ty ? t3 + ty : '<p class="mkt-nd">Aucune ligne lue pour l’instant.</p>') +
+      (faible ? '<p class="mkt-note">† Moins de 5 voitures : à lire avec prudence.</p>' : '') +
+      '<p class="mkt-src">Relevé du ' + esc(fr(date)) + (src.date_publication ? ' (publié le ' + esc(fr(src.date_publication)) + ')' : '') + ' : ' + (src.nom ? link(src.url, src.nom) : 'source non précisée') + ', d’après le stock « Occasion certifiée » de Tesla France. Médianes et décomptes tels que publiés par cette source ; écarts calculés par le site. Mise à jour une fois par mois.</p>' +
+      '</section></div>';
+  }
+
   /* ---------- Routage ---------- */
   function setNav(view, theme) {
     document.querySelectorAll('#navlinks a').forEach(function (a) {
       a.removeAttribute('aria-current');
-      if ((view === 'archives' || view === 'prix' || view === 'aides' || view === 'marche' || view === 'efficience') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
+      if ((view === 'archives' || view === 'prix' || view === 'aides' || view === 'marche' || view === 'efficience' || view === 'occasion') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
       if (view === 'home' && !a.dataset.view && (a.dataset.theme || '') === (theme || '')) a.setAttribute('aria-current', 'page');
     });
   }
@@ -769,6 +830,7 @@ function efficienceHTML() {
     else if (h === '#/marche') { app.innerHTML = marchePageHTML(); setNav('marche'); document.title = 'Marché France — ' + NOM; }
     else if (h === '#/efficience') { app.innerHTML = efficienceHTML(); setNav('efficience'); document.title = 'Efficience — ' + NOM; }
     else if (h === '#/methode') { app.innerHTML = methodeHTML(); setNav('methode'); document.title = 'La méthode — ' + NOM; }
+    else if (h === '#/occasion') { app.innerHTML = occHTML(); setNav('occasion'); document.title = 'Occasion et décote — ' + NOM; }
     else if (h === '#/aides') { app.innerHTML = aidesHTML(); setNav('aides'); document.title = 'Aides publiques \u2014 ' + NOM; }
     else if (h === '#/coulisses') { app.innerHTML = coulissesHTML(); setNav('coulisses'); document.title = 'Les coulisses \u2014 ' + NOM; }
     else if (h === '#/mentions') { app.innerHTML = mentionsHTML(); setNav('mentions'); document.title = 'Mentions légales et méthode — ' + NOM; }
@@ -813,9 +875,9 @@ function efficienceHTML() {
   document.addEventListener('click', function (ev) { var b = ev.target.closest && ev.target.closest('[data-msel]'); if (b) { MSEL = b.dataset.msel; route(true); } });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience()]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);

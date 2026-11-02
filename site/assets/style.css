@@ -369,3 +369,11 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .mt-pc dt{font-weight:700;margin-top:8px}
 .mt-pc dd{margin:0 0 4px;color:var(--soft)}
 .mt-fin{margin-top:22px}
+
+/* === Page Occasion et décote === */
+.occ-n{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:8px;font-weight:400}
+.occ-neuf{font-size:15px;color:var(--soft);margin:6px 0 22px;max-width:66ch}
+.occ-table td,.occ-table th{white-space:nowrap}
+.occ-table tbody th{min-width:0}
+.occpage .mkt-lire{margin-bottom:20px}
+@media(max-width:560px){.occ-table th,.occ-table td{padding-left:6px;padding-right:6px}.occ-table td,.occ-table th{font-size:15px}}
