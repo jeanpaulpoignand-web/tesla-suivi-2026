@@ -14,7 +14,7 @@
   };
   var ROLES = { originale: 'Originale', reprise: 'Reprise', complementaire: 'Complémentaire' };
   var JOURS_FIL = 60;
-  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [], occasion: [] };
+  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [], occasion: [], essence: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
   var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
@@ -49,6 +49,7 @@
     }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; });
   }
   function loadEfficience() { return fetch('data/efficience.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('efficience : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
+  function loadEssence() { return fetch('data/essence.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('essence : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
   function loadOccasion() { return fetch('data/occasion.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('occasion : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
   function loadVideos() {
     return fetch('data/videos.json', { cache: 'no-cache' }).then(function (r) {
@@ -814,10 +815,59 @@ function efficienceHTML() {
   }
 
   /* ---------- Routage ---------- */
+  /* === Page « Budget annuel » — Porte 11 === */
+  function budReleve() {
+    var L = arr(D.essence).filter(function (r) { return r && typeof r === 'object' && typeof r.date_releve === 'string' && Array.isArray(r.references) && r.carburant && typeof r.carburant.prix_eur_litre === 'number'; })
+      .sort(function (a, b) { return a.date_releve < b.date_releve ? -1 : 1; });
+    return L.length ? L[L.length - 1] : null;
+  }
+  function budArrondi(n) { return Math.round(n / 10) * 10; }
+  function budEur(n) { return nbFr(Math.abs(n)) + ' €'; }
+  function budPlage(a, b) { return 'environ ' + nbFr(Math.abs(a)) + ' à ' + budEur(b); }
+  function budPeriode(t) { var m = /^semaine du (\d{4}-\d{2}-\d{2})$/.exec(String(t || '')); return m ? 'semaine du ' + fr(m[1]) : String(t || ''); }
+  function budFr1(n) { return new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 2 }).format(n); }
+  function budHTML_bloc(modele, cat, E, ER, KM) {
+    var T = ER.tarif || {}, hc = T.prix_hc, hp = T.prix_hp;
+    var ver = arr(ER.versions).filter(function (v) { return v && v.modele === modele && v.version === 'Propulsion' && v.actuelle !== false && typeof v.conso_kwh_100km === 'number' && v.conso_kwh_100km > 0; })[0];
+    var refs = arr(E.references).filter(function (x) { return x && x.comparable_a === modele && typeof x.conso_min_l_100km === 'number' && typeof x.conso_max_l_100km === 'number'; });
+    if (!ver || typeof hc !== 'number' || typeof hp !== 'number' || refs.length < 3) return '';
+    var prix = E.carburant.prix_eur_litre, kwh = ver.conso_kwh_100km * KM / 100;
+    var eC = kwh * hc, eP = kwh * hp;
+    var lo = Math.min.apply(null, refs.map(function (x) { return x.conso_min_l_100km; })), hi = Math.max.apply(null, refs.map(function (x) { return x.conso_max_l_100km; }));
+    var oL = lo * KM / 100 * prix, oH = hi * KM / 100 * prix;
+    return '<div class="mkt-scroll"><table class="mkt-table bud-table"><caption>' + esc(modele) + ' face ' + esc(cat) + '</caption><tbody>' +
+      '<tr><th scope="row">Tesla ' + esc(modele) + ' Propulsion, recharge à la maison</th><td class="mkt-v">' + esc(budPlage(budArrondi(eC), budArrondi(eP))) + '</td></tr>' +
+      '<tr><th scope="row">Voitures essence comparables (' + esc(budFr1(lo)) + ' à ' + esc(budFr1(hi)) + ' l/100 km)</th><td class="mkt-v">' + esc(budPlage(budArrondi(oL), budArrondi(oH))) + '</td></tr>' +
+      '<tr><th scope="row"><strong>Écart par an, ordre de grandeur</strong></th><td class="mkt-v"><strong>' + esc(budPlage(budArrondi(oL - eP), budArrondi(oH - eC))) + '</strong></td></tr>' +
+      '</tbody></table></div>';
+  }
+  function budRefs(E, modele) {
+    var rows = arr(E.references).filter(function (x) { return x && x.comparable_a === modele && x.marque && x.modele; })
+      .sort(function (a, b) { return a.conso_min_l_100km - b.conso_min_l_100km; })
+      .map(function (x) { return '<tr><th scope="row">' + esc(x.marque + ' ' + x.modele) + '</th><td>' + esc(budFr1(x.conso_min_l_100km)) + ' à ' + esc(budFr1(x.conso_max_l_100km)) + '</td><td>' + (typeof x.prix_catalogue_eur === 'number' ? esc(budEur(x.prix_catalogue_eur)) : '—') + '</td></tr>'; }).join('');
+    return rows ? '<div class="mkt-scroll"><table class="mkt-table bud-refs"><caption>Pour comparer à la Model ' + esc(modele.replace('Model ', '')) + '</caption><thead><tr><th scope="col">Voiture</th><th scope="col">l/100 km</th><th scope="col">Prix catalogue</th></tr></thead><tbody>' + rows + '</tbody></table></div>' : '';
+  }
+  function budgetHTML() {
+    var back = '<a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a>';
+    var E = budReleve(), ER = effReleve(), KM = 10000;
+    var b3 = E && ER ? budHTML_bloc('Model 3', 'aux berlines et compactes essence', E, ER, KM) : '';
+    var bY = E && ER ? budHTML_bloc('Model Y', 'aux SUV essence', E, ER, KM) : '';
+    if (!b3 || !bY) return '<div class="wrap"><section class="arch budpage">' + back + '<h1>Budget annuel</h1><div class="callout"><strong>Page momentanément indisponible.</strong> Les données nécessaires n’ont pas pu être lues. Rien n’est affiché tant qu’elles ne sont pas complètes.</div></section></div>';
+    var C = E.carburant, T = ER.tarif || {};
+    return '<div class="wrap"><section class="arch budpage">' + back + '<h1>Budget annuel</h1>' +
+      '<p class="lede2">Combien coûte l’énergie pour rouler ' + esc(nbFr(KM)) + ' km par an ? Une Tesla rechargée à la maison, face à des voitures essence de la même catégorie. Un ordre de grandeur, pas un chiffre exact.</p>' +
+      '<details class="mkt-lire" open><summary>Comment lire ces chiffres</summary>' +
+      '<p><b>Ce que la page compte.</b> Seulement l’énergie : l’électricité pour la Tesla, le carburant pour l’essence. Ni l’assurance, ni l’entretien, ni le prix d’achat, ni les aides, ni le malus.</p>' +
+      '<p><b>Hypothèses.</b> ' + esc(nbFr(KM)) + ' km par an. La Tesla est toujours rechargée à la maison, au tarif d’EDF, en heures creuses ou en heures pleines. Les pertes à la recharge et les bornes publiques, plus chères, ne sont pas comptées : le coût réel de l’électricité sera un peu plus élevé.</p>' +
+      '<p><b>Pourquoi une fourchette pour l’essence.</b> Toutes les voitures d’une même catégorie ne consomment pas pareil. Le bas de la fourchette est la consommation officielle la plus basse parmi les voitures retenues, le haut la plus élevée. Les consommations officielles (norme WLTP) sont des valeurs de laboratoire ; en usage réel, elles varient pour les deux types de voitures.</p></details>' +
+      b3 + budRefs(E, 'Model 3') + bY + budRefs(E, 'Model Y') +
+      '<p class="mkt-src">Électricité : ' + link(T.source_url, T.nom || 'Tarif Bleu EDF') + ' (heures creuses ' + esc(String(T.prix_hc).replace('.', ',')) + ' €, heures pleines ' + esc(String(T.prix_hp).replace('.', ',')) + ' € le kWh) ; consommations Tesla : voir la page Efficience, version Propulsion. Carburant : ' + esc(C.produit) + ' à ' + esc(String(C.prix_eur_litre).replace('.', ',')) + ' € le litre, ' + esc(budPeriode(C.periode)) + ', ' + link(C.source_url, C.source_nom || 'prix moyens nationaux') + '. Voitures retenues parmi les mieux vendues en France en 2025 (' + link(E.classement && E.classement.source_url, 'classement PFA / AAA Data') + '), consommations ADEME et tarifs constructeurs. Calculs faits par le site, arrondis à 10 €. Relevé du ' + esc(fr(String(E.date_releve).slice(0, 10))) + '.</p>' +
+      '</section></div>';
+  }
   function setNav(view, theme) {
     document.querySelectorAll('#navlinks a').forEach(function (a) {
       a.removeAttribute('aria-current');
-      if ((view === 'archives' || view === 'prix' || view === 'aides' || view === 'marche' || view === 'efficience' || view === 'occasion') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
+      if ((view === 'archives' || view === 'prix' || view === 'aides' || view === 'marche' || view === 'efficience' || view === 'occasion' || view === 'budget') && a.dataset.view === view) a.setAttribute('aria-current', 'page');
       if (view === 'home' && !a.dataset.view && (a.dataset.theme || '') === (theme || '')) a.setAttribute('aria-current', 'page');
     });
   }
@@ -829,6 +879,7 @@ function efficienceHTML() {
     else if (h === '#/efficience') { app.innerHTML = efficienceHTML(); setNav('efficience'); document.title = 'Efficience — ' + NOM; }
     else if (h === '#/methode') { app.innerHTML = methodeHTML(); setNav('methode'); document.title = 'La méthode — ' + NOM; }
     else if (h === '#/occasion') { app.innerHTML = occHTML(); setNav('occasion'); document.title = 'Occasion certifiée — ' + NOM; }
+    else if (h === '#/budget') { app.innerHTML = budgetHTML(); setNav('budget'); document.title = 'Budget annuel — ' + NOM; }
     else if (h === '#/aides') { app.innerHTML = aidesHTML(); setNav('aides'); document.title = 'Aides publiques \u2014 ' + NOM; }
     else if (h === '#/coulisses') { app.innerHTML = coulissesHTML(); setNav('coulisses'); document.title = 'Les coulisses \u2014 ' + NOM; }
     else if (h === '#/mentions') { app.innerHTML = mentionsHTML(); setNav('mentions'); document.title = 'Mentions légales et méthode — ' + NOM; }
@@ -873,9 +924,9 @@ function efficienceHTML() {
   document.addEventListener('click', function (ev) { var b = ev.target.closest && ev.target.closest('[data-msel]'); if (b) { MSEL = b.dataset.msel; route(true); } });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion()]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8]; D.essence = r[9];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);
