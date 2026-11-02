@@ -25,6 +25,8 @@ jobs:
           mkdir -p _site/data
           cp -R site/. _site/
           cp -R data/. _site/data/
+          sed -i "s/__V__/${GITHUB_SHA::7}/g" _site/index.html
+          if grep -q "__V__" _site/index.html; then echo "marqueur de version non remplacé"; exit 1; fi
           touch _site/.nojekyll
       - name: Préparer GitHub Pages
         uses: actions/configure-pages@v5
