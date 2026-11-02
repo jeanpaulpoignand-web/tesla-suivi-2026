@@ -377,3 +377,14 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .occ-table tbody th{min-width:0}
 .occpage .mkt-lire{margin-bottom:20px}
 @media(max-width:560px){.occ-table th,.occ-table td{padding-left:6px;padding-right:6px}.occ-table td,.occ-table th{font-size:15px}}
+/* Budget annuel (Porte 11) */
+.budpage .bud-table{margin:22px 0 0}
+.bud-table caption,.bud-refs caption{caption-side:top;text-align:left;font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);padding:0 0 6px}
+.bud-table tbody th{white-space:normal;min-width:0;font-weight:400}
+.bud-table td{white-space:nowrap}
+.budpage .bud-refs{margin:10px 0 0;font-size:15px;color:var(--soft)}
+.bud-refs caption{font-size:1rem;color:var(--muted)}
+@media(max-width:560px){.bud-table td{white-space:normal}}
+.bud-refs tbody th{white-space:normal;min-width:0}
+.bud-refs td{white-space:nowrap}
+@media(max-width:560px){.bud-refs th,.bud-refs td{padding-left:6px;padding-right:6px;font-size:14.5px}}
