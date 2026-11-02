@@ -230,9 +230,9 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .retenir li.card{min-width:0}
 
 /* Colonne Videos */
-.layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"vid" "ret" "fab" "feed" "aside"}
+.layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"vid" "ret" "fab" "mkt" "feed" "aside"}
 .layout>.vids{grid-area:vid}.layout>.retenir{grid-area:ret;min-width:0}.layout>.fab{grid-area:fab;min-width:0}.layout>.feed{grid-area:feed;min-width:0}.layout>.aside{grid-area:aside}
-@media(min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"ret vid" "fab vid" "feed vid" "feed aside";grid-template-rows:auto auto auto 1fr;gap:0 56px}.aside{position:static}.layout>.retenir{margin-bottom:40px}.vids{margin-top:20px}.layout>.retenir .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.layout>.retenir li.card{padding:16px 14px}.layout>.retenir .ctitle{font-size:18px}.layout>.retenir .cc{font-size:15px}}
+@media(min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"ret vid" "fab vid" "mkt vid" "feed vid" "feed aside";grid-template-rows:auto auto auto auto 1fr;gap:0 56px}.aside{position:static}.layout>.retenir{margin-bottom:40px}.vids{margin-top:20px}.layout>.retenir .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.layout>.retenir li.card{padding:16px 14px}.layout>.retenir .ctitle{font-size:18px}.layout>.retenir .cc{font-size:15px}}
 .vids{border-top:2px solid var(--ink);padding-top:20px;margin-bottom:34px;min-width:0}
 .vids h2{font-family:var(--serif);font-size:30px;margin-bottom:16px}
 .vlist{display:flex;flex-direction:column;gap:26px}
@@ -293,3 +293,18 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .fab-titre{display:block;color:var(--ink);font-weight:600;margin:2px 0 4px;text-decoration:none;overflow-wrap:anywhere}
 .fab-titre:hover{text-decoration:underline}
 .fab-note{font-size:.78rem;color:var(--soft);margin:10px 0 0;border-top:1px solid var(--line);padding-top:8px}
+
+/* === Bloc Marché France — Porte 7 === */
+.layout>.mkt{grid-area:mkt;min-width:0}
+.mkt{background:var(--paper2);border:1px solid var(--line);padding:16px 18px;margin:0 0 20px}
+.mkt h2{font-family:var(--serif);font-size:1.35rem;margin:0 0 10px;color:var(--ink)}
+.mkt-scroll{overflow-x:auto}
+.mkt-table{width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
+.mkt-table th,.mkt-table td{padding:8px 6px;text-align:right;border-top:1px solid var(--faint);white-space:nowrap}
+.mkt-table thead th{font-size:.74rem;font-weight:600;color:var(--muted);border-top:0;white-space:normal;vertical-align:bottom}
+.mkt-table tbody th{text-align:left;font-weight:600;color:var(--ink)}
+.mkt-v{font-weight:600;color:var(--ink)}
+.mkt-nd{color:var(--muted);font-style:italic}
+.mkt-src,.mkt-note{font-size:.78rem;color:var(--soft);margin:10px 0 0}
+.mkt-lire{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;font-size:.85rem;color:var(--soft)}
+.mkt-lire summary{cursor:pointer;font-weight:600;color:var(--ink)}

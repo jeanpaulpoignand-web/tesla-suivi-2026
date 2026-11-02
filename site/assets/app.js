@@ -14,7 +14,7 @@
   };
   var ROLES = { originale: 'Originale', reprise: 'Reprise', complementaire: 'Complémentaire' };
   var JOURS_FIL = 60;
-  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [] };
+  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
   var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
@@ -39,6 +39,14 @@
   /* ---------- Données ---------- */
   function loadAides() {
     return fetch('data/aides.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { return j && typeof j === 'object' && !Array.isArray(j) ? j : null; }).catch(function () { return null; });
+  }
+
+  /* === Bloc « Marché France » — Porte 7 === */
+  function loadMarche() {
+    return fetch('data/marche.json', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('marche : HTTP ' + r.status);
+      return r.json();
+    }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; });
   }
   function loadVideos() {
     return fetch('data/videos.json', { cache: 'no-cache' }).then(function (r) {
@@ -209,6 +217,51 @@
       '<p class="fab-note">Annonces officielles hors France : aucune disponibilité ni aucun prix en France n\'est sous-entendu.</p></section>';
   }
 
+
+  /* === Bloc « Marché France » — Porte 7 === */
+  function nbFr(n) { return typeof n === 'number' && isFinite(n) ? new Intl.NumberFormat('fr-FR').format(n) : null; }
+  function varPct(a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number' || !isFinite(a) || !isFinite(b) || b <= 0) return null;
+    var p = (a / b - 1) * 100;
+    return (p >= 0 ? '+' : '−') + Math.abs(p).toFixed(1).replace('.', ',') + ' %';
+  }
+  function marcheLignes() {
+    var L = arr(D.marche).filter(function (m) { return m && typeof m === 'object' && /^\d{4}-\d{2}$/.test(String(m.mois || '')) && m.modele; });
+    if (!L.length) return null;
+    var dernier = L.map(function (m) { return m.mois; }).sort().pop();
+    var ordre = { 'Tesla total': 0, 'Model Y': 1, 'Model 3': 2 };
+    var rows = L.filter(function (m) { return m.mois === dernier; }).sort(function (a, b) {
+      return (ordre[a.modele] === undefined ? 9 : ordre[a.modele]) - (ordre[b.modele] === undefined ? 9 : ordre[b.modele]);
+    });
+    return { mois: dernier, rows: rows };
+  }
+  function marcheHTML() {
+    var M = marcheLignes();
+    if (!M) return '';
+    var p = M.mois.split('-'), titreMois = MOIS[parseInt(p[1], 10) - 1] + ' ' + p[0];
+    function c(v) { var s = nbFr(v); return s === null ? '<span class="mkt-nd">non lu</span>' : s; }
+    var lignes = M.rows.map(function (m) {
+      var v1 = varPct(m.immatriculations, m.immatriculations_meme_mois_annee_precedente);
+      var v2 = varPct(m.cumul_annee, m.cumul_annee_precedente);
+      return '<tr><th scope="row">' + esc(m.modele) + '</th>' +
+        '<td>' + c(m.immatriculations) + '</td>' +
+        '<td>' + c(m.immatriculations_meme_mois_annee_precedente) + '</td>' +
+        '<td class="mkt-v">' + (v1 || '—') + '</td>' +
+        '<td>' + c(m.cumul_annee) + '</td>' +
+        '<td class="mkt-v">' + (v2 || '—') + '</td></tr>';
+    }).join('');
+    var rs = M.rows.filter(function (m) { return m.source && m.source.nom; })[0], src = rs ? rs.source : null, notes = [];
+    M.rows.forEach(function (m) { if (m.note && notes.indexOf(m.note) < 0) notes.push(m.note); });
+    return '<section class="mkt" aria-labelledby="mkt-h"><h2 id="mkt-h">Marché France · ' + esc(titreMois) + '</h2>' +
+      '<div class="mkt-scroll"><table class="mkt-table"><thead><tr><th scope="col"><span class="sr">Modèle</span></th>' +
+      '<th scope="col">Immatriculations du mois</th><th scope="col">Même mois, an dernier</th><th scope="col">Écart</th>' +
+      '<th scope="col">Cumul depuis janvier</th><th scope="col">Écart cumul</th></tr></thead><tbody>' + lignes + '</tbody></table></div>' +
+      '<p class="mkt-src">Écarts calculés par le site à partir des deux chiffres affichés. Source : ' +
+      (src ? link(src.url, src.nom) + (src.date ? ' (' + esc(fr(src.date)) + ')' : '') : 'non précisée') + '.</p>' +
+      (notes.length ? '<p class="mkt-note">' + notes.map(esc).join(' ') + '</p>' : '') +
+      '<details class="mkt-lire"><summary>Comment lire ces chiffres</summary><p>Une immatriculation, c’est une voiture neuve enregistrée en France (la carte grise). Ce n’est ni une commande ni une livraison. Tesla livre beaucoup en fin de trimestre : comparez toujours avec le même mois de l’an dernier. L’année 2025 ayant été difficile pour Tesla en France, une forte hausse en pourcentage ne veut pas dire un niveau record.</p></details></section>';
+  }
+
   function homeHTML() {
     var counts = {};
     D.entrees.filter(inFeed).forEach(function (e) { counts[e.theme] = (counts[e.theme] || 0) + 1; });
@@ -220,7 +273,7 @@
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
     return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + SILH + stripHTML() + veilleHTML() + '</section>' +
-      '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + videosHTML() + '<div class="feed">' +
+      '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + marcheHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<form class="searchrow" id="sform" role="search"><label class="sr" for="q">Rechercher dans la veille</label><span class="sbox"><input class="search" id="q" type="search" enterkeyhint="search" placeholder="Rechercher : prix, FSD, calculateur\u2026" value="' + esc(F.q) + '" autocomplete="off"><button class="qclear" type="button" id="qclear" aria-label="Effacer la recherche">\u00d7</button></span><button class="btn-s" type="submit">Rechercher</button></form>' +
       '<div class="chips" role="group" aria-label="Filtrer par thème">' + chips + '</div>' +
@@ -570,9 +623,9 @@
   });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides()]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);

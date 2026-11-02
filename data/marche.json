@@ -1,0 +1,17 @@
+[
+  {
+    "mois": "2026-10",
+    "modele": "Tesla total",
+    "immatriculations": 2410,
+    "immatriculations_meme_mois_annee_precedente": 1782,
+    "cumul_annee": 47609,
+    "cumul_annee_precedente": 21927,
+    "source": {
+      "nom": "PFA — Flash marché octobre 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/11/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-10-31"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  }
+]
