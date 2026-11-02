@@ -13,5 +13,395 @@
     },
     "statut": "Confirmé",
     "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-01",
+    "modele": "Tesla total",
+    "immatriculations": 661,
+    "immatriculations_meme_mois_annee_precedente": 1141,
+    "cumul_annee": 661,
+    "cumul_annee_precedente": 1141,
+    "source": {
+      "nom": "PFA - Flash marche mensuel janvier 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/02/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-02-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-01",
+    "modele": "Model Y",
+    "immatriculations": 613,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 613,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse janvier 2026, Top 100 VP France janvier a janvier 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/02/Dossier-de-presse-PFA.pdf",
+      "date": "2026-02-01"
+    },
+    "statut": "Confirmé",
+    "note": "Volume de janvier lu dans le Top 100 VP PFA (AAA Data)."
+  },
+  {
+    "mois": "2026-02",
+    "modele": "Tesla total",
+    "immatriculations": 3715,
+    "immatriculations_meme_mois_annee_precedente": 2395,
+    "cumul_annee": 4376,
+    "cumul_annee_precedente": 3536,
+    "source": {
+      "nom": "PFA - Flash marche mensuel fevrier 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/03/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-03-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-02",
+    "modele": "Model Y",
+    "immatriculations": 3034,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 3647,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse fevrier 2026, Top 100 VP France janvier a fevrier 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/03/Dossier-de-presse-PFA.pdf",
+      "date": "2026-03-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-02",
+    "modele": "Model 3",
+    "immatriculations": null,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 700,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse fevrier 2026, Top 100 VP France janvier a fevrier 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/03/Dossier-de-presse-PFA.pdf",
+      "date": "2026-03-01"
+    },
+    "statut": "Confirmé",
+    "note": "Cumul lu dans le Top 100 VP PFA (AAA Data) ; mois non lu."
+  },
+  {
+    "mois": "2026-03",
+    "modele": "Tesla total",
+    "immatriculations": 9569,
+    "immatriculations_meme_mois_annee_precedente": 3157,
+    "cumul_annee": 13945,
+    "cumul_annee_precedente": 6693,
+    "source": {
+      "nom": "PFA - Flash marche mensuel mars 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/04/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-04-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-03",
+    "modele": "Model Y",
+    "immatriculations": 7023,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 10670,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse mars 2026, Top 100 VP France janvier a mars 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/04/Dossier-de-presse-PFA.pdf",
+      "date": "2026-04-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-03",
+    "modele": "Model 3",
+    "immatriculations": 2525,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 3225,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse mars 2026, Top 100 VP France janvier a mars 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/04/Dossier-de-presse-PFA.pdf",
+      "date": "2026-04-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-04",
+    "modele": "Tesla total",
+    "immatriculations": 1829,
+    "immatriculations_meme_mois_annee_precedente": 863,
+    "cumul_annee": 15774,
+    "cumul_annee_precedente": 7556,
+    "source": {
+      "nom": "PFA - Flash marche mensuel avril 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/05/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-05-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-04",
+    "modele": "Model Y",
+    "immatriculations": 1456,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 12126,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse avril 2026, Top 100 VP France janvier a avril 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/05/Dossier-de-presse-PFA.pdf",
+      "date": "2026-05-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-04",
+    "modele": "Model 3",
+    "immatriculations": 367,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 3592,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse avril 2026, Top 100 VP France janvier a avril 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/05/Dossier-de-presse-PFA.pdf",
+      "date": "2026-05-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-05",
+    "modele": "Tesla total",
+    "immatriculations": 5446,
+    "immatriculations_meme_mois_annee_precedente": 721,
+    "cumul_annee": 21220,
+    "cumul_annee_precedente": 8277,
+    "source": {
+      "nom": "PFA - Flash marche mensuel mai 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/06/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-06-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-05",
+    "modele": "Model Y",
+    "immatriculations": 3874,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 16000,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse mai 2026, Top 100 VP France janvier a mai 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/06/Dossier-de-presse-PFA.pdf",
+      "date": "2026-06-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-05",
+    "modele": "Model 3",
+    "immatriculations": 1561,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 5153,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse mai 2026, Top 100 VP France janvier a mai 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/06/Dossier-de-presse-PFA.pdf",
+      "date": "2026-06-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-06",
+    "modele": "Tesla total",
+    "immatriculations": 7474,
+    "immatriculations_meme_mois_annee_precedente": 3646,
+    "cumul_annee": 28694,
+    "cumul_annee_precedente": 11923,
+    "source": {
+      "nom": "PFA - Flash marche mensuel juin 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/07/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-07-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-06",
+    "modele": "Model Y",
+    "immatriculations": 6635,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 22635,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse juin 2026, Top 100 VP France janvier a juin 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/07/Dossier-de-presse-PFA.pdf",
+      "date": "2026-07-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-06",
+    "modele": "Model 3",
+    "immatriculations": 832,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 5985,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse juin 2026, Top 100 VP France janvier a juin 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/07/Dossier-de-presse-PFA.pdf",
+      "date": "2026-07-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-07",
+    "modele": "Tesla total",
+    "immatriculations": 2429,
+    "immatriculations_meme_mois_annee_precedente": 1307,
+    "cumul_annee": 31123,
+    "cumul_annee_precedente": 13230,
+    "source": {
+      "nom": "PFA - Flash marche mensuel juillet 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/08/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-08-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-07",
+    "modele": "Model Y",
+    "immatriculations": 2401,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 25036,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse juillet 2026, Top 100 VP France janvier a juillet 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/08/Dossier-de-presse-PFA.pdf",
+      "date": "2026-08-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-07",
+    "modele": "Model 3",
+    "immatriculations": 23,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 6008,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse juillet 2026, Top 100 VP France janvier a juillet 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/08/Dossier-de-presse-PFA.pdf",
+      "date": "2026-08-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-08",
+    "modele": "Tesla total",
+    "immatriculations": 5038,
+    "immatriculations_meme_mois_annee_precedente": 1331,
+    "cumul_annee": 36161,
+    "cumul_annee_precedente": 14561,
+    "source": {
+      "nom": "PFA - Flash marche mensuel aout 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/09/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-09-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-08",
+    "modele": "Model Y",
+    "immatriculations": 4622,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 29658,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse aout 2026, Top 100 VP France janvier a aout 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/09/Dossier-de-presse-PFA.pdf",
+      "date": "2026-09-01"
+    },
+    "statut": "Confirmé",
+    "note": "Volume mensuel confirmé par AAA Data ; cumul issu du Top 100 PFA."
+  },
+  {
+    "mois": "2026-08",
+    "modele": "Model 3",
+    "immatriculations": 415,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 6423,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse aout 2026, Top 100 VP France janvier a aout 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/09/Dossier-de-presse-PFA.pdf",
+      "date": "2026-09-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
+  },
+  {
+    "mois": "2026-09",
+    "modele": "Tesla total",
+    "immatriculations": 9038,
+    "immatriculations_meme_mois_annee_precedente": 5584,
+    "cumul_annee": 45199,
+    "cumul_annee_precedente": 20145,
+    "source": {
+      "nom": "PFA - Flash marche mensuel septembre 2026",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/10/Flash-Marche-publication-mensuelle-PFA.pdf",
+      "date": "2026-10-01"
+    },
+    "statut": "Confirmé",
+    "note": "Chiffres provisoires du flash PFA, voitures particulières neuves."
+  },
+  {
+    "mois": "2026-09",
+    "modele": "Model Y",
+    "immatriculations": 8183,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 37841,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse septembre 2026, Top 100 VP France janvier a septembre 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/10/Dossier-de-presse-PFA.pdf",
+      "date": "2026-10-01"
+    },
+    "statut": "Confirmé",
+    "note": "Volume mensuel confirmé par AAA Data ; cumul issu du Top 100 PFA."
+  },
+  {
+    "mois": "2026-09",
+    "modele": "Model 3",
+    "immatriculations": 855,
+    "immatriculations_meme_mois_annee_precedente": null,
+    "cumul_annee": 7278,
+    "cumul_annee_precedente": null,
+    "source": {
+      "nom": "PFA - Dossier de presse septembre 2026, Top 100 VP France janvier a septembre 2026 (donnees AAA Data)",
+      "url": "https://pfa-auto.fr/wp-content/uploads/2026/10/Dossier-de-presse-PFA.pdf",
+      "date": "2026-10-01"
+    },
+    "statut": "Calculé (cumuls source originale)",
+    "note": "Calculé : différence de cumuls publiés."
   }
 ]

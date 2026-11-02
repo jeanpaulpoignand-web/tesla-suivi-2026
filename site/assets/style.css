@@ -308,3 +308,17 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .mkt-src,.mkt-note{font-size:.78rem;color:var(--soft);margin:10px 0 0}
 .mkt-lire{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;font-size:.85rem;color:var(--soft)}
 .mkt-lire summary{cursor:pointer;font-weight:600;color:var(--ink)}
+
+/* === Page Marché — Porte 8 === */
+.marchepage .mselrow{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 12px}
+.msel{font:inherit;font-size:.9rem;padding:8px 14px;border:1px solid var(--line);background:var(--paper2);color:var(--ink);border-radius:999px;cursor:pointer;min-height:40px}
+.msel.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.mkt-syn{margin:8px 0 12px;font-size:.95rem;color:var(--soft)}
+.mkt-annee td.mbars{width:34%;min-width:120px;text-align:left;padding-right:10px}
+.mbar{display:block;height:8px;margin:2px 0}
+.m-a{background:var(--ink)}
+.m-b{background:var(--line)}
+.mvide th,.mvide td{color:var(--muted)}
+.mkt-leg{font-size:.78rem;color:var(--soft);margin:8px 0 0}
+.mkey{display:inline-block;width:12px;height:8px;margin:0 4px 0 8px;vertical-align:middle}
+.mkt-more{margin:10px 0 0;font-size:.9rem}
