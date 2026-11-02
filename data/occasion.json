@@ -1,0 +1,107 @@
+[
+  {
+    "schema": "tesla-occasion-v1",
+    "date_releve": "2026-10-27T00:00:00+01:00",
+    "mois": "2026-10",
+    "source": {
+      "nom": "Tesla Mag, relevé du stock Occasion certifiée de Tesla France",
+      "url": "https://www.tesla-mag.com/tesla-occasion-certifiee-prix-releve-fin-octobre-2026/",
+      "date_publication": "2026-10-29",
+      "role": "reprise",
+      "origine": "Stock « Occasion certifiée » de Tesla France (tesla.com/fr_fr/inventory/used)"
+    },
+    "total_voitures": 343,
+    "lignes": [
+      {
+        "modele": "Model 3",
+        "annee_modele": 2021,
+        "voitures": 59,
+        "prix_min_eur": 23900,
+        "prix_median_eur": 27800,
+        "km_median": 66098
+      },
+      {
+        "modele": "Model 3",
+        "annee_modele": 2022,
+        "voitures": 26,
+        "prix_min_eur": 26700,
+        "prix_median_eur": 30300,
+        "km_median": 48214
+      },
+      {
+        "modele": "Model 3",
+        "annee_modele": 2023,
+        "voitures": 81,
+        "prix_min_eur": 27600,
+        "prix_median_eur": 31500,
+        "km_median": 44320
+      },
+      {
+        "modele": "Model 3",
+        "annee_modele": 2024,
+        "voitures": 31,
+        "prix_min_eur": 32400,
+        "prix_median_eur": 35900,
+        "km_median": 40084
+      },
+      {
+        "modele": "Model 3",
+        "annee_modele": 2025,
+        "voitures": 3,
+        "prix_min_eur": 36900,
+        "prix_median_eur": 37900,
+        "km_median": 33734
+      },
+      {
+        "modele": "Model 3",
+        "annee_modele": 2026,
+        "voitures": 2,
+        "prix_min_eur": 38400,
+        "prix_median_eur": 39300,
+        "km_median": 13261
+      },
+      {
+        "modele": "Model Y",
+        "annee_modele": 2021,
+        "voitures": 1,
+        "prix_min_eur": 35000,
+        "prix_median_eur": 35000,
+        "km_median": 64126
+      },
+      {
+        "modele": "Model Y",
+        "annee_modele": 2022,
+        "voitures": 12,
+        "prix_min_eur": 34300,
+        "prix_median_eur": 36950,
+        "km_median": 46384
+      },
+      {
+        "modele": "Model Y",
+        "annee_modele": 2023,
+        "voitures": 47,
+        "prix_min_eur": 29700,
+        "prix_median_eur": 33400,
+        "km_median": 51826
+      },
+      {
+        "modele": "Model Y",
+        "annee_modele": 2024,
+        "voitures": 65,
+        "prix_min_eur": 30700,
+        "prix_median_eur": 36200,
+        "km_median": 32747
+      },
+      {
+        "modele": "Model Y",
+        "annee_modele": 2025,
+        "voitures": 12,
+        "prix_min_eur": 35600,
+        "prix_median_eur": 39700,
+        "km_median": 24499
+      }
+    ],
+    "sources_inaccessibles": [],
+    "remarques": "Source lue le 2026-11-02 (WebFetch, page lisible). Relevé Tesla Mag fait dans la nuit du 26 au 27 octobre 2026 (entre 23 h 30 et 0 h 30), publié le 29 octobre 2026. Chiffres repris tels que publiés : colonnes « Voitures », « Prix le plus bas », « Prix médian », « Kilométrage médian » ; les valeurs entre parenthèses (relevé du 19/10) ne sont pas reprises. total_voitures = 343 tous modèles (dont 202 Model 3, 137 Model Y, 2 Model S, 2 Model X selon la source). Model S et Model X exclus. Pas de ligne Model Y 2026 : la source indique « Il n'y avait plus de Model Y 2026 au moment du relevé ». Médianes et comptes = calculs Tesla Mag (selon la source). Aucun chiffre différent de l'exemple du prompt (343 ; Model 3 2023 = 81 / 27600 / 31500 / 44320 confirmés)."
+  }
+]
