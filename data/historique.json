@@ -23,5 +23,20 @@
     },
     "motif": "Lettonie déjà mentionnée dans l’entrée : correction sur preuve officielle, sans doublon ni nouvel identifiant pour ce fait. Porte 5c : titre limité au fait letton officiel ; total de dix pays attribué à la presse ; retour au statut Confirmé ; date du 10 avril = date du communiqué RDW, sans datation précise de la délivrance. Porte 5e : unification entre l'état public antérieur et l'état final ; retrait des désignations non établies par le RDW.",
     "source_url": "https://www.rdw.nl/en/news/2026/rdw-explanation-of-european-type-approval-tesla-with-provisional-validity-in-the-netherlands"
+  },
+  {
+    "date": "2026-11-03",
+    "id_entree": "2026-11-03-rappel-model-3-sr-02850-26-choc-lateral",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "Rappel Tesla Model 3 SR/02850/26 : protection insuffisante lors d'un choc latéral contre un poteau",
+      "statut": "Confirmé"
+    },
+    "motif": "Porte 5d V1.1, reprise du lot presse 03/11 : nouvelle entrée, preuve officielle RappelConso 50104 et page Tesla France sur le correctif ONU R135. Proposition soumise à audit Claude, non fusionnée. Période de produit non requalifiée en dates de production ; nombre France non indiqué.",
+    "source_url": "https://rappel.conso.gouv.fr/fiche-rappel/50104/rapex"
   }
 ]
