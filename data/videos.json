@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=f5wxIgb1rgA",
+      "titre": "Créez votre Lightshow TESLA personnalisé en moins de 30 secondes ! Grâce à @JowuaGlobal",
+      "chaine": "TESLA Geek",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "f5wxIgb1rgA",
+      "date_publication": "2026-11-01"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=03x-gQjru4A",
       "titre": "Dormir dans sa Tesla : test du matelas gonflable Havnby (Model 3/Y)",
       "chaine": "Tesla Burger",
@@ -62,15 +71,6 @@
       "mot_cle": "général",
       "id_video": "-QjvKLZiZeU",
       "date_publication": "2026-10-16"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=-2MmgWln6-U",
-      "titre": "TESLA, IL MANQUE ÇA ! (pour une voiture parfaite!)",
-      "chaine": "TESLA Geek",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "-2MmgWln6-U",
-      "date_publication": "2026-10-15"
     },
     {
       "url": "https://www.youtube.com/watch?v=OdNb7ZknFkI",
