@@ -787,8 +787,8 @@
     ],
     "hardware": null,
     "territoire": "France (fiche RappelConso issue du système européen Safety Gate)",
-    "resume": "La fiche officielle RappelConso SR/02850/26, datée du 16 octobre et mise à jour le 30 octobre 2026, signale pour certaines Tesla Model 3 un risque de force latérale sur l'épaule dépassant 3 kN lors d'un choc contre un poteau, avec risque accru de blessure. La période d'identification du produit indiquée dans RAPEX est du 30/06/2024 au 08/05/2026 : cette indication n'est pas explicitement qualifiée de période de fabrication dans la fiche française. Nombre de voitures concernées en France : non indiqué par la fiche. Tesla France décrit, sur sa page officielle consacrée à la conformité au règlement ONU R135, une campagne visant certaines Model 3 Premium à conduite à gauche : correction à distance de la stratégie de déploiement de l'airbag latéral opposé (FSAB) par les versions 2026.26.100.2, 2026.32.3 ou versions correctives ultérieures. La page Tesla ne donne pas de date de publication ; la correspondance précise de chaque véhicule avec le rappel se vérifie au VIN.",
-    "consequence": "Consulter la fiche RappelConso, vérifier le VIN sur le service officiel Tesla et, si le véhicule est concerné, installer la mise à jour corrective indiquée par Tesla ; aucun rendez-vous n'est nécessaire si elle s'installe correctement. En cas de difficulté, contacter Tesla. Ne pas présumer qu'une Model 3 est concernée à partir de sa seule date ou de son seul logiciel.",
+    "resume": "La fiche officielle RappelConso SR/02850/26, datée du 16 octobre et mise à jour le 30 octobre 2026, signale pour certaines Tesla Model 3 un risque de force latérale sur l'épaule dépassant 3 kN lors d'un choc contre un poteau, avec risque accru de blessure. La période d'identification du produit indiquée dans RAPEX est du 30/06/2024 au 08/05/2026 : cette indication n'est pas explicitement qualifiée de période de fabrication dans la fiche française. Nombre de voitures concernées en France : non indiqué par la fiche. Tesla France décrit une correction logicielle de même nature (ONU R135, airbag latéral opposé) concernant certaines Model 3 Premium à conduite à gauche, par les versions 2026.26.100.2, 2026.32.3 ou versions correctives ultérieures ; le lien explicite avec la fiche SR/02850/26 n'est pas établi, vérification au VIN. La page Tesla ne donne pas de date de publication.",
+    "consequence": "Contacter le concessionnaire, conformément à la consigne de la fiche RappelConso. Vérifier ensuite le VIN sur le service officiel Tesla. À titre d'information complémentaire, Tesla France décrit une correction logicielle de même nature (ONU R135, airbag latéral opposé) ; si Tesla confirme son applicabilité au véhicule identifié par son VIN, suivre ses instructions de mise à jour. Ne pas présumer qu'une Model 3 est concernée à partir de sa seule date ou de son seul logiciel.",
     "statut": "Confirmé",
     "alerte": true,
     "sources": [
@@ -823,7 +823,7 @@
     "contradictions": [
       "La fiche RappelConso ne qualifie pas la période 30/06/2024–08/05/2026 comme dates de fabrication ; ne pas le déduire de reprises de presse.",
       "La fiche RappelConso ne précise pas le nombre de véhicules concernés en France. Les chiffres éventuels de reprises de presse ne sont pas repris comme chiffre français.",
-      "Le correctif OTA est directement confirmé sur une page Tesla France consultée le 03/11/2026 ; cette page n'indique pas de date de publication et la vérification VIN individuelle reste nécessaire."
+      "Tesla France décrit une correction logicielle de même nature (ONU R135, airbag latéral opposé) ; le lien explicite avec la fiche SR/02850/26 n'est pas établi, vérification au VIN. La page Tesla consultée le 03/11/2026 n'indique pas de date de publication."
     ]
   }
 ]
