@@ -38,5 +38,20 @@
     },
     "motif": "Porte 5d V1.1, reprise du lot presse 03/11 : nouvelle entrée, preuve officielle RappelConso 50104 et page Tesla France sur le correctif ONU R135. Proposition soumise à audit Claude, non fusionnée. Période de produit non requalifiée en dates de production ; nombre France non indiqué.",
     "source_url": "https://rappel.conso.gouv.fr/fiche-rappel/50104/rapex"
+  },
+  {
+    "date": "2026-11-04",
+    "id_entree": "2026-11-04-fsd-rdw-approuve-tesla-assisted-driving-marge-10",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "Pays-Bas : la RDW approuve Tesla Assisted Driving (ex-FSD Supervised) avec une marge de vitesse plafonnée à +10 %",
+      "statut": "Confirmé"
+    },
+    "motif": "Proposition du lot Grok 7 h du 04/11, source primaire RDW du 03/11 ; audit Claude requis. Information partiellement voisine d'entrées FSD préexistantes, dédoublonnage éditorial à contrôler avant fusion.",
+    "source_url": "https://www.rdw.nl/en/news/2026/rdw-approves-changes-to-tesla-driver-assistance-system"
   }
 ]
