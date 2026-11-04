@@ -63,11 +63,14 @@
       "La prime est d\u00e9duite de la facture ou vers\u00e9e apr\u00e8s l\u2019achat."
     ],
     "a_confirmer": [
-      "D\u2019apr\u00e8s un acheteur Tesla : la commande se fait dans l\u2019application Tesla, en une dizaine d\u2019\u00e9tapes, avec la transmission de l\u2019avis d\u2019imposition ; un vendeur en concession peut aider, mais tout passe par l\u2019application.",
+      "Constat\u00e9 par un acheteur (Model Y, paiement comptant) : apr\u00e8s la commande, l\u2019application Tesla ouvre un parcours \u00ab \u00c9tapes de livraison \u00bb en 9 \u00e9tapes : 1. informations de livraison ; 2. avantages ; 3. reprise ; 4. financement ; 5. immatriculation ; 6. horaire ; 7. assurance ; 8. paiement final ; 9. acceptation des conditions de livraison. Tesla pr\u00e9vient par notification quand une \u00e9tape est \u00e0 faire.",
+      "Constat\u00e9 par un acheteur : \u00e0 l\u2019\u00e9tape \u00ab Avantages \u00bb, les informations n\u00e9cessaires \u00e0 l\u2019inscription aux avantages sont transmises dans l\u2019application. Aucun justificatif de revenus n\u2019a \u00e9t\u00e9 demand\u00e9 pour le montant de 3 600 \u20ac affich\u00e9 ; l\u2019avis d\u2019imposition serait demand\u00e9 pour viser un montant plus \u00e9lev\u00e9. Cela diff\u00e8re de la liste officielle ci-dessus, qui cite l\u2019avis d\u2019imposition : Tesla ne publie pas cette proc\u00e9dure.",
+      "Constat\u00e9 par un acheteur : les contrats \u00e0 relire (\u00e9tape immatriculation) ne sont disponibles que plus tard, sur notification ; l\u2019attestation d\u2019assurance se fournit une fois le v\u00e9hicule immatricul\u00e9 par Tesla, avant la livraison ; le paiement final et l\u2019acceptation des conditions de livraison viennent ensuite.",
+      "Dates limites affich\u00e9es par Tesla (extraits publi\u00e9s, relev\u00e9 du 4 novembre 2026) : le bonus de reprise (Model Y Propulsion 5 000 \u20ac, Model 3 Propulsion 3 000 \u20ac) et la location avec option d\u2019achat concernent les commandes ou dossiers du 1er octobre au 31 d\u00e9cembre 2026, avec une livraison normalement avant le 31 d\u00e9cembre, selon le stock. La prime de 3 600 \u20ac n\u2019a pas de date limite propre affich\u00e9e ; le dispositif officiel permet un engagement jusqu\u2019au 31 ao\u00fbt 2029, sans garantir ce montant.",
       "Non publi\u00e9 : le moment o\u00f9 le montant d\u00e9finitif est connu et l\u2019\u00e9ventuel \u00e9cart avec l\u2019estimation du configurateur.",
       "Non publi\u00e9 : l\u2019organisme ou le partenaire qui valide les revenus pour Tesla. Tesla ne figure pas dans la liste des signataires de la charte (13 octobre 2026)."
     ],
-    "avertissement": "La proc\u00e9dure \u00e9volue avec les aides : v\u00e9rifier dans l\u2019application Tesla au moment de la commande."
+    "avertissement": "La proc\u00e9dure \u00e9volue avec les aides et les offres : v\u00e9rifier dans l\u2019application Tesla au moment de la commande. Les \u00e9tapes d\u00e9crites sont celles d\u2019un seul acheteur et peuvent varier selon le mode de paiement."
   },
   "autres": [
     {
