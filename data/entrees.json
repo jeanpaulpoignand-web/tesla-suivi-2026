@@ -825,5 +825,47 @@
       "La fiche RappelConso ne précise pas le nombre de véhicules concernés en France. Les chiffres éventuels de reprises de presse ne sont pas repris comme chiffre français.",
       "Tesla France décrit une correction logicielle de même nature (ONU R135, airbag latéral opposé) ; le lien explicite avec la fiche SR/02850/26 n'est pas établi, vérification au VIN. La page Tesla consultée le 03/11/2026 n'indique pas de date de publication."
     ]
+  },
+  {
+    "id": "2026-11-04-fsd-rdw-approuve-tesla-assisted-driving-marge-10",
+    "titre": "Pays-Bas : la RDW approuve Tesla Assisted Driving (ex-FSD Supervised) avec une marge de vitesse plafonnée à +10 %",
+    "date_publication": "2026-11-03",
+    "date_verification": "2026-11-04",
+    "theme": "FSD",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": "HW4 ou ultérieur",
+    "territoire": "Europe (Pays-Bas)",
+    "fsd": {
+      "etape": "autorisation"
+    },
+    "resume": "Le 3 novembre 2026, l'autorité néerlandaise des véhicules (RDW) a évalué et approuvé les modifications demandées par Tesla à son système FSD Supervised. Le nom Tesla Assisted Driving (TAD) apparaîtra à l'écran, dans le manuel et dans toute l'information du conducteur. La marge de vitesse réglable passe de +50 % à +10 % au maximum ; elle revient à 0 % à chaque démarrage et d'autres fonctions liées à la vitesse sont désactivées par défaut. Cela concerne les Tesla équipées de TAD et du matériel HW4 ou ultérieur, par mise à jour à distance, sans date. L'homologation existante reste valable ; les neuf États qui l'ont reconnue (Belgique, Croatie, Tchéquie, Danemark, Estonie, Lettonie, Lituanie, Slovaquie, Slovénie) ont été informés. La procédure d'approbation européenne se poursuit au comité technique TCMV, dont les échanges sont confidentiels.",
+    "consequence": "Rien ne change en France pour l'instant : selon Tesla Mag, le système n'y est pas autorisé et le ministère des Transports le teste depuis le 2 septembre. Selon la même source, toute future autorisation, en France comprise, porterait sur cette version plafonnée à +10 %.",
+    "statut": "Confirmé",
+    "alerte": false,
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "RDW (autorité néerlandaise des véhicules)",
+        "type": "autorite",
+        "url": "https://www.rdw.nl/en/news/2026/rdw-approves-changes-to-tesla-driver-assistance-system",
+        "date": "2026-11-03",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Tesla Mag (édition anglaise)",
+        "type": "presse",
+        "url": "https://www.tesla-mag.com/en/tesla-fsd-netherlands-rdw-speed-offset-10-percent/",
+        "date": "2026-11-03",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
   }
 ]
