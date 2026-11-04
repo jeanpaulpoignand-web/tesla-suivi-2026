@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=TTEavoK7WFo",
+      "titre": "Tesla : découvrez la web app CoDriver pour vos trajets et plus encore",
+      "chaine": "Tesla Astuces",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "TTEavoK7WFo",
+      "date_publication": "2026-11-03"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=f5wxIgb1rgA",
       "titre": "Créez votre Lightshow TESLA personnalisé en moins de 30 secondes ! Grâce à @JowuaGlobal",
       "chaine": "TESLA Geek",
@@ -97,15 +106,6 @@
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "NnObztZ6gS0",
-      "date_publication": "2026-10-13"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=GoJip21Ujbs",
-      "titre": "XPeng NGP vs Tesla FSD : qui conduit le mieux dans Paris ? (Essai sur la Xpeng L03)",
-      "chaine": "Weelyke ⚡",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "GoJip21Ujbs",
       "date_publication": "2026-10-13"
     }
   ]
