@@ -130,7 +130,10 @@
   }
   function retenirHTML() {
     var base = sorted(D.entrees.filter(inFeed));
-    var choix = base.filter(function (e) { return e.alerte === true; }).concat(base.filter(function (e) { return e.alerte !== true; })).slice(0, 3);
+    var nouv = base.filter(function (e) { return isNew(e); });
+    var alertes = base.filter(function (e) { return e.alerte === true && !isNew(e); });
+    var autres = base.filter(function (e) { return e.alerte !== true && !isNew(e); });
+    var choix = nouv.concat(alertes, autres).slice(0, 3);
     if (!choix.length) return '';
     return '<section class="retenir" aria-labelledby="h-ret"><h2 id="h-ret">À retenir</h2><p class="sub">Les points essentiels de la veille</p><ol class="cards">' + choix.map(function (e, i) {
       var c = String(e.consequence || '').split(/(?<=[.!?])\s/)[0];
