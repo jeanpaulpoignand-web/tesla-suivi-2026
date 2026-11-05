@@ -161,23 +161,18 @@
     if (!a || !a.resume_accueil) return '';
     return '<a class="pcard pcard-aides" href="#/aides"><span class="pl">Aides publiques &middot; relev&eacute; du ' + esc(fr(a.verifie_le)) + '</span><span class="pd pd-aides">' + esc(a.resume_accueil) + '</span><span class="cgo">Voir le d&eacute;tail <span aria-hidden="true">&rarr;</span></span></a>';
   }
-  /* Silhouettes génériques (traits simples, sans logo ni dessin de marque) pour les cartes du hero. */
-  var SIL_BERLINE = '<svg class="hsil" viewBox="8 16 232 66" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 72 L14 58 C14 53 19 50 28 49 C46 47 58 44 70 37 C90 23 122 19 150 23 C172 27 190 39 208 46 L226 51 C232 53 234 59 234 72"/><path d="M14 72 L38 72 M94 72 L150 72 M206 72 L234 72"/><path d="M38 72 A28 28 0 0 1 94 72"/><path d="M150 72 A28 28 0 0 1 206 72"/><circle cx="66" cy="72" r="15"/><circle cx="178" cy="72" r="15"/><path d="M84 41 C98 31 120 28 144 30 C160 32 174 39 188 45 Z"/></svg>';
-  var SIL_CROSSOVER = '<svg class="hsil" viewBox="8 6 232 76" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 72 L14 54 C14 49 19 46 28 45 C46 43 58 39 72 30 C92 16 126 12 154 14 C180 16 202 30 218 42 L228 48 C233 51 235 57 235 72"/><path d="M14 72 L38 72 M94 72 L150 72 M206 72 L235 72"/><path d="M38 72 A28 28 0 0 1 94 72"/><path d="M150 72 A28 28 0 0 1 206 72"/><circle cx="66" cy="72" r="15"/><circle cx="178" cy="72" r="15"/><path d="M82 36 C96 24 122 20 148 22 C168 24 186 33 200 43 L82 43 Z"/></svg>';
+  /* Images des cartes : vues de profil tirées du mockup validé (assets/model3-profil.jpg, assets/modely-profil.jpg). */
   function stripHTML() {
     var ok = relevesLisibles(), last = ok[ok.length - 1];
     if (!last) return '';
     var prev = ok.length > 1 ? ok[ok.length - 2] : null;
-    function carte(modele, genre, sil) {
+    function carte(modele, genre, img) {
       var v = versionsDe(last, modele).filter(function (x) { return x.version === 'Propulsion'; })[0] || versionsDe(last, modele)[0];
       if (!v) return '';
-      var pv = prev && versionsDe(prev, modele).filter(function (x) { return vNom(x) === vNom(v); })[0];
-      var d = pv ? v.catalogue_eur - pv.catalogue_eur : null;
-      var delta = d === null ? 'Premier relevé' : (d === 0 ? 'Inchangé depuis le relevé précédent' : (d > 0 ? '▲ +' : '▼ ') + eur(d).replace('+', ''));
-      return '<a class="hcard" href="#/prix">' + sil + '<span class="hc-txt"><span class="hc-name">Tesla ' + modele + '</span><span class="hc-genre">' + genre + '</span><span class="hc-price">À partir de ' + eur(v.catalogue_eur) + '</span><span class="hc-note">' + esc(v.version) + ' · ' + delta + '</span></span></a>';
+      return '<a class="hcard" href="#/prix"><span class="hc-pic"><img src="assets/' + img + '" alt="" width="574" height="279" loading="lazy" decoding="async"></span><span class="hc-txt"><span class="hc-name">Tesla ' + modele + '</span><span class="hc-genre">' + genre + '</span><span class="hc-price">À partir de <b>' + eur(v.catalogue_eur) + '</b></span></span></a>';
     }
     var aides = aidesCarte();
-    return '<div class="price-cards" role="group" aria-label="Prix catalogue du jour">' + carte('Model 3', 'Berline électrique', SIL_BERLINE) + carte('Model Y', 'Crossover électrique', SIL_CROSSOVER) + '</div>' +
+    return '<div class="price-cards" role="group" aria-label="Prix catalogue du jour">' + carte('Model 3', 'Berline électrique', 'model3-profil.jpg') + carte('Model Y', 'Crossover électrique', 'modely-profil.jpg') + '</div>' +
       (aides ? '<div class="pstrip pstrip-one">' + aides + '</div>' : '') +
       '<p class="pnote hero-pnote">Prix catalogue lus sur le configurateur Tesla France le ' + esc(fr(last.date_releve)) + '. <a href="#/prix">Grille complète et évolution →</a></p>';
   }
@@ -417,7 +412,7 @@ function efficienceHTML() {
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
     return '<section class="hero hero-new"><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="disclaimer">Site indépendant — non affilié à Tesla</p>' +
-      '<figure class="hero-image"><img src="assets/hero-generique.svg" alt="Illustration : une voiture électrique générique sur une route de campagne au coucher du soleil" width="1200" height="560" decoding="async"></figure>' +
+      '<figure class="hero-image"><img src="assets/hero-generique.jpg" alt="Une voiture électrique blanche sur une route de campagne au coucher du soleil" width="1230" height="639" decoding="async"></figure>' +
       stripHTML() + veilleHTML() + '</section>' +
       '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + marcheHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
