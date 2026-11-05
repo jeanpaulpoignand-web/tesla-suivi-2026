@@ -81,6 +81,13 @@
     return rows.reduce(function (m, r) { return !m || new Date(r.date_execution) > new Date(m.date_execution) ? r : m; }, null);
   }
   function isExpired(e) { var d = e.prix && parseDay(e.prix.echeance); return !!d && d.getTime() < Date.now() - 86400000; }
+  /* Etat d'une alerte : cloturee (alerte_etat), a_reverifier (plus de 7 jours sans verification), sinon en_cours. */
+  function alerteEtat(e) {
+    if (e.alerte !== true) return '';
+    if (e.alerte_etat === 'cloturee') return 'cloturee';
+    var r = parseDay(refDay()), v = parseDay(e.date_verification);
+    return (r && v && (r - v) > 7 * 864e5) ? 'a_reverifier' : 'en_cours';
+  }
   function inFeed(e) { return ageDays(e.date_publication) <= JOURS_FIL; }
   function sorted(list) { return list.slice().sort(function (a, b) { return (a.date_publication || '') < (b.date_publication || '') ? 1 : -1; }); }
 
@@ -91,7 +98,9 @@
   }
   function metaHTML(e) {
     var dup = e.modeles.length === 1 && e.modeles[0] === e.theme;
-    return (isNew(e) ? '<b class="new">Nouveau</b> ' : '') + fr(e.date_publication) + '<span class="sep">·</span>' + esc(e.theme) + (dup || !e.modeles.length ? '' : '<span class="sep">·</span>' + esc(e.modeles.join(' / '))) + '<span class="sep">·</span>' + esc(e.territoire) + (isExpired(e) ? ' <span class="expired">offre échue</span>' : '');
+    return (isNew(e) ? '<b class="new">Nouveau</b> ' : '') + fr(e.date_publication) + '<span class="sep">·</span>' + esc(e.theme) + (dup || !e.modeles.length ? '' : '<span class="sep">·</span>' + esc(e.modeles.join(' / '))) + '<span class="sep">·</span>' + esc(e.territoire) + (isExpired(e) ? ' <span class="expired">offre échue</span>' : '') +
+      (alerteEtat(e) === 'cloturee' ? ' <span class="expired">alerte clôturée</span>' : '') +
+      (alerteEtat(e) === 'a_reverifier' ? ' <span class="expired">à revérifier</span>' : '');
   }
   function videoHTML(v) {
     var img = safeUrl(v.miniature_url), href = safeUrl(v.url);
@@ -129,7 +138,7 @@
       '<div class="row">' + statusHTML(e) + '<a class="more-link" href="' + href + '">Lire l’analyse et les sources <span aria-hidden="true">&nbsp;→</span></a></div></li>';
   }
   function retenirHTML() {
-    var base = sorted(D.entrees.filter(inFeed));
+    var base = sorted(D.entrees.filter(inFeed)).filter(function (e) { var s = alerteEtat(e); return s !== 'cloturee' && s !== 'a_reverifier'; });
     var nouv = base.filter(function (e) { return isNew(e); });
     var alertes = base.filter(function (e) { return e.alerte === true && !isNew(e); });
     var autres = base.filter(function (e) { return e.alerte !== true && !isNew(e); });
@@ -446,8 +455,11 @@ function efficienceHTML() {
       corr = '<div class="callout"><strong>Correction' + (cs ? ' du ' + esc(fr(cs.date)) : '') + '.</strong> ' + (cs ? esc(cs.motif) : 'Cette entrée a été corrigée ; voir l’historique ci-dessous.') + '</div>';
     }
     var exp = isExpired(e) ? '<div class="callout"><strong>Offre échue le ' + esc(fr(e.prix.echeance)) + '.</strong> L’entrée reste conservée avec ses conditions d’origine.</div>' : '';
+    var al = alerteEtat(e), alCall = '';
+    if (al === 'cloturee') alCall = '<div class="callout"><strong>Alerte clôturée' + (e.alerte_cloture_le ? ' le ' + esc(fr(e.alerte_cloture_le)) : '') + '.</strong> L’entrée est conservée pour mémoire.</div>';
+    if (al === 'a_reverifier') alCall = '<div class="callout"><strong>Alerte à revérifier.</strong> Dernière vérification le ' + esc(fr(e.date_verification)) + ' : elle n’a pas été revue depuis plus de 7 jours et ne figure plus dans « À retenir ».</div>';
     var fsd = e.fsd ? '<dt>Étape FSD</dt><dd>' + esc(e.fsd.etape) + '</dd><dt>Supervision</dt><dd>' + esc(e.fsd.supervision) + '</dd>' : '';
-    var h = '<div class="wrap"><article class="detail"><a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a><div class="meta">' + metaHTML(e) + '</div><h1>' + esc(e.titre) + '</h1><div class="row">' + statusHTML(e) + '</div>' + corr + exp +
+    var h = '<div class="wrap"><article class="detail"><a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a><div class="meta">' + metaHTML(e) + '</div><h1>' + esc(e.titre) + '</h1><div class="row">' + statusHTML(e) + '</div>' + corr + exp + alCall +
       '<dl class="facts"><dt>Publié</dt><dd>' + esc(fr(e.date_publication)) + '</dd><dt>Vérifié</dt><dd>' + esc(fr(e.date_verification)) + '</dd><dt>Thème</dt><dd>' + esc(e.theme) + '</dd><dt>Modèles</dt><dd>' + esc(e.modeles.join(', ') || '—') + '</dd><dt>Matériel</dt><dd>' + esc(e.hardware || '—') + '</dd><dt>Territoire</dt><dd>' + esc(e.territoire) + '</dd>' + fsd + '</dl>' +
       '<h2>Ce qui est nouveau</h2><p>' + esc(e.resume) + '</p><h2>Ce que cela change pour vous</h2><p>' + esc(e.consequence) + '</p>' + prixHTML(e) + (e.video ? '<h2>Vidéo associée</h2>' + videoHTML(e.video) : '') +
       '<h2>Preuves et limites de vérification</h2>' + groupeHTML(e) + limitesHTML(e) +
