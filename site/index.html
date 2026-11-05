@@ -11,9 +11,10 @@
 <link rel="stylesheet" href="assets/style.css?v=__V__">
 </head>
 <body>
-<header class="nav">
+<header class="nav nav-compact">
   <a class="brand" href="#/" aria-label="Tesla suivi, accueil"><span class="brand-name">Tesla suivi</span><span class="brand-version"></span></a>
-  <nav aria-label="Navigation principale">
+  <button class="hamburger" id="menubtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menupanel"><span></span><span></span><span></span></button>
+  <nav class="menu-panel" id="menupanel" aria-label="Navigation principale" hidden>
     <ul class="nav-links" id="navlinks">
       <li><a href="#/" data-theme="">Accueil</a></li>
       <li><a href="#/" data-theme="Prix France">Prix France</a></li>

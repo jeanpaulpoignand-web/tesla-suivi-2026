@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Voiture électrique générique sur une route de campagne au coucher du soleil">
+  <defs>
+    <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b4a6b"/>
+      <stop offset=".35" stop-color="#b9718a"/>
+      <stop offset=".62" stop-color="#f0a56a"/>
+      <stop offset="1" stop-color="#f8d38f"/>
+    </linearGradient>
+    <radialGradient id="soleil" cx=".68" cy=".6" r=".42">
+      <stop offset="0" stop-color="#fff4cf" stop-opacity=".95"/>
+      <stop offset=".35" stop-color="#ffd48a" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ffb061" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5d4a46"/>
+      <stop offset="1" stop-color="#2b2423"/>
+    </linearGradient>
+    <linearGradient id="champ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8c7a4f"/>
+      <stop offset="1" stop-color="#4c4128"/>
+    </linearGradient>
+    <linearGradient id="carrosserie" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9e6e1"/>
+      <stop offset="1" stop-color="#a9a49c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="560" fill="url(#ciel)"/>
+  <rect width="1200" height="560" fill="url(#soleil)"/>
+  <!-- collines lointaines -->
+  <path d="M0 330 C120 290 220 300 330 322 C450 346 540 300 660 296 C790 292 900 330 1010 318 C1100 308 1160 300 1200 306 L1200 560 L0 560 Z" fill="#6d5568" opacity=".75"/>
+  <path d="M0 365 C140 335 260 350 380 366 C520 386 640 340 780 344 C920 348 1040 372 1200 350 L1200 560 L0 560 Z" fill="#53404a"/>
+  <!-- arbres en silhouette -->
+  <g fill="#2f262c">
+    <path d="M60 372 l16 -52 l16 52 z M52 384 l24 -46 l24 46 z"/>
+    <path d="M130 376 l14 -44 l14 44 z M122 388 l22 -40 l22 40 z"/>
+    <path d="M1040 372 l16 -56 l16 56 z M1032 386 l24 -48 l24 48 z"/>
+    <path d="M1110 378 l14 -46 l14 46 z M1102 390 l22 -42 l22 42 z"/>
+  </g>
+  <!-- champs -->
+  <path d="M0 392 L1200 392 L1200 560 L0 560 Z" fill="url(#champ)"/>
+  <!-- route en perspective -->
+  <path d="M520 392 L680 392 L1010 560 L170 560 Z" fill="url(#route)"/>
+  <path d="M596 392 L604 392 L640 560 L560 560 Z" fill="#e9c38a" opacity=".55"/>
+  <!-- ombre et voiture générique (berline électrique) -->
+  <ellipse cx="610" cy="505" rx="210" ry="16" fill="#000" opacity=".35"/>
+  <g transform="translate(400 392)">
+    <path d="M10 104 L10 78 C10 68 20 62 36 60 C70 56 98 48 124 30 C150 12 196 6 240 8 C280 10 312 26 340 46 L378 58 C394 62 400 72 400 84 L400 104 Z" fill="url(#carrosserie)"/>
+    <path d="M132 36 C152 20 192 14 238 16 C274 18 300 30 322 48 L132 48 Z" fill="#26303c" opacity=".92"/>
+    <path d="M10 92 L400 92" stroke="#6b665e" stroke-width="2" opacity=".6"/>
+    <circle cx="98" cy="108" r="30" fill="#1b1b1d"/>
+    <circle cx="98" cy="108" r="17" fill="#8d8a86"/>
+    <circle cx="312" cy="108" r="30" fill="#1b1b1d"/>
+    <circle cx="312" cy="108" r="17" fill="#8d8a86"/>
+    <path d="M384 70 L398 74 L398 82 L384 80 Z" fill="#ffe7b0"/>
+  </g>
+  <!-- voile chaud en bas pour la lisibilité du bord -->
+  <rect y="470" width="1200" height="90" fill="#2b1f1a" opacity=".18"/>
+</svg>
