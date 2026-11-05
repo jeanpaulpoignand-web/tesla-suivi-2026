@@ -427,3 +427,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .cgo{align-self:flex-start;margin-top:auto;min-height:40px;padding:8px 20px 8px 18px;font-size:15px}
 @media(hover:none){.more-link:hover,.back:hover{transform:none;box-shadow:var(--g-sh)}.more-link:active,.back:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}}
 .item .row{gap:12px 16px;align-items:center}
+
+/* ===== P5 iPad horizontal : colonne de videos fixe, plus de vide a gauche ===== */
+@media(min-width:1000px){.layout{grid-template-rows:auto auto auto 1fr auto}.layout>.vids{position:sticky;top:180px;align-self:start;max-height:calc(100vh - 200px);overflow-y:auto;overscroll-behavior:contain;padding-right:6px}}
+@media(min-width:1300px){.layout>.vids{top:136px;max-height:calc(100vh - 156px)}}
