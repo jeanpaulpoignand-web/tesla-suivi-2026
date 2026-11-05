@@ -53,5 +53,20 @@
     },
     "motif": "Proposition du lot Grok 7 h du 04/11, source primaire RDW du 03/11 ; audit Claude requis. Information partiellement voisine d'entrées FSD préexistantes, dédoublonnage éditorial à contrôler avant fusion.",
     "source_url": "https://www.rdw.nl/en/news/2026/rdw-approves-changes-to-tesla-driver-assistance-system"
+  },
+  {
+    "date": "2026-11-05",
+    "id_entree": "2026-11-05-fastned-tarifs-recharge-france-entretien-tesla-mag",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "Fastned : tarifs de recharge en France annoncés à 0,61 €/kWh, ou 0,43 €/kWh avec Gold, selon sa directrice France",
+      "statut": "Retour d’expérience"
+    },
+    "motif": "Lot presse du 05/11 : proposition attribuée à l'entretien de la directrice France de Fastned, tarifs non vérifiés indépendamment. Thème et statut à auditer par Claude avant toute fusion.",
+    "source_url": "https://www.tesla-mag.com/fastned-sarah-wodehouse-interview-prix-kwh-tesla/"
   }
 ]
