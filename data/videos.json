@@ -1,12 +1,30 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=-k-uPfTOZJE",
+      "titre": "TESLA : UNE NOUVELLE BERLINE ? CE BREVET AFFOLE INTERNET !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "-k-uPfTOZJE",
+      "date_publication": "2026-11-04"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=TTEavoK7WFo",
       "titre": "Tesla : découvrez la web app CoDriver pour vos trajets et plus encore",
       "chaine": "Tesla Astuces",
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "TTEavoK7WFo",
+      "date_publication": "2026-11-03"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=7dHl_hZuOvE",
+      "titre": "TESLA : SUPERCHARGER FERMÉ… QUE SE PASSE-T-IL ?",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "7dHl_hZuOvE",
       "date_publication": "2026-11-03"
     },
     {
@@ -89,24 +107,6 @@
       "mot_cle": "Model Y",
       "id_video": "OdNb7ZknFkI",
       "date_publication": "2026-10-15"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=bMmfIsb3ebU",
-      "titre": "TESLA : test du FSD à Paris lors du mondial de l'auto.",
-      "chaine": "S3XYcars & Bots",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "bMmfIsb3ebU",
-      "date_publication": "2026-10-14"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=NnObztZ6gS0",
-      "titre": "Conduire sans les mains, ni les pieds dans Paris en Tesla Assisted Driving",
-      "chaine": "Eric's Tech",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "NnObztZ6gS0",
-      "date_publication": "2026-10-13"
     }
   ]
 }
