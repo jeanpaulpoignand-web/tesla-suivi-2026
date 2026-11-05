@@ -492,7 +492,7 @@ function efficienceHTML() {
       '<li><a href="#/">Fil chronologique</a></li>' +
       '<li aria-current="page">' + esc(e.theme || 'Information') + '</li></ol></nav>' +
       '<div class="detail-context"><p class="detail-meta">' + infos.join('<span class="detail-dot" aria-hidden="true"> • </span>') + '</p>' +
-      '<div class="detail-share-wrap"><button type="button" class="detail-share" data-share-detail="' + esc(e.id) + '" aria-label="Partager cette information">Partager</button>' +
+      '<div class="detail-share-wrap"><button type="button" class="detail-share" data-share-detail="' + esc(e.id) + '" aria-label="Partager cette information"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path d="M12 16V3m-5 5 5-5 5 5M4 14v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Partager</span></button>' +
       '<span class="detail-share-status" role="status" aria-live="polite"></span></div></div>';
   }
 

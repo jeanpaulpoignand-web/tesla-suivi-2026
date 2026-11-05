@@ -421,11 +421,11 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 @media(hover:none){.nav-links a:hover{transform:none}.btn-t:hover,.goutte:hover{transform:none;box-shadow:var(--g-sh)}.pcard:hover{box-shadow:0 1px 0 rgba(255,255,255,.9),0 6px 14px rgba(10,10,10,.10),0 1px 2px rgba(10,10,10,.18)}.nav-links a:active{transform:translateY(1px)}.btn-t:active,.goutte:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}.pcard:active{transform:translateY(1px)}}
 
 /* ===== P4 : goutte generalisee (Lire, Voir, Retour) ===== */
-.more-link,.back{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:9px 22px 9px 20px;border:1px solid rgba(10,10,10,.28);border-radius:28px 28px 28px 8px;background:var(--g-bg);box-shadow:var(--g-sh);color:var(--ink);font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s}
-.more-link:hover,.back:hover{transform:translateY(-1px);box-shadow:var(--g-sh-h)}
-.more-link:active,.back:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}
+.more-link,.back,.detail-share{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:9px 22px 9px 20px;border:1px solid rgba(10,10,10,.28);border-radius:28px 28px 28px 8px;background:var(--g-bg);box-shadow:var(--g-sh);color:var(--ink);font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.more-link:hover,.back:hover,.detail-share:hover{transform:translateY(-1px);box-shadow:var(--g-sh-h)}
+.more-link:active,.back:active,.detail-share:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}
 .cgo{align-self:flex-start;margin-top:auto;min-height:40px;padding:8px 20px 8px 18px;font-size:15px}
-@media(hover:none){.more-link:hover,.back:hover{transform:none;box-shadow:var(--g-sh)}.more-link:active,.back:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}}
+@media(hover:none){.more-link:hover,.back:hover,.detail-share:hover{transform:none;box-shadow:var(--g-sh)}.more-link:active,.back:active,.detail-share:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}}
 .item .row{gap:12px 16px;align-items:center}
 
 /* ===== P5 iPad horizontal : colonne de videos fixe, plus de vide a gauche ===== */
@@ -635,9 +635,8 @@ ol.feed{display:flex;flex-direction:column;gap:16px}
 .detail .detail-meta{flex:1 1 300px;min-width:0;max-width:none;margin:0;font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
 .detail-dot{white-space:pre;color:#8A7F6A}
 .detail-share-wrap{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-width:0}
-.detail-share{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;border:1px solid var(--cr-line);border-radius:999px;background:var(--cr);color:var(--brun);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1.4;white-space:nowrap;cursor:pointer;transition:background-color .25s ease,border-color .25s ease}
-.detail-share:hover{background:var(--cr-band);border-color:#B7A58B}
-.detail-share:active{background:#F0E5D2}
+.detail-share{justify-content:center;font-family:var(--sans);line-height:1.4;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:rgba(10,10,10,.08)}
+.detail-share svg{display:block;flex:0 0 auto;width:18px;height:18px}
 .detail-share-status{font-family:var(--sans);font-size:13px;color:var(--muted)}
 .detail-state{margin-top:8px}
 @media(max-width:560px){
