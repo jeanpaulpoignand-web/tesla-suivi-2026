@@ -161,7 +161,23 @@
     if (!a || !a.resume_accueil) return '';
     return '<a class="pcard pcard-aides" href="#/aides"><span class="pl">Aides publiques &middot; relev&eacute; du ' + esc(fr(a.verifie_le)) + '</span><span class="pd pd-aides">' + esc(a.resume_accueil) + '</span><span class="cgo">Voir le d&eacute;tail <span aria-hidden="true">&rarr;</span></span></a>';
   }
+  /* Images des cartes : vues de profil tirées du mockup validé (assets/model3-profil.jpg, assets/modely-profil.jpg). */
   function stripHTML() {
+    var ok = relevesLisibles(), last = ok[ok.length - 1];
+    if (!last) return '';
+    var prev = ok.length > 1 ? ok[ok.length - 2] : null;
+    function carte(modele, genre, img) {
+      var v = versionsDe(last, modele).filter(function (x) { return x.version === 'Propulsion'; })[0] || versionsDe(last, modele)[0];
+      if (!v) return '';
+      return '<a class="hcard" href="#/prix"><span class="hc-pic"><img src="assets/' + img + '" alt="" width="574" height="279" loading="lazy" decoding="async"></span><span class="hc-txt"><span class="hc-name">Tesla ' + modele + '</span><span class="hc-genre">' + genre + '</span><span class="hc-price">À partir de <b>' + eur(v.catalogue_eur) + '</b></span></span></a>';
+    }
+    var aides = aidesCarte();
+    return '<div class="price-cards" role="group" aria-label="Prix catalogue du jour">' + carte('Model 3', 'Berline électrique', 'model3-profil.jpg') + carte('Model Y', 'Crossover électrique', 'modely-profil.jpg') + '</div>' +
+      (aides ? '<div class="pstrip pstrip-one">' + aides + '</div>' : '') +
+      '<p class="pnote hero-pnote">Prix catalogue lus sur le configurateur Tesla France le ' + esc(fr(last.date_releve)) + '. <a href="#/prix">Grille complète et évolution →</a></p>';
+  }
+  /* Ancienne bande de prix (2 colonnes), conservée à l'identique pour retour arrière facile. */
+  function stripHTMLAncienne() {
     var ok = relevesLisibles(), last = ok[ok.length - 1];
     if (!last) return '';
     var prev = ok.length > 1 ? ok[ok.length - 2] : null;
@@ -395,7 +411,9 @@ function efficienceHTML() {
       return '<option value="">Tous</option>' + list.map(function (a) { var v = Array.isArray(a) ? a[0] : a, l = Array.isArray(a) ? a[1] : a; return '<option value="' + esc(v) + '"' + (cur === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
-    return '<section class="hero"><p class="kicker">Veille Tesla · Model 3 et Model Y · France</p><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="lede">L’essentiel des évolutions, ce qui est confirmé et ce qui ne l’est pas, avec les sources.</p>' + SILH + stripHTML() + veilleHTML() + '</section>' +
+    return '<section class="hero hero-new"><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="disclaimer">Site indépendant — non affilié à Tesla</p>' +
+      '<figure class="hero-image"><img src="assets/hero-generique.jpg" alt="Une voiture électrique blanche sur une route de campagne au coucher du soleil" width="1230" height="639" decoding="async"></figure>' +
+      stripHTML() + veilleHTML() + '</section>' +
       '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + marcheHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<form class="searchrow" id="sform" role="search"><label class="sr" for="q">Rechercher dans la veille</label><span class="sbox"><input class="search" id="q" type="search" enterkeyhint="search" placeholder="Rechercher : prix, FSD, calculateur\u2026" value="' + esc(F.q) + '" autocomplete="off"><button class="qclear" type="button" id="qclear" aria-label="Effacer la recherche">\u00d7</button></span><button class="btn-s" type="submit">Rechercher</button></form>' +
@@ -959,6 +977,29 @@ function efficienceHTML() {
   });
 
   document.addEventListener('click', function (ev) { var b = ev.target.closest && ev.target.closest('[data-msel]'); if (b) { MSEL = b.dataset.msel; route(true); } });
+
+  /* ---------- Menu hamburger (en-tête compact) ---------- */
+  function menuSet(open) {
+    var b = document.getElementById('menubtn'), p = document.getElementById('menupanel');
+    if (!b || !p) return;
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    b.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    p.hidden = !open;
+    document.body.classList.toggle('menu-open', !!open);
+  }
+  document.addEventListener('click', function (ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var b = t.closest('#menubtn');
+    if (b) { menuSet(b.getAttribute('aria-expanded') !== 'true'); return; }
+    if (t.closest('#menupanel a') || !t.closest('#menupanel')) menuSet(false);
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Escape') return;
+    var b = document.getElementById('menubtn');
+    if (b && b.getAttribute('aria-expanded') === 'true') { menuSet(false); b.focus(); }
+  });
+  window.addEventListener('hashchange', function () { menuSet(false); });
 
   /* ---------- Démarrage ---------- */
   Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence(), loadLoa()]).then(function (r) {

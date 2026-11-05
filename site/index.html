@@ -11,16 +11,19 @@
 <link rel="stylesheet" href="assets/style.css?v=__V__">
 </head>
 <body>
-<header class="nav">
+<header class="nav nav-compact">
   <a class="brand" href="#/" aria-label="Tesla suivi, accueil"><span class="brand-name">Tesla suivi</span><span class="brand-version"></span></a>
-  <nav aria-label="Navigation principale">
+  <button class="hamburger" id="menubtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menupanel"><span></span><span></span><span></span></button>
+  <nav class="menu-panel" id="menupanel" aria-label="Navigation principale" hidden>
     <ul class="nav-links" id="navlinks">
       <li><a href="#/" data-theme="">Accueil</a></li>
+      <li class="nav-title" role="presentation">Veille par rubrique</li>
       <li><a href="#/" data-theme="Prix France">Prix France</a></li>
       <li><a href="#/" data-theme="Model 3">Model 3</a></li>
       <li><a href="#/" data-theme="Model Y">Model Y</a></li>
       <li><a href="#/" data-theme="Hardware">Hardware</a></li>
       <li><a href="#/" data-theme="FSD">FSD</a></li>
+      <li class="nav-title" role="presentation">Pages</li>
       <li><a href="#/prix" data-view="prix">Grille des prix</a></li>
       <li><a href="#/marche" data-view="marche">Marché</a></li>
       <li><a href="#/efficience" data-view="efficience">Efficience</a></li>
