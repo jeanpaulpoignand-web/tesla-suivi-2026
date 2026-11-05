@@ -867,5 +867,39 @@
       }
     ],
     "contradictions": []
+  },
+  {
+    "id": "2026-11-05-fastned-tarifs-recharge-france-entretien-tesla-mag",
+    "titre": "Fastned : tarifs de recharge en France annoncés à 0,61 €/kWh, ou 0,43 €/kWh avec Gold, selon sa directrice France",
+    "date_publication": "2026-11-04",
+    "date_verification": "2026-11-05",
+    "theme": "Recharge",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": null,
+    "territoire": "France",
+    "resume": "Dans un entretien écrit publié le 4 novembre 2026 par Tesla Mag, Sarah Wodehouse, directrice France de Fastned, indique un tarif standard de 0,61 € TTC/kWh, de 0,43 € TTC/kWh avec l'abonnement Fastned Gold (coût de l'abonnement non intégré), et une réduction de 10 % via l'application Fastned sans badge tiers. Selon elle, les prix n'ont pas changé depuis le 1er septembre 2026. Fastned exploiterait près de 70 stations en France, avec l'objectif conditionnel de 300 stations en 2030. Environ 9 % des sessions européennes Fastned auraient été effectuées par des Tesla sur douze mois, selon les données internes de l'opérateur. Chiffres déclaratifs attribués à Fastned via Tesla Mag, non relevés indépendamment sur une facture ou un tarif affiché en station.",
+    "consequence": "Pour comparer le coût d'une recharge hors Superchargeurs Tesla, vérifier avant branchement le prix affiché à la borne ou dans l'application, les conditions et le coût de l'abonnement Gold, ainsi que les éventuels frais d'un badge tiers. Les tarifs cités ne sont pas des prix catalogue des véhicules Tesla.",
+    "statut": "Retour d’expérience",
+    "alerte": false,
+    "prix": null,
+    "sources": [
+      {
+        "role": "principale",
+        "nom": "Tesla Mag — entretien écrit avec Sarah Wodehouse, directrice France de Fastned",
+        "type": "média spécialisé, propos attribués à l'opérateur",
+        "url": "https://www.tesla-mag.com/fastned-sarah-wodehouse-interview-prix-kwh-tesla/",
+        "date": "2026-11-04",
+        "interet_commercial": "Tesla Mag propose des services commerciaux et des abonnements",
+        "accessible": true
+      }
+    ],
+    "contradictions": [
+      "Les tarifs sont des déclarations de Fastned dans un entretien ; vérification indépendante des montants affichés en station non effectuée.",
+      "Le coût mensuel de Fastned Gold n'est pas indiqué dans l'article ; aucune économie nette calculée.",
+      "Le thème Recharge et le statut Retour d’expérience sont proposés pour audit de conformité au contrat avant fusion."
+    ]
   }
 ]
