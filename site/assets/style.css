@@ -449,6 +449,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .nav-compact .nav-links{flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:0;font-size:17px}
 .nav-compact .nav-links li{border-bottom:1px solid var(--faint)}
 .nav-compact .nav-links li:last-child{border-bottom:0}
+.nav-compact .nav-links li.nav-title{border-bottom:0;padding:18px 4px 2px;font-family:var(--mono);font-size:12.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .nav-compact .nav-links a{display:flex;min-height:48px;padding:10px 4px;border:0;border-radius:0;background:none;box-shadow:none;font-size:17px;font-weight:600;transform:none}
 .nav-compact .nav-links a:hover{transform:none;background:rgba(10,10,10,.04)}
 .nav-compact .nav-links a[aria-current="page"]{background:none;box-shadow:none;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
