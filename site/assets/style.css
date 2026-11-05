@@ -622,3 +622,29 @@ ol.feed{display:flex;flex-direction:column;gap:16px}
     transition:none !important;
   }
 }
+
+/* ===== Pages de detail : navigation, provenance et partage ===== */
+.detail-breadcrumb{margin:8px 0 12px;font-size:14px;color:var(--muted);line-height:1.6}
+.detail-breadcrumb ol{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 0;list-style:none;padding:0;margin:0}
+.detail-breadcrumb li{display:inline-flex;align-items:baseline;min-width:0;overflow-wrap:anywhere}
+.detail-breadcrumb li+li::before{content:'›';margin:0 10px;color:#8A7F6A}
+.detail-breadcrumb a{text-decoration:none;text-underline-offset:3px}
+.detail-breadcrumb a:hover{text-decoration:underline}
+.detail-breadcrumb [aria-current="page"]{color:var(--brun);font-weight:600}
+.detail-context{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;margin:0 0 14px}
+.detail .detail-meta{flex:1 1 300px;min-width:0;max-width:none;margin:0;font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
+.detail-dot{white-space:pre;color:#8A7F6A}
+.detail-share-wrap{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-width:0}
+.detail-share{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;border:1px solid var(--cr-line);border-radius:999px;background:var(--cr);color:var(--brun);font-family:var(--sans);font-size:15px;font-weight:600;line-height:1.4;white-space:nowrap;cursor:pointer;transition:background-color .25s ease,border-color .25s ease}
+.detail-share:hover{background:var(--cr-band);border-color:#B7A58B}
+.detail-share:active{background:#F0E5D2}
+.detail-share-status{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.detail-state{margin-top:8px}
+@media(max-width:560px){
+  .detail-breadcrumb{font-size:13px}
+  .detail-breadcrumb li+li::before{margin:0 7px}
+  .detail-context{display:block}
+  .detail .detail-meta{font-size:12.5px;line-height:1.8}
+  .detail-share-wrap{margin-top:10px}
+}
+@media(prefers-reduced-motion:reduce){.detail-share{transition:none!important}}

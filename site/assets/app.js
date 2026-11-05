@@ -477,6 +477,25 @@ function efficienceHTML() {
     if (e.date_verification) rows.push([e.date_verification, 'Dernière vérification']);
     return rows;
   }
+  /* Navigation et provenance de la fiche : dates lues dans l'entree JSON. */
+  function detailContextHTML(e) {
+    var dateReleve = e.prix && fr(e.prix.date_releve);
+    var datePub = fr(e.date_publication), dateVerif = fr(e.date_verification);
+    var infos = [];
+    if (dateReleve) infos.push('Relevé du ' + esc(dateReleve));
+    else if (datePub) infos.push('Publié le ' + esc(datePub));
+    if (dateVerif) infos.push('Vérifié le ' + esc(dateVerif));
+    var n = e.sources.length;
+    infos.push(n + (n > 1 ? ' sources' : ' source'));
+    return '<nav class="detail-breadcrumb" aria-label="Fil d’Ariane"><ol>' +
+      '<li><a href="#/">Accueil</a></li>' +
+      '<li><a href="#/">Fil chronologique</a></li>' +
+      '<li aria-current="page">' + esc(e.theme || 'Information') + '</li></ol></nav>' +
+      '<div class="detail-context"><p class="detail-meta">' + infos.join('<span class="detail-dot" aria-hidden="true"> • </span>') + '</p>' +
+      '<div class="detail-share-wrap"><button type="button" class="detail-share" data-share-detail="' + esc(e.id) + '" aria-label="Partager cette information">Partager</button>' +
+      '<span class="detail-share-status" role="status" aria-live="polite"></span></div></div>';
+  }
+
   function detailHTML(e) {
     var corr = '';
     if (e.statut === 'Corrigé') {
@@ -488,7 +507,7 @@ function efficienceHTML() {
     if (al === 'cloturee') alCall = '<div class="callout"><strong>Alerte clôturée' + (e.alerte_cloture_le ? ' le ' + esc(fr(e.alerte_cloture_le)) : '') + '.</strong> L’entrée est conservée pour mémoire.</div>';
     if (al === 'a_reverifier') alCall = '<div class="callout"><strong>Alerte à revérifier.</strong> Dernière vérification le ' + esc(fr(e.date_verification)) + ' : elle n’a pas été revue depuis plus de 7 jours et ne figure plus dans « À retenir ».</div>';
     var fsd = e.fsd ? '<dt>Étape FSD</dt><dd>' + esc(e.fsd.etape) + '</dd><dt>Supervision</dt><dd>' + esc(e.fsd.supervision) + '</dd>' : '';
-    var h = '<div class="wrap"><article class="detail"><a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a><div class="meta">' + metaHTML(e) + '</div><h1>' + esc(e.titre) + '</h1><div class="row">' + statusHTML(e) + '</div>' + corr + exp + alCall +
+    var h = '<div class="wrap"><article class="detail"><a class="back" href="#/"><span aria-hidden="true">←&nbsp;</span> Retour au fil</a>' + detailContextHTML(e) + '<h1>' + esc(e.titre) + '</h1><div class="row detail-state">' + pastillesHTML(e) + statusHTML(e) + '</div>' + corr + exp + alCall +
       '<dl class="facts"><dt>Publié</dt><dd>' + esc(fr(e.date_publication)) + '</dd><dt>Vérifié</dt><dd>' + esc(fr(e.date_verification)) + '</dd><dt>Thème</dt><dd>' + esc(e.theme) + '</dd><dt>Modèles</dt><dd>' + esc(e.modeles.join(', ') || '—') + '</dd><dt>Matériel</dt><dd>' + esc(e.hardware || '—') + '</dd><dt>Territoire</dt><dd>' + esc(e.territoire) + '</dd>' + fsd + '</dl>' +
       '<h2>Ce qui est nouveau</h2><p>' + esc(e.resume) + '</p><h2>Ce que cela change pour vous</h2><p>' + esc(e.consequence) + '</p>' + prixHTML(e) + (e.video ? '<h2>Vidéo associée</h2>' + videoHTML(e.video) : '') +
       '<h2>Preuves et limites de vérification</h2>' + groupeHTML(e) + limitesHTML(e) +
@@ -952,6 +971,47 @@ function efficienceHTML() {
     if (!noScroll) window.scrollTo(0, 0);
   }
   window.addEventListener('hashchange', function () { route(); });
+
+  /* Partage mobile natif, puis copie du lien stable en solution de repli. */
+  function copierLienDetail(url, retour) {
+    function copieDeSecours() {
+      var champ = document.createElement('textarea');
+      champ.value = url;
+      champ.setAttribute('readonly', '');
+      champ.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+      document.body.appendChild(champ);
+      champ.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (ex) {}
+      document.body.removeChild(champ);
+      if (ok) retour.textContent = 'Lien copié.';
+      else {
+        retour.textContent = 'Copie automatique indisponible.';
+        window.prompt('Copiez le lien de cette information :', url);
+      }
+    }
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      navigator.clipboard.writeText(url).then(function () { retour.textContent = 'Lien copié.'; }, copieDeSecours);
+    } else copieDeSecours();
+  }
+  function partagerDetail(bouton) {
+    var e = byId(bouton.getAttribute('data-share-detail'));
+    if (!e) return;
+    var retour = bouton.parentNode.querySelector('.detail-share-status');
+    if (!retour) return;
+    var url = location.origin + location.pathname + '#/info/' + encodeURIComponent(e.id);
+    retour.textContent = '';
+    if (typeof navigator.share === 'function') {
+      navigator.share({ title: e.titre, url: url }).catch(function (err) {
+        if (!err || err.name !== 'AbortError') copierLienDetail(url, retour);
+      });
+    } else copierLienDetail(url, retour);
+  }
+  document.addEventListener('click', function (ev) {
+    var bouton = ev.target.closest && ev.target.closest('[data-share-detail]');
+    if (bouton) partagerDetail(bouton);
+  });
+
   document.addEventListener('click', function (ev) {
     var chip = ev.target.closest('[data-chip]');
     if (chip) { F.theme = chip.dataset.chip; route(true); return; }
