@@ -867,5 +867,41 @@
       }
     ],
     "contradictions": []
+  },
+  {
+    "id": "2026-11-05-prix-france-loa-model-3-propulsion-releve-tesla",
+    "titre": "Tesla France : la LOA Model 3 Propulsion s'affiche à 463 € par mois sur 36 mois avec 400 € d'apport dans le configurateur",
+    "date_publication": "2026-11-05",
+    "date_verification": "2026-11-05",
+    "theme": "Prix France",
+    "modeles": ["Model 3"],
+    "hardware": "",
+    "territoire": "France",
+    "resume": "Relevé du 5 novembre 2026 (7 h 52 à 7 h 54) sur le configurateur Tesla France, financement « Personnel : Location avec option d'achat réduite (LOA) », Model 3 Propulsion, Blanc Nacré Multicouches, jantes Prismata 18\", intérieur noir, 10 000 km par an, livraison Besançon (25000). Avec 400 € d'apport : 463 € par mois sur 36 mois (montant total avec achat au terme : 37 334 €) et 525 € par mois sur 60 mois (47 254 €). Avec l'apport de 5 830 €, affiché par défaut à l'ouverture du simulateur : 308 € par mois sur 36 mois (même total avec achat : 37 334 €). La composition de cet apport par défaut n'est pas détaillée à l'écran. Le bandeau du site affiche « Disponible à partir de 299 €/mois avec un taux d'intérêt de 0 % » (conditions non lues). Ces montants sont des estimations du simulateur, hors économies de carburant estimées (83 € par mois), sous réserve d'acceptation du financement.",
+    "consequence": "Pour un Model 3 Propulsion en LOA, le loyer dépend fortement de l'apport : 463 € par mois avec 400 € d'apport, 308 € avec 5 830 €, sur 36 mois. Relire le simulateur avec votre propre configuration avant toute décision ; ce relevé ne vaut pas offre ferme.",
+    "statut": "Confirmé",
+    "alerte": false,
+    "prix": {
+      "version": "Model 3 Propulsion (LOA)",
+      "catalogue_eur": null,
+      "remise_eur": null,
+      "apres_aides_eur": null,
+      "conditions": "Relevé du simulateur Tesla France du 05/11/2026, LOA, Blanc Nacré Multicouches, jantes Prismata 18\", intérieur noir, 10 000 km par an, Besançon. 36 mois : 463 €/mois avec 400 € d'apport ; 308 €/mois avec 5 830 € d'apport (valeur affichée par défaut). 60 mois : 525 €/mois avec 400 € d'apport. Le bandeau du configurateur affiche « Prix d'achat 36 934 € » ; sa nature (catalogue ou autre) n'est pas précisée et il n'est pas repris comme prix catalogue. Estimations hors économies de carburant, sous réserve d'acceptation du financement ; nature de l'apport par défaut non précisée à l'écran ; aucun prix net calculé.",
+      "echeance": null,
+      "date_releve": "2026-11-05",
+      "source_url": "https://www.tesla.com/fr_fr/model3/design#overview"
+    },
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Tesla France — configurateur Model 3 (Personnel / LOA), relevé par Jean Paul Poignand le 5 novembre 2026",
+        "type": "Tesla",
+        "url": "https://www.tesla.com/fr_fr/model3/design#overview",
+        "date": "2026-11-05",
+        "interet_commercial": "oui",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
   }
 ]
