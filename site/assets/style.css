@@ -399,3 +399,19 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;font-weight:600}
 .bud-refs tbody th{white-space:normal;min-width:0}
 .bud-refs td{white-space:nowrap}
 @media(max-width:560px){.bud-refs th,.bud-refs td{padding-left:6px;padding-right:6px;font-size:14.5px}}
+
+/* ===== Relief goutte V2 (CSS seul : aucun lien, aucun texte modifie) ===== */
+:root{--g-bg:radial-gradient(120% 140% at 28% 18%,#fff 0%,#F3F0E8 55%,#E4E0D5 100%);--g-sh:inset 0 2px 3px rgba(255,255,255,.95),inset 0 -3px 5px rgba(10,10,10,.10),0 5px 10px rgba(10,10,10,.16),0 1px 2px rgba(10,10,10,.25);--g-sh-h:inset 0 2px 3px rgba(255,255,255,.95),inset 0 -3px 5px rgba(10,10,10,.10),0 8px 14px rgba(10,10,10,.20),0 1px 2px rgba(10,10,10,.25);--g-sh-a:inset 0 3px 6px rgba(10,10,10,.22),0 1px 0 rgba(255,255,255,.8)}
+.btn-t,.goutte{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:11px 24px 11px 22px;border:1px solid rgba(10,10,10,.28);border-radius:28px 28px 28px 8px;background:var(--g-bg);box-shadow:var(--g-sh);color:var(--ink);font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn-t:hover,.goutte:hover{transform:translateY(-1px);box-shadow:var(--g-sh-h)}
+.btn-t:active,.goutte:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}
+.nav-links{gap:6px 6px;align-items:center}
+.nav-links a{min-height:38px;padding:5px 13px 5px 12px;border:1px solid rgba(10,10,10,.22);border-radius:18px 18px 18px 6px;background:var(--g-bg);box-shadow:inset 0 1.5px 2px rgba(255,255,255,.95),inset 0 -2px 4px rgba(10,10,10,.09),0 3px 6px rgba(10,10,10,.13),0 1px 1px rgba(10,10,10,.2);font-size:15px;transition:transform .15s,box-shadow .15s}
+.nav-links a:hover{border-bottom-color:rgba(10,10,10,.22);transform:translateY(-1px)}
+.nav-links a[aria-current="page"]{border-bottom-color:rgba(10,10,10,.22);background:linear-gradient(180deg,#E4E0D5,#EFEBE2);box-shadow:var(--g-sh-a);font-weight:700}
+.pcard,.retenir li.card{box-shadow:0 1px 0 rgba(255,255,255,.9),0 6px 14px rgba(10,10,10,.10),0 1px 2px rgba(10,10,10,.18)}
+.pcard:hover{box-shadow:0 1px 0 rgba(255,255,255,.9),0 10px 20px rgba(10,10,10,.14),0 1px 2px rgba(10,10,10,.2),0 0 0 1px var(--ink)}
+.nav-links a:active{transform:translateY(1px);box-shadow:var(--g-sh-a)}
+.pcard:active{transform:translateY(1px)}
+.btn-t,.goutte,.nav-links a,.pcard{-webkit-tap-highlight-color:rgba(10,10,10,.08)}
+@media(max-width:560px){.nav-links{gap:6px 5px}.nav-links a{padding:4px 11px 4px 10px;font-size:14.5px}}
