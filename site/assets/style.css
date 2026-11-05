@@ -572,3 +572,53 @@ ol.feed{display:flex;flex-direction:column;gap:16px}
 .status{border-color:var(--brun);border-radius:999px;padding:4px 14px}
 .status.s-confirme{background:var(--brun)}
 @media(max-width:560px){.item{padding:20px 18px 18px}.tools{padding:14px 14px 4px}}
+
+/* ===== Transitions legeres — uniquement CSS (branche transitions-legeres) ===== */
+/* Menu : l'attribut hidden reste pilote par le code existant ; seule l'ouverture s'anime. */
+@keyframes tl-menu-apparition {
+  from { opacity:0; transform:translateY(-6px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.menu-panel:not([hidden]) {
+  animation:tl-menu-apparition .28s ease-out both;
+}
+.hamburger span {
+  transition:transform .27s ease, opacity .27s ease;
+}
+
+/* Fil : les <li> sont recrees lors d'un filtrage, sans ajouter de JavaScript. */
+@keyframes tl-fil-apparition {
+  from { opacity:0; transform:translateY(5px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+#feed > .item {
+  animation:tl-fil-apparition .25s ease-out both;
+}
+
+/* Survols discrets : aucun changement de dimensions ou de placement. */
+.hcard,.pcard,.retenir li.card,.mk-card,.vid,#feed > .item {
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.retenir a.cgo {
+  transition:transform .27s ease, box-shadow .27s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .retenir li.card:hover,.mk-card:hover,.vid:hover,#feed > .item:hover {
+    transform:translateY(-2px);
+    box-shadow:0 2px 4px rgba(32,22,8,.04),0 9px 18px rgba(32,22,8,.10);
+  }
+  .retenir a.cgo:hover {
+    transform:translate(2px,-1px);
+    box-shadow:0 2px 5px rgba(32,22,8,.10),0 6px 13px rgba(32,22,8,.12);
+  }
+}
+
+/* Accessibilite : pas d'animation ni de transition si mouvement reduit. */
+@media (prefers-reduced-motion:reduce) {
+  .menu-panel:not([hidden]),#feed > .item {
+    animation:none !important;
+  }
+  .hamburger span,.hcard,.pcard,.retenir li.card,.mk-card,.vid,#feed > .item,.retenir a.cgo {
+    transition:none !important;
+  }
+}
