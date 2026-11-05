@@ -37,6 +37,9 @@
   function byId(id) { return D.entrees.filter(function (e) { return e.id === id; })[0]; }
 
   /* ---------- Données ---------- */
+  function loadLoa() {
+    return fetch('data/loa.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { return j && typeof j === 'object' && !Array.isArray(j) ? j : null; }).catch(function () { return null; });
+  }
   function loadAides() {
     return fetch('data/aides.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { return j && typeof j === 'object' && !Array.isArray(j) ? j : null; }).catch(function () { return null; });
   }
@@ -146,7 +149,7 @@
     if (!choix.length) return '';
     return '<section class="retenir" aria-labelledby="h-ret"><h2 id="h-ret">À retenir</h2><p class="sub">Les points essentiels de la veille</p><ol class="cards">' + choix.map(function (e, i) {
       var c = String(e.consequence || '').split(/(?<=[.!?])\s/)[0];
-      return '<li class="card"><span class="cn">' + ('0' + (i + 1)).slice(-2) + '</span><span class="ct">' + esc(e.theme) + (isNew(e) ? ' · <b class="new">Nouveau</b>' : '') + '</span><a class="ctitle" href="#/info/' + encodeURIComponent(e.id) + '">' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '</a><span class="cc">' + esc(c) + '</span><span class="cgo">Lire <span aria-hidden="true">→</span></span></li>';
+      return '<li class="card"><span class="cn">' + ('0' + (i + 1)).slice(-2) + '</span><span class="ct">' + esc(e.theme) + (isNew(e) ? ' · <b class="new">Nouveau</b>' : '') + '</span><a class="ctitle" href="#/info/' + encodeURIComponent(e.id) + '">' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '</a><span class="cc">' + esc(c) + '</span><a class="goutte cgo" href="#/info/' + encodeURIComponent(e.id) + '" aria-label="Lire : ' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '">Lire <span aria-hidden="true">→</span></a></li>';
     }).join('') + '</ol></section>';
   }
 
@@ -548,6 +551,23 @@ function efficienceHTML() {
     if (!u) return '';
     return '<p class="tlink"><a class="btn-t" href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">Voir et commander le ' + esc(modele) + ' sur tesla.com <span aria-hidden="true">&nearr;</span></a><span class="tl-note">Site officiel de Tesla, ouvert dans un nouvel onglet. Ce site est ind&eacute;pendant ; le prix final est celui affich&eacute; par Tesla &agrave; la commande. Si vous demandez le coup de pouce, faites-le <a href="#/aides">avant de commander</a>.</span></p>';
   }
+  /* ---------- Bloc LOA (data/loa.json) ---------- */
+  function loaHTML() {
+    var L = D.loa;
+    if (!L || !arr(L.lignes).length) return '';
+    var rows = arr(L.lignes).map(function (l) {
+      return '<tr><th scope="row" data-label="Durée">' + esc(l.duree_mois) + ' mois</th><td data-label="Apport" class="num">' + esc(euros(l.apport_eur)) + (l.note ? ' (' + esc(l.note) + ')' : '') + '</td><td data-label="Mensualité" class="num">' + esc(euros(l.mensualite_eur)) + ' / mois</td><td data-label="Total avec achat au terme" class="num">' + esc(euros(l.total_avec_achat_eur)) + '</td></tr>';
+    }).join('');
+    var h = '<section class="loa"><h3>Location avec option d’achat (LOA), ' + esc(L.version) + '</h3>' +
+      '<p class="veille"><b>Relevé du ' + esc(fr(L.date_releve)) + '</b>' + (L.heure_releve ? ' (' + esc(L.heure_releve) + ')' : '') + '<br>' + esc(L.type || '') + '<br>' + esc(L.configuration || '') + '</p>' +
+      '<table class="ptable"><caption class="sr">LOA ' + esc(L.version) + ', relevé du ' + esc(fr(L.date_releve)) + '</caption><thead><tr><th scope="col">Durée</th><th scope="col">Apport</th><th scope="col">Mensualité</th><th scope="col">Total avec achat au terme</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    if (L.bandeau) h += '<p>Bandeau affiché par Tesla : « ' + esc(L.bandeau) + ' »' + (L.bandeau_conditions_lues === false ? ' (conditions non lues)' : '') + '.</p>';
+    if (arr(L.notes).length) h += '<ul class="loa-notes">' + arr(L.notes).map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>';
+    var u = safeUrl(L.source_url);
+    if (u) h += '<p class="tlink"><a class="goutte" href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">Simuler sur tesla.com <span aria-hidden="true">&nearr;</span></a><span class="tl-note">Simulateur officiel de Tesla, ouvert dans un nouvel onglet. Ce site est ind&eacute;pendant ; ce relev&eacute; ne vaut pas offre ferme.</span></p>';
+    if (L.entree_id && byId(L.entree_id)) h += '<p><a class="more-link" href="#/info/' + esc(L.entree_id) + '">Lire le relevé complet <span aria-hidden="true">&nbsp;→</span></a></p>';
+    return h + '</section>';
+  }
   function prixPageHTML() {
     var ok = relevesLisibles(), last = ok[ok.length - 1];
     var tous = D.prix.filter(function (r) { return r && !isNaN(new Date(r.date_releve)); }).sort(function (a, b) { return new Date(a.date_releve) - new Date(b.date_releve); });
@@ -561,7 +581,7 @@ function efficienceHTML() {
     if (dernierTentative && dernierTentative !== last && new Date(dernierTentative.date_releve) > new Date(last.date_releve)) {
       h += '<div class="callout"><strong>Relevé du ' + esc(frDT(dernierTentative.date_releve)) + ' : indisponible.</strong> Les prix ci-dessous datent du relevé précédent' + (dernierTentative.note ? ' (' + esc(dernierTentative.note) + ')' : '') + '.</div>';
     }
-    ['Model 3', 'Model Y'].forEach(function (m) { h += '<h2>' + m + '</h2>' + grilleHTML(m) + teslaLien(m, last) + chartHTML(m); });
+    ['Model 3', 'Model Y'].forEach(function (m) { h += '<h2>' + m + '</h2>' + grilleHTML(m) + teslaLien(m, last) + (m === 'Model 3' ? loaHTML() : '') + chartHTML(m); });
     h += '<div class="callout"><strong>Ce ne sont pas des devis.</strong> Les prix catalogue et les lignes d\u2019aide sont identiques dans les trois lectures du 31 octobre (sans code postal, Besan\u00e7on, Cannes) ; seule la carte grise varie l\u00e9g\u00e8rement selon la r\u00e9gion. L\u2019\u00e9ligibilit\u00e9 aux aides n\u2019est pas valid\u00e9e : voir la page <a href="#/aides">Aides publiques</a>. Relire le configurateur avant toute d\u00e9cision.</div>' +
       '<p><a class="more-link" href="#/" data-theme="Prix France">Voir les actualités sur les prix <span aria-hidden="true">&nbsp;→</span></a></p></section></div>';
     return h;
@@ -941,9 +961,9 @@ function efficienceHTML() {
   document.addEventListener('click', function (ev) { var b = ev.target.closest && ev.target.closest('[data-msel]'); if (b) { MSEL = b.dataset.msel; route(true); } });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence()]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence(), loadLoa()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8]; D.essence = r[9];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8]; D.essence = r[9]; D.loa = r[10];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);

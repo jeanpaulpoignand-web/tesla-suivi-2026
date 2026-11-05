@@ -1,0 +1,40 @@
+{
+  "modele": "Model 3",
+  "version": "Model 3 Propulsion",
+  "type": "Personnel : Location avec option d’achat réduite (LOA)",
+  "date_releve": "2026-11-05",
+  "heure_releve": "7 h 52 à 7 h 54",
+  "configuration": "Blanc Nacré Multicouches, jantes Prismata 18 pouces, intérieur noir, 10 000 km par an, livraison Besançon (25000)",
+  "lignes": [
+    {
+      "duree_mois": 36,
+      "apport_eur": 400,
+      "mensualite_eur": 463,
+      "total_avec_achat_eur": 37334,
+      "note": ""
+    },
+    {
+      "duree_mois": 36,
+      "apport_eur": 5830,
+      "mensualite_eur": 308,
+      "total_avec_achat_eur": 37334,
+      "note": "valeur par défaut"
+    },
+    {
+      "duree_mois": 60,
+      "apport_eur": 400,
+      "mensualite_eur": 525,
+      "total_avec_achat_eur": 47254,
+      "note": ""
+    }
+  ],
+  "bandeau": "Disponible à partir de 299 €/mois avec un taux d’intérêt de 0 %",
+  "bandeau_conditions_lues": false,
+  "notes": [
+    "Estimations du simulateur, hors économies de carburant estimées (83 € par mois), sous réserve d’acceptation du financement.",
+    "Le bandeau du configurateur affiche « Prix d’achat 36 934 € » ; sa nature (catalogue ou autre) n’est pas précisée, il n’est donc pas repris comme prix catalogue.",
+    "La composition de l’apport affiché par défaut (5 830 €) n’est pas détaillée à l’écran. Aucun prix net n’est calculé."
+  ],
+  "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+  "entree_id": "2026-11-05-prix-france-loa-model-3-propulsion-releve-tesla"
+}
