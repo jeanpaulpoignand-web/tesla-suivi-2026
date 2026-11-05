@@ -99,9 +99,14 @@
     var s = STATUTS[e.statut] || { g: '·', c: 's-autre' };
     return '<span class="status ' + s.c + '"><span class="glyph" aria-hidden="true">' + s.g + '</span><span><span class="sr">Statut : </span>' + esc(e.statut) + '</span></span>';
   }
+  /* Pastilles : couleur selon le thème (Prix, FSD, Model 3, Model Y, Hardware) ; « Sécurité » pour les alertes. */
+  var THEME_CLS = { 'Prix France': 't-prix', 'Model 3': 't-m3', 'Model Y': 't-my', 'Hardware': 't-hw', 'FSD': 't-fsd' };
+  function pastilleNouveau(e) { return '<b class="new pill ' + (THEME_CLS[e.theme] || 't-autre') + '"><span class="pdot" aria-hidden="true"></span>Nouveau</b>'; }
+  function pastilleSecu(e) { return e.alerte === true ? '<b class="pill t-secu"><span class="pdot" aria-hidden="true"></span>Sécurité</b>' : ''; }
+  function pastillesHTML(e) { return (isNew(e) ? pastilleNouveau(e) + ' ' : '') + (pastilleSecu(e) ? pastilleSecu(e) + ' ' : ''); }
   function metaHTML(e) {
     var dup = e.modeles.length === 1 && e.modeles[0] === e.theme;
-    return (isNew(e) ? '<b class="new">Nouveau</b> ' : '') + fr(e.date_publication) + '<span class="sep">·</span>' + esc(e.theme) + (dup || !e.modeles.length ? '' : '<span class="sep">·</span>' + esc(e.modeles.join(' / '))) + '<span class="sep">·</span>' + esc(e.territoire) + (isExpired(e) ? ' <span class="expired">offre échue</span>' : '') +
+    return pastillesHTML(e) + fr(e.date_publication) + '<span class="sep">·</span>' + esc(e.theme) + (dup || !e.modeles.length ? '' : '<span class="sep">·</span>' + esc(e.modeles.join(' / '))) + '<span class="sep">·</span>' + esc(e.territoire) + (isExpired(e) ? ' <span class="expired">offre échue</span>' : '') +
       (alerteEtat(e) === 'cloturee' ? ' <span class="expired">alerte clôturée</span>' : '') +
       (alerteEtat(e) === 'a_reverifier' ? ' <span class="expired">à revérifier</span>' : '');
   }
@@ -147,9 +152,9 @@
     var autres = base.filter(function (e) { return e.alerte !== true && !isNew(e); });
     var choix = nouv.concat(alertes, autres).slice(0, 3);
     if (!choix.length) return '';
-    return '<section class="retenir" aria-labelledby="h-ret"><h2 id="h-ret">À retenir</h2><p class="sub">Les points essentiels de la veille</p><ol class="cards">' + choix.map(function (e, i) {
+    return '<section class="retenir" aria-labelledby="h-ret"><h2 id="h-ret">À retenir</h2><p class="sub">Les points essentiels de la veille</p><ol class="cards' + (choix.length === 3 ? ' bento' : '') + '">' + choix.map(function (e, i) {
       var c = String(e.consequence || '').split(/(?<=[.!?])\s/)[0];
-      return '<li class="card"><span class="cn">' + ('0' + (i + 1)).slice(-2) + '</span><span class="ct">' + esc(e.theme) + (isNew(e) ? ' · <b class="new">Nouveau</b>' : '') + '</span><a class="ctitle" href="#/info/' + encodeURIComponent(e.id) + '">' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '</a><span class="cc">' + esc(c) + '</span><a class="goutte cgo" href="#/info/' + encodeURIComponent(e.id) + '" aria-label="Lire : ' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '">Lire <span aria-hidden="true">→</span></a></li>';
+      return '<li class="card"><span class="cn">' + ('0' + (i + 1)).slice(-2) + '</span><span class="ct">' + esc(e.theme) + (pastillesHTML(e) ? ' ' + pastillesHTML(e) : '') + '</span><a class="ctitle" href="#/info/' + encodeURIComponent(e.id) + '">' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '</a><span class="cc">' + esc(c) + '</span><a class="goutte cgo" href="#/info/' + encodeURIComponent(e.id) + '" aria-label="Lire : ' + esc(String(e.titre).replace(/[.\s]+$/, '')) + '">Lire <span aria-hidden="true">→</span></a></li>';
     }).join('') + '</ol></section>';
   }
 
@@ -217,7 +222,7 @@
   function videosHTML() {
     var l = videosListe();
     if (!l.length) return '';
-    return '<section class="vids" aria-labelledby="h-vid"><h2 id="h-vid">Vid&eacute;os r&eacute;centes</h2><div class="vlist">' + l.map(function (v) {
+    return '<section class="vids" aria-labelledby="h-vid"><div class="vhead"><h2 id="h-vid">Vid&eacute;os r&eacute;centes</h2><div class="vnav"><button class="vbtn" type="button" data-vdir="-1" aria-label="Vid&eacute;os pr&eacute;c&eacute;dentes"><span aria-hidden="true">&larr;</span></button><button class="vbtn" type="button" data-vdir="1" aria-label="Vid&eacute;os suivantes"><span aria-hidden="true">&rarr;</span></button></div></div><div class="vlist" tabindex="0" role="region" aria-label="Vid&eacute;os r&eacute;centes, d&eacute;filement horizontal">' + l.map(function (v) {
       var img = ytUrl(v.miniature_url, 'i.ytimg.com') || (/^[A-Za-z0-9_-]{11}$/.test(String(v.id_video || '')) ? 'https://i.ytimg.com/vi/' + v.id_video + '/mqdefault.jpg' : '');
       return '<a class="vid" href="' + esc(ytUrl(v.url, 'www.youtube.com')) + '" target="_blank" rel="noopener noreferrer"><span class="vthumb">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" referrerpolicy="no-referrer">' : '') + '<span class="play" aria-hidden="true"></span></span>' +
         '<span class="vmeta">' + esc(ilya(v.date_publication)) + (v.langue === 'fr' ? ' &middot; <b class="vfr">FR</b>' : '') + '</span><span class="vtitle">' + esc(v.titre) + '</span><span class="vchan"><span class="vplay" aria-hidden="true">&#9654;</span> ' + esc(v.chaine) + '</span></a>';
@@ -276,22 +281,23 @@
     if (!M) return '';
     var p = M.mois.split('-'), titreMois = MOIS[parseInt(p[1], 10) - 1] + ' ' + p[0];
     function c(v) { var s = nbFr(v); return s === null ? '<span class="mkt-nd">non lu</span>' : s; }
-    var lignes = M.rows.map(function (m) {
+    function pastEcart(v) {
+      if (!v) return '<span class="mk-chip mk-flat">—</span>';
+      var up = v.charAt(0) === '+';
+      return '<span class="mk-chip ' + (up ? 'mk-up' : 'mk-down') + '"><span aria-hidden="true">' + (up ? '▲' : '▼') + '</span> ' + v + '</span>';
+    }
+    var lignes = M.rows.map(function (m, i) {
       var v1 = varPct(m.immatriculations, m.immatriculations_meme_mois_annee_precedente);
       var v2 = varPct(m.cumul_annee, m.cumul_annee_precedente);
-      return '<tr><th scope="row">' + esc(m.modele) + '</th>' +
-        '<td>' + c(m.immatriculations) + '</td>' +
-        '<td>' + c(m.immatriculations_meme_mois_annee_precedente) + '</td>' +
-        '<td class="mkt-v">' + (v1 || '—') + '</td>' +
-        '<td>' + c(m.cumul_annee) + '</td>' +
-        '<td class="mkt-v">' + (v2 || '—') + '</td></tr>';
+      return '<article class="mk-card' + (i === 0 ? ' mk-main' : '') + '"><h3>' + esc(m.modele) + '</h3>' +
+        '<p class="mk-big">' + c(m.immatriculations) + '</p><p class="mk-cap">immatriculations du mois</p>' +
+        '<p class="mk-row"><span>Même mois, an dernier</span><b>' + c(m.immatriculations_meme_mois_annee_precedente) + '</b>' + pastEcart(v1) + '</p>' +
+        '<p class="mk-row"><span>Cumul depuis janvier</span><b>' + c(m.cumul_annee) + '</b>' + pastEcart(v2) + '</p></article>';
     }).join('');
     var rs = M.rows.filter(function (m) { return m.source && m.source.nom; })[0], src = rs ? rs.source : null, notes = [];
     M.rows.forEach(function (m) { if (m.note && notes.indexOf(m.note) < 0) notes.push(m.note); });
     return '<section class="mkt" aria-labelledby="mkt-h"><h2 id="mkt-h">Marché France · ' + esc(titreMois) + '</h2>' +
-      '<div class="mkt-scroll"><table class="mkt-table"><thead><tr><th scope="col"><span class="sr">Modèle</span></th>' +
-      '<th scope="col">Immatriculations du mois</th><th scope="col">Même mois, an dernier</th><th scope="col">Écart</th>' +
-      '<th scope="col">Cumul depuis janvier</th><th scope="col">Écart cumul</th></tr></thead><tbody>' + lignes + '</tbody></table></div>' +
+      '<div class="mk-grid">' + lignes + '</div>' +
       '<p class="mkt-src">Écarts calculés par le site à partir des deux chiffres affichés. Source : ' +
       (src ? link(src.url, src.nom) + (src.date ? ' (' + esc(fr(src.date)) + ')' : '') : 'non précisée') + '.</p>' +
       (notes.length ? '<p class="mkt-note">' + notes.map(esc).join(' ') + '</p>' : '') +
@@ -1000,6 +1006,12 @@ function efficienceHTML() {
     if (b && b.getAttribute('aria-expanded') === 'true') { menuSet(false); b.focus(); }
   });
   window.addEventListener('hashchange', function () { menuSet(false); });
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest && ev.target.closest('[data-vdir]');
+    if (!b) return;
+    var l = document.querySelector('.vlist');
+    if (l) l.scrollBy({ left: parseInt(b.dataset.vdir, 10) * Math.max(240, l.clientWidth * 0.8), behavior: 'smooth' });
+  });
 
   /* ---------- Démarrage ---------- */
   Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence(), loadLoa()]).then(function (r) {
