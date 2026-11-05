@@ -138,7 +138,7 @@
       '<div class="row">' + statusHTML(e) + '<a class="more-link" href="' + href + '">Lire l’analyse et les sources <span aria-hidden="true">&nbsp;→</span></a></div></li>';
   }
   function retenirHTML() {
-    var base = sorted(D.entrees.filter(inFeed)).filter(function (e) { var s = alerteEtat(e); return s !== 'cloturee' && s !== 'a_reverifier'; });
+    var base = sorted(D.entrees.filter(inFeed)).filter(function (e) { var s = alerteEtat(e); return s !== 'cloturee' && s !== 'a_reverifier' && (s === 'en_cours' || ageRef(e) <= 14); });
     var nouv = base.filter(function (e) { return isNew(e); });
     var alertes = base.filter(function (e) { return e.alerte === true && !isNew(e); });
     var autres = base.filter(function (e) { return e.alerte !== true && !isNew(e); });
@@ -176,6 +176,8 @@
   }
   function refDay() { var m = ''; D.entrees.forEach(function (e) { if ((e.date_verification || '') > m) m = e.date_verification; }); return m; }
   function isNew(e) { var r = parseDay(refDay()), d = parseDay(e.date_publication); return r && d && (r - d) <= 2 * 864e5; }
+  /* Age en jours par rapport au jour de la derniere veille (meme reference que Nouveau). */
+  function ageRef(e) { var r = parseDay(refDay()), d = parseDay(e.date_publication); return (r && d) ? (r - d) / 864e5 : 99999; }
   /* ---------- Colonne Videos ---------- */
   function ilya(iso) {
     var d = parseDay(iso), r = parseDay(new Date().toISOString().slice(0, 10));
