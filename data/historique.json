@@ -53,5 +53,35 @@
     },
     "motif": "Proposition du lot Grok 7 h du 04/11, source primaire RDW du 03/11 ; audit Claude requis. Information partiellement voisine d'entrées FSD préexistantes, dédoublonnage éditorial à contrôler avant fusion.",
     "source_url": "https://www.rdw.nl/en/news/2026/rdw-approves-changes-to-tesla-driver-assistance-system"
+  },
+  {
+    "date": "2026-11-06",
+    "id_entree": "2026-11-06-ue-commissions-omnibus-automobile-portieres-conduite-automatisee",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "UE : des commissions parlementaires adoptent une position sur les portières et les autorisations de conduite automatisée",
+      "statut": "Confirmé"
+    },
+    "motif": "Porte 5d, lot presse 06/11 ; proposition pour audit Claude, source primaire non rouverte indépendamment, aucune fusion.",
+    "source_url": "https://www.europarl.europa.eu/news/en/press-room/20261103IPR48611"
+  },
+  {
+    "date": "2026-11-06",
+    "id_entree": "2026-11-06-ue-commissions-flottes-entreprises-vehicules-propres",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "UE : des commissions parlementaires proposent des objectifs de véhicules propres pour les flottes d'entreprise",
+      "statut": "Confirmé"
+    },
+    "motif": "Porte 5d, lot presse 06/11 ; proposition pour audit Claude, source primaire non rouverte indépendamment, aucune fusion.",
+    "source_url": "https://www.europarl.europa.eu/news/en/press-room/20261103IPR48612"
   }
 ]
