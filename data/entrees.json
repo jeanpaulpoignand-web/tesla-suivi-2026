@@ -874,7 +874,9 @@
     "date_publication": "2026-11-05",
     "date_verification": "2026-11-05",
     "theme": "Prix France",
-    "modeles": ["Model 3"],
+    "modeles": [
+      "Model 3"
+    ],
     "hardware": "",
     "territoire": "France",
     "resume": "Relevé du 5 novembre 2026 (7 h 52 à 7 h 54) sur le configurateur Tesla France, financement « Personnel : Location avec option d'achat réduite (LOA) », Model 3 Propulsion, Blanc Nacré Multicouches, jantes Prismata 18\", intérieur noir, 10 000 km par an, livraison Besançon (25000). Avec 400 € d'apport : 463 € par mois sur 36 mois (montant total avec achat au terme : 37 334 €) et 525 € par mois sur 60 mois (47 254 €). Avec l'apport de 5 830 €, affiché par défaut à l'ouverture du simulateur : 308 € par mois sur 36 mois (même total avec achat : 37 334 €). La composition de cet apport par défaut n'est pas détaillée à l'écran. Le bandeau du site affiche « Disponible à partir de 299 €/mois avec un taux d'intérêt de 0 % » (conditions non lues). Ces montants sont des estimations du simulateur, hors économies de carburant estimées (83 € par mois), sous réserve d'acceptation du financement.",
@@ -903,5 +905,105 @@
       }
     ],
     "contradictions": []
+  },
+  {
+    "id": "2026-11-06-ue-commissions-omnibus-automobile-portieres-conduite-automatisee",
+    "titre": "UE : des commissions parlementaires adoptent une position sur les portières et les autorisations de conduite automatisée",
+    "date_publication": "2026-11-05",
+    "date_verification": "2026-11-06",
+    "theme": "Sécurité",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": null,
+    "territoire": "Union européenne — projet législatif non en vigueur",
+    "resume": "Selon Tesla Mag du 5 novembre et le lot Grok presse du 6 novembre, les commissions ENVI, IMCO et TRAN du Parlement européen ont adopté le 4 novembre 2026 une position sur un omnibus automobile (105 voix pour, 39 contre, 21 abstentions). Les dispositions rapportées concernent notamment l'ouverture mécanique des portières depuis l'intérieur et l'extérieur, la détection d'enfant oublié, la reconnaissance mutuelle d'autorisations nationales d'essai ou de déploiement de conduite automatisée et des exigences de recharge intelligente à échéance 2027. Il s'agit d'une position de commissions, pas d'une loi entrée en vigueur ni d'une homologation du FSD Tesla en France.",
+    "consequence": "Suivre la procédure législative et le texte définitif avant d'en déduire une obligation applicable à un véhicule Tesla déjà vendu ou une autorisation de Tesla Assisted Driving en France.",
+    "statut": "Confirmé",
+    "alerte": false,
+    "prix": {
+      "catalogue_eur": null,
+      "remise_eur": null,
+      "apres_aides_eur": null,
+      "conditions": "",
+      "echeance": null,
+      "date_releve": null,
+      "source_url": null
+    },
+    "sources": [
+      {
+        "role": "reprise",
+        "nom": "Tesla Mag — omnibus automobile européen",
+        "type": "média spécialisé",
+        "url": "https://www.tesla-mag.com/omnibus-automobile-parlement-europeen-portieres-conduite-automatisee/",
+        "date": "2026-11-05",
+        "interet_commercial": "inconnu",
+        "accessible": false
+      },
+      {
+        "role": "originale",
+        "nom": "Parlement européen — communiqué 20261103IPR48611 (référence transmise par Grok)",
+        "type": "autorité",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20261103IPR48611",
+        "date": "2026-11-04",
+        "interet_commercial": "non",
+        "accessible": false
+      }
+    ],
+    "contradictions": [
+      "Source primaire mentionnée comme lue par Grok mais non ouverte indépendamment par ChatGPT (contrôle anti-robot) ; chiffres et portée exacte soumis à l'audit Claude.",
+      "Aucune entrée en vigueur et aucune autorisation générale de Tesla Assisted Driving ne sont établies."
+    ]
+  },
+  {
+    "id": "2026-11-06-ue-commissions-flottes-entreprises-vehicules-propres",
+    "titre": "UE : des commissions parlementaires proposent des objectifs de véhicules propres pour les flottes d'entreprise",
+    "date_publication": "2026-11-05",
+    "date_verification": "2026-11-06",
+    "theme": "Model Y",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": null,
+    "territoire": "Union européenne — proposition concernant les grandes entreprises",
+    "resume": "Selon Tesla Mag du 5 novembre et le lot presse Grok du 6 novembre, les commissions ENVI et TRAN ont adopté le 4 novembre une position sur les flottes de grandes entreprises (89 voix pour, 29 contre, 4 abstentions). Le lot évoque des objectifs nationaux indicatifs de 67 à 95 % de véhicules propres en 2030 et 2035, ainsi qu'une limitation future de certaines aides aux véhicules d'entreprise fabriqués dans l'Union européenne à compter de 2028. Ces éléments restent des propositions législatives ; la définition finale de « fabriqué dans l'UE » n'est pas arrêtée.",
+    "consequence": "Une éventuelle incidence sur les Model Y assemblés à Grünheide et sur les financements de flottes en France dépendra du texte définitivement adopté et des critères d'origine ; aucune aide actuelle n'est modifiée par ce vote de commissions.",
+    "statut": "Confirmé",
+    "alerte": false,
+    "prix": {
+      "catalogue_eur": null,
+      "remise_eur": null,
+      "apres_aides_eur": null,
+      "conditions": "",
+      "echeance": null,
+      "date_releve": null,
+      "source_url": null
+    },
+    "sources": [
+      {
+        "role": "reprise",
+        "nom": "Tesla Mag — flottes d'entreprise et objectifs UE",
+        "type": "média spécialisé",
+        "url": "https://www.tesla-mag.com/flottes-entreprise-vehicules-propres-objectifs-2030-2035/",
+        "date": "2026-11-05",
+        "interet_commercial": "inconnu",
+        "accessible": false
+      },
+      {
+        "role": "originale",
+        "nom": "Parlement européen — communiqué 20261103IPR48612 (référence transmise par Grok)",
+        "type": "autorité",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20261103IPR48612",
+        "date": "2026-11-04",
+        "interet_commercial": "non",
+        "accessible": false
+      }
+    ],
+    "contradictions": [
+      "Communiqué de novembre non ouvert indépendamment par ChatGPT ; les votes et pourcentages proviennent du lot Grok et demandent audit Claude.",
+      "Ne pas confondre objectifs proposés pour flottes d'entreprise avec aides françaises aux particuliers ni avec règles actuellement en vigueur."
+    ]
   }
 ]
