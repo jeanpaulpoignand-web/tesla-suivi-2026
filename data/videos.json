@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=VVbdMqrufs8",
+      "titre": "Acheter une TESLA en 2026 : choix MALIN ou voiture SANS ÂME ?",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "VVbdMqrufs8",
+      "date_publication": "2026-11-05"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=-k-uPfTOZJE",
       "titre": "TESLA : UNE NOUVELLE BERLINE ? CE BREVET AFFOLE INTERNET !",
       "chaine": "Yoann en VE ⚡️",
@@ -16,15 +25,6 @@
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "TTEavoK7WFo",
-      "date_publication": "2026-11-03"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=7dHl_hZuOvE",
-      "titre": "TESLA : SUPERCHARGER FERMÉ… QUE SE PASSE-T-IL ?",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "7dHl_hZuOvE",
       "date_publication": "2026-11-03"
     },
     {
