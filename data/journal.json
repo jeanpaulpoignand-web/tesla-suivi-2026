@@ -82,6 +82,6 @@
     "lot_presse_id": "2026-11-07_Grok_Veille-presse_Tesla-suivi_V1",
     "nouveautes": false,
     "entrees_ajoutees": 0,
-    "message": "Porte 5d 07/11 : lots Grok 7 h et presse 7 h 15 valides, aucune nouveauté ni correction ; aucune branche d'actualités créée. 12 vidéos Make valides, data/videos.json identique octet pour octet à main, aucune copie nécessaire. Instantané et manifeste SHA-256 déposés dans 90 ARCHIVES avant écriture. Prix non relevés. GitHub Pages et workflow : non vérifiés, contrôle externe réservé à Claude."
+    "message": "Porte 5d 07/11 : lots Grok 7 h et presse 7 h 15 valides, aucune nouveauté ni correction ; aucune branche d'actualités créée. Reprise ciblée du maillon C après correction et test Make 10073950 (source BRUT IA régénérée à 09 h 42 Paris) : 12 vidéos valides copiées à l'identique depuis Make_Videos_Tesla-suivi_COURANT.json dans main/data/videos.json, avec notamment Robert Rosenfeld, Tesla Sympa et The Choucroute Garage. Instantané avant reprise et manifeste dans 90 ARCHIVES ; champ langue inchangé, aucun badge de langue ajouté. Prix non relevés. GitHub Pages et workflow : non vérifiés, contrôle externe réservé à Claude."
   }
 ]
