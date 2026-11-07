@@ -1,6 +1,33 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=Dx7E_N3zMwc",
+      "titre": "This is BAD NEWS For Every Tesla Owner!",
+      "chaine": "Robert Rosenfeld",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "Dx7E_N3zMwc",
+      "date_publication": "2026-11-06"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PavArqx3DHo",
+      "titre": "TESLA ARRÊTE LE CYBERTRUCK… LE PARI FOU DU CYBERCAB !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "PavArqx3DHo",
+      "date_publication": "2026-11-06"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=lUqbb758j-g",
+      "titre": "Superchargeurs Tesla V2, V3, V4 : les Erreurs qui font Perdre du Temps et de l'Argent !",
+      "chaine": "Tesla Sympa",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "lUqbb758j-g",
+      "date_publication": "2026-11-05"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=VVbdMqrufs8",
       "titre": "Acheter une TESLA en 2026 : choix MALIN ou voiture SANS ÂME ?",
       "chaine": "Yoann en VE ⚡️",
@@ -10,12 +37,12 @@
       "date_publication": "2026-11-05"
     },
     {
-      "url": "https://www.youtube.com/watch?v=-k-uPfTOZJE",
-      "titre": "TESLA : UNE NOUVELLE BERLINE ? CE BREVET AFFOLE INTERNET !",
-      "chaine": "Yoann en VE ⚡️",
+      "url": "https://www.youtube.com/watch?v=rdRX4Q_rvTg",
+      "titre": "Verne : Le robotaxi européen face à Tesla !",
+      "chaine": "The Choucroute Garage",
       "langue": "fr",
       "mot_cle": "général",
-      "id_video": "-k-uPfTOZJE",
+      "id_video": "rdRX4Q_rvTg",
       "date_publication": "2026-11-04"
     },
     {
@@ -26,6 +53,24 @@
       "mot_cle": "général",
       "id_video": "TTEavoK7WFo",
       "date_publication": "2026-11-03"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=q-0v3wbGD4E",
+      "titre": "Tesla Owners Just Got a BIG Surprise!",
+      "chaine": "Robert Rosenfeld",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "q-0v3wbGD4E",
+      "date_publication": "2026-11-02"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1C0gZJtFdUg",
+      "titre": "Combien on perd en chargeant une Tesla ? Je teste !",
+      "chaine": "The Choucroute Garage",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "1C0gZJtFdUg",
+      "date_publication": "2026-11-02"
     },
     {
       "url": "https://www.youtube.com/watch?v=f5wxIgb1rgA",
@@ -62,51 +107,6 @@
       "mot_cle": "Model Y",
       "id_video": "RDWmxrDWlq8",
       "date_publication": "2026-10-25"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=GXnEl5N9-qE",
-      "titre": "Tesla Cybercab, nouveau Roadster (inutile) et nouveau Model 3 2027",
-      "chaine": "Eric's Tech",
-      "langue": "fr",
-      "mot_cle": "Model 3",
-      "id_video": "GXnEl5N9-qE",
-      "date_publication": "2026-10-21"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=f0VrnaWQA7E",
-      "titre": "TESLA ROADSTER : l'effet WOW ...et après ?",
-      "chaine": "S3XYcars & Bots",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "f0VrnaWQA7E",
-      "date_publication": "2026-10-20"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=20AdJXJiGKg",
-      "titre": "Roadster 2026 : ce que TESLA ne nous a PAS dit !",
-      "chaine": "TESLA Geek",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "20AdJXJiGKg",
-      "date_publication": "2026-10-17"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=-QjvKLZiZeU",
-      "titre": "Mise à jour Tesla 2026.38.3 : le mode Halloween et toutes les nouveautés",
-      "chaine": "Tesla Burger",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "-QjvKLZiZeU",
-      "date_publication": "2026-10-16"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=OdNb7ZknFkI",
-      "titre": "Je Teste la Mise à Jour d'Halloween sur ma Tesla Model Y !",
-      "chaine": "Juste Tomy",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "OdNb7ZknFkI",
-      "date_publication": "2026-10-15"
     }
   ]
 }
