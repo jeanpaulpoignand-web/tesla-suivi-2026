@@ -1,0 +1,25 @@
+name: Nettoyage des branches listees
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/branches-a-supprimer.txt'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  supprimer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Supprimer les branches listees
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          while IFS= read -r b || [ -n "$b" ]; do
+            b="$(echo "$b" | tr -d '\r' | xargs)"
+            case "$b" in ""|\#*) continue;; esac
+            case "$b" in main|master|gh-pages) echo "REFUSE: $b"; continue;; esac
+            if ! echo "$b" | grep -Eq '^[A-Za-z0-9._/-]+$'; then echo "REFUSE nom invalide: $b"; continue; fi
+            if gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/$b"; then echo "supprimee: $b"; else echo "absente ou erreur: $b"; fi
+          done < .github/branches-a-supprimer.txt
