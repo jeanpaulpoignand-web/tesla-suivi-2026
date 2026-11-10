@@ -1,0 +1,5 @@
+# Branches rejetées ou obsolètes, validées par Jean Paul le 10/11/2026
+actus-2026-11-05
+actus-2026-11-06
+correctif-defilement
+essai-lot-test
