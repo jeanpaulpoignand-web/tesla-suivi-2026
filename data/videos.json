@@ -1,6 +1,60 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=tf3k9MCv_5E",
+      "titre": "Tesla : 2 protections indispensables pour tes coffres !",
+      "chaine": "Tesla Sympa",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "tf3k9MCv_5E",
+      "date_publication": "2026-11-09"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ogFF52DgmqE",
+      "titre": "La fin du Cybertruck marque t elle la fin de Tesla ?",
+      "chaine": "The Choucroute Garage",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "ogFF52DgmqE",
+      "date_publication": "2026-11-09"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=DVNcfEwaqCg",
+      "titre": "XPENG L05 : rival du MODEL Y… ou remplaçant du G6 ?",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "DVNcfEwaqCg",
+      "date_publication": "2026-11-09"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=YGpd2mh2t1E",
+      "titre": "HABITUÉ AUX SUPERCHARGERS TESLA, J’AI GALÉRÉ SUR UNE BORNE RAPIDE !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "YGpd2mh2t1E",
+      "date_publication": "2026-11-08"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=6VYkXdAWtP0",
+      "titre": "Conduite de nuit en Tesla Model Y : c'est comment ?",
+      "chaine": "TESLA En Aparté",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "6VYkXdAWtP0",
+      "date_publication": "2026-11-08"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=D0H5IAo026o",
+      "titre": "TESLA annonce l'arrêt du Cybertruck pour 2027 !",
+      "chaine": "TESLA Geek",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "D0H5IAo026o",
+      "date_publication": "2026-11-07"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=Dx7E_N3zMwc",
       "titre": "This is BAD NEWS For Every Tesla Owner!",
       "chaine": "Robert Rosenfeld",
@@ -10,30 +64,12 @@
       "date_publication": "2026-11-06"
     },
     {
-      "url": "https://www.youtube.com/watch?v=PavArqx3DHo",
-      "titre": "TESLA ARRÊTE LE CYBERTRUCK… LE PARI FOU DU CYBERCAB !",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "PavArqx3DHo",
-      "date_publication": "2026-11-06"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=lUqbb758j-g",
       "titre": "Superchargeurs Tesla V2, V3, V4 : les Erreurs qui font Perdre du Temps et de l'Argent !",
       "chaine": "Tesla Sympa",
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "lUqbb758j-g",
-      "date_publication": "2026-11-05"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=VVbdMqrufs8",
-      "titre": "Acheter une TESLA en 2026 : choix MALIN ou voiture SANS ÂME ?",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "VVbdMqrufs8",
       "date_publication": "2026-11-05"
     },
     {
@@ -64,15 +100,6 @@
       "date_publication": "2026-11-02"
     },
     {
-      "url": "https://www.youtube.com/watch?v=1C0gZJtFdUg",
-      "titre": "Combien on perd en chargeant une Tesla ? Je teste !",
-      "chaine": "The Choucroute Garage",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "1C0gZJtFdUg",
-      "date_publication": "2026-11-02"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=f5wxIgb1rgA",
       "titre": "Créez votre Lightshow TESLA personnalisé en moins de 30 secondes ! Grâce à @JowuaGlobal",
       "chaine": "TESLA Geek",
@@ -80,33 +107,6 @@
       "mot_cle": "général",
       "id_video": "f5wxIgb1rgA",
       "date_publication": "2026-11-01"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=03x-gQjru4A",
-      "titre": "Dormir dans sa Tesla : test du matelas gonflable Havnby (Model 3/Y)",
-      "chaine": "Tesla Burger",
-      "langue": "fr",
-      "mot_cle": "Model 3",
-      "id_video": "03x-gQjru4A",
-      "date_publication": "2026-10-31"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=DbzEcphf-VM",
-      "titre": "Tesla Model Y 2026 : Le Bilan sans Filtre après Plusieurs Mois !",
-      "chaine": "Juste Tomy",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "DbzEcphf-VM",
-      "date_publication": "2026-10-30"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=RDWmxrDWlq8",
-      "titre": "Tesla Model Y d'entrée de gamme : 5 TOPS et 5 FLOPS !",
-      "chaine": "Simplement Julien",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "RDWmxrDWlq8",
-      "date_publication": "2026-10-25"
     }
   ]
 }
