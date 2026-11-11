@@ -14,7 +14,7 @@
   };
   var ROLES = { originale: 'Originale', reprise: 'Reprise', complementaire: 'Complémentaire' };
   var JOURS_FIL = 60;
-  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [], occasion: [], essence: [] };
+  var D = {aides: null,  entrees: [], historique: [], journal: [], prix: [], videos: [], marche: [], efficience: [], occasion: [], essence: [], infoJour: [] };
   var F = { q: '', theme: '', model: '', terr: '', status: '', period: '' };
   var app = document.getElementById('app');
   var NOM = 'Tesla suivi', AN = String(new Date().getFullYear());
@@ -54,6 +54,12 @@
   function loadEfficience() { return fetch('data/efficience.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('efficience : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
   function loadEssence() { return fetch('data/essence.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('essence : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
   function loadOccasion() { return fetch('data/occasion.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error('occasion : HTTP ' + r.status); return r.json(); }).then(function (j) { return Array.isArray(j) ? j : []; }).catch(function () { return []; }); }
+  function loadInfoJour() {
+    return fetch('data/info-du-jour.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+      var l = Array.isArray(j && j.entrees) ? j.entrees : [];
+      return l.filter(function (x) { return x && /^\d{4}-\d{2}-\d{2}$/.test(String(x.date || '')) && x.texte && x.source_nom; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    }).catch(function () { return []; });
+  }
   function loadVideos() {
     return fetch('data/videos.json', { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error('videos : HTTP ' + r.status);
@@ -407,6 +413,27 @@ function efficienceHTML() {
     '</section></div>';
 }
 
+  /* === Encart « Information du jour » (accueil, colonne de droite) === */
+  function parisDay() { try { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date()); } catch (e) { return ''; } }
+  function infoJourHTML() {
+    var L = arr(D.infoJour), jour = parisDay(), last = L[0], today = last && last.date === jour ? last : null, h = '';
+    h += '<aside class="infojour" aria-labelledby="h-ij"><div class="ij-head"><h2 id="h-ij">Information du jour</h2><span class="ij-date">' + esc(fr(jour)) + '</span></div>';
+    if (today) {
+      var st = today.statut ? '<span class="ij-tag">' + esc(today.statut) + '</span>' : '';
+      h += '<article class="ij-card"><div class="ij-meta"><span class="ij-rub">' + esc(today.rubrique || '') + '</span>' + st + '</div>' +
+        '<p class="ij-texte">' + esc(today.texte) + '</p>' +
+        '<p class="ij-src">Source : ' + link(today.source_url, today.source_nom) + (today.source_heure ? ', ' + esc(today.source_heure) : '') + '</p></article>';
+    } else {
+      h += '<div class="ij-vide"><p>Rien de nouveau à signaler aujourd’hui.' + (last ? ' Dernière information : ' + esc(fr(last.date)) + '.' : ' Aucune information publiée pour l’instant.') + '</p></div>';
+    }
+    var jr = L.filter(function (x) { return x !== today; }).slice(0, 5);
+    if (jr.length) {
+      h += '<h3 class="ij-sub">Journal récent</h3><ol class="ij-list">' + jr.map(function (x) {
+        return '<li><span class="ij-t">' + esc(x.texte.length > 90 ? x.texte.slice(0, 87) + '…' : x.texte) + '</span><span class="ij-d">' + esc(short(x.date)) + '</span></li>';
+      }).join('') + '</ol>';
+    }
+    return h + '<p class="ij-note">Chaque entrée est vérifiée avant publication. Une rumeur n’est jamais affichée ici.</p></aside>';
+  }
   function homeHTML() {
     var counts = {};
     D.entrees.filter(inFeed).forEach(function (e) { counts[e.theme] = (counts[e.theme] || 0) + 1; });
@@ -417,9 +444,9 @@ function efficienceHTML() {
       return '<option value="">Tous</option>' + list.map(function (a) { var v = Array.isArray(a) ? a[0] : a, l = Array.isArray(a) ? a[1] : a; return '<option value="' + esc(v) + '"' + (cur === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
-    return '<section class="hero hero-new"><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="disclaimer">Site indépendant — non affilié à Tesla</p>' +
+    return '<section class="hero hero-new"><div class="hero-titre"><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="disclaimer">Site indépendant — non affilié à Tesla</p></div>' + infoJourHTML() + '<div class="hero-main">' +
       '<figure class="hero-image"><img src="assets/hero-generique.jpg" alt="Une voiture électrique blanche sur une route de campagne au coucher du soleil" width="1230" height="639" decoding="async"></figure>' +
-      stripHTML() + veilleHTML() + '</section>' +
+      stripHTML() + veilleHTML() + '</div></section>' +
       '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + marcheHTML() + videosHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<form class="searchrow" id="sform" role="search"><label class="sr" for="q">Rechercher dans la veille</label><span class="sbox"><input class="search" id="q" type="search" enterkeyhint="search" placeholder="Rechercher : prix, FSD, calculateur\u2026" value="' + esc(F.q) + '" autocomplete="off"><button class="qclear" type="button" id="qclear" aria-label="Effacer la recherche">\u00d7</button></span><button class="btn-s" type="submit">Rechercher</button></form>' +
@@ -1074,9 +1101,9 @@ function efficienceHTML() {
   });
 
   /* ---------- Démarrage ---------- */
-  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence(), loadLoa()]).then(function (r) {
+  Promise.all([load('entrees'), load('historique'), load('journal'), load('prix').catch(function () { return []; }), loadVideos(), loadAides(), loadMarche(), loadEfficience(), loadOccasion(), loadEssence(), loadLoa(), loadInfoJour()]).then(function (r) {
     D.entrees = r[0].filter(function (e) { return e && typeof e === 'object' && e.id && e.titre; }).map(normaliser);
-    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8]; D.essence = r[9]; D.loa = r[10];
+    D.historique = r[1]; D.journal = r[2]; D.prix = r[3]; D.videos = r[4]; D.aides = r[5]; D.marche = r[6]; D.efficience = r[7]; D.occasion = r[8]; D.essence = r[9]; D.loa = r[10]; D.infoJour = r[11];
     try { var bv = document.querySelector('.brand-version'); if (bv) bv.textContent = AN; } catch (x) {}
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (x) {}
     route(false);
