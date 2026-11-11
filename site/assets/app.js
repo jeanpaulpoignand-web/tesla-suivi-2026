@@ -444,10 +444,10 @@ function efficienceHTML() {
       return '<option value="">Tous</option>' + list.map(function (a) { var v = Array.isArray(a) ? a[0] : a, l = Array.isArray(a) ? a[1] : a; return '<option value="' + esc(v) + '"' + (cur === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
     }
     var vide = !D.entrees.length ? '<div class="empty"><p><b>Aucune information publiée pour l’instant.</b> Le site est prêt ; la première veille doit encore être chargée. Rien n’est affiché tant qu’aucune information vérifiée n’existe.</p></div>' : '';
-    return '<section class="hero hero-new"><div class="hero-titre"><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="disclaimer">Site indépendant — non affilié à Tesla</p></div>' + infoJourHTML() + '<div class="hero-main">' +
+    return '<section class="hero hero-new"><div class="hero-titre"><h1>' + NOM + ' <span class="an">' + AN + '</span></h1><p class="disclaimer">Site indépendant — non affilié à Tesla</p></div>' + '<div class="hero-side">' + infoJourHTML() + videosHTML() + '</div><div class="hero-main">' +
       '<figure class="hero-image"><img src="assets/hero-generique.jpg" alt="Une voiture électrique blanche sur une route de campagne au coucher du soleil" width="1230" height="639" decoding="async"></figure>' +
       stripHTML() + veilleHTML() + '</div></section>' +
-      '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + marcheHTML() + videosHTML() + '<div class="feed">' +
+      '<div class="wrap"><div class="layout">' + retenirHTML() + fabricationHTML() + marcheHTML() + '<div class="feed">' +
       '<section class="tools" aria-labelledby="h-fil"><h2 id="h-fil">Fil chronologique</h2>' +
       '<form class="searchrow" id="sform" role="search"><label class="sr" for="q">Rechercher dans la veille</label><span class="sbox"><input class="search" id="q" type="search" enterkeyhint="search" placeholder="Rechercher : prix, FSD, calculateur\u2026" value="' + esc(F.q) + '" autocomplete="off"><button class="qclear" type="button" id="qclear" aria-label="Effacer la recherche">\u00d7</button></span><button class="btn-s" type="submit">Rechercher</button></form>' +
       '<div class="chips" role="group" aria-label="Filtrer par thème">' + chips + '</div>' +

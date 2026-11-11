@@ -650,7 +650,7 @@ ol.feed{display:flex;flex-direction:column;gap:16px}
 
 /* === Accueil : photo à gauche, Information du jour à droite === */
 .hero-new{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"titre" "info" "main";gap:0 40px}
-.hero-titre{grid-area:titre}.hero-main{grid-area:main;min-width:0}.infojour{grid-area:info;min-width:0;margin:0 0 28px;text-align:left}
+.hero-titre{grid-area:titre}.hero-main{grid-area:main;min-width:0}.hero-side{grid-area:info;min-width:0;margin:0 0 28px;text-align:left}.hero-side .infojour{margin:0 0 28px}.hero-side .vids{margin:0;position:static;max-height:none;overflow:visible;padding-right:0}
 .ij-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px}
 .ij-head h2{font-family:var(--serif);font-size:26px;margin:0}
 .ij-date{font-family:var(--mono);font-size:13px;color:var(--muted)}
@@ -670,5 +670,7 @@ ol.feed{display:flex;flex-direction:column;gap:16px}
   .hero.hero-new{max-width:1180px;grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"titre titre" "main info";align-items:start}
   .hero-new .hero-titre{text-align:left}
   .hero-new .disclaimer{margin-left:0}
-  .infojour{position:sticky;top:96px;margin-top:0}
 }
+
+/* Vidéos récentes : désormais dans la colonne de droite de l'accueil, sous l'Information du jour */
+@media(min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"ret ret" "fab fab" "mkt mkt" "feed aside";grid-template-rows:auto}}
