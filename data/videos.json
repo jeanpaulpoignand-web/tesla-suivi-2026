@@ -1,6 +1,42 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=CGJsEWW8zzY",
+      "titre": "Tesla Has a HUGE Surprise For 2027!",
+      "chaine": "Robert Rosenfeld",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "CGJsEWW8zzY",
+      "date_publication": "2026-11-11"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zeGG7DKHH9M",
+      "titre": "TESLA FSD : 11 PAYS DISENT OUI… LA FRANCE BLOQUE ENCORE !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "zeGG7DKHH9M",
+      "date_publication": "2026-11-11"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=KDKelWoegkY",
+      "titre": "Ecran devant le volant d'une Tesla ? Regardez ceci avant d'acheter !",
+      "chaine": "Tesla Astuces",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "KDKelWoegkY",
+      "date_publication": "2026-11-10"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ln9w3oSL0KE",
+      "titre": "XIAOMI ET TESLA : LES VENTES PLONGENT… L’ESSENCE CHANGE LA DONNE !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "ln9w3oSL0KE",
+      "date_publication": "2026-11-10"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=tf3k9MCv_5E",
       "titre": "Tesla : 2 protections indispensables pour tes coffres !",
       "chaine": "Tesla Sympa",
@@ -17,24 +53,6 @@
       "mot_cle": "général",
       "id_video": "ogFF52DgmqE",
       "date_publication": "2026-11-09"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=DVNcfEwaqCg",
-      "titre": "XPENG L05 : rival du MODEL Y… ou remplaçant du G6 ?",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "DVNcfEwaqCg",
-      "date_publication": "2026-11-09"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=YGpd2mh2t1E",
-      "titre": "HABITUÉ AUX SUPERCHARGERS TESLA, J’AI GALÉRÉ SUR UNE BORNE RAPIDE !",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "YGpd2mh2t1E",
-      "date_publication": "2026-11-08"
     },
     {
       "url": "https://www.youtube.com/watch?v=6VYkXdAWtP0",
@@ -89,24 +107,6 @@
       "mot_cle": "général",
       "id_video": "TTEavoK7WFo",
       "date_publication": "2026-11-03"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=q-0v3wbGD4E",
-      "titre": "Tesla Owners Just Got a BIG Surprise!",
-      "chaine": "Robert Rosenfeld",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "q-0v3wbGD4E",
-      "date_publication": "2026-11-02"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=f5wxIgb1rgA",
-      "titre": "Créez votre Lightshow TESLA personnalisé en moins de 30 secondes ! Grâce à @JowuaGlobal",
-      "chaine": "TESLA Geek",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "f5wxIgb1rgA",
-      "date_publication": "2026-11-01"
     }
   ]
 }
