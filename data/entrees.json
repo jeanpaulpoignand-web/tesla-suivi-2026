@@ -874,7 +874,9 @@
     "date_publication": "2026-11-05",
     "date_verification": "2026-11-05",
     "theme": "Prix France",
-    "modeles": ["Model 3"],
+    "modeles": [
+      "Model 3"
+    ],
     "hardware": "",
     "territoire": "France",
     "resume": "Relevé du 5 novembre 2026 (7 h 52 à 7 h 54) sur le configurateur Tesla France, financement « Personnel : Location avec option d'achat réduite (LOA) », Model 3 Propulsion, Blanc Nacré Multicouches, jantes Prismata 18\", intérieur noir, 10 000 km par an, livraison Besançon (25000). Avec 400 € d'apport : 463 € par mois sur 36 mois (montant total avec achat au terme : 37 334 €) et 525 € par mois sur 60 mois (47 254 €). Avec l'apport de 5 830 €, affiché par défaut à l'ouverture du simulateur : 308 € par mois sur 36 mois (même total avec achat : 37 334 €). La composition de cet apport par défaut n'est pas détaillée à l'écran. Le bandeau du site affiche « Disponible à partir de 299 €/mois avec un taux d'intérêt de 0 % » (conditions non lues). Ces montants sont des estimations du simulateur, hors économies de carburant estimées (83 € par mois), sous réserve d'acceptation du financement.",
@@ -899,6 +901,113 @@
         "url": "https://www.tesla.com/fr_fr/model3/design#overview",
         "date": "2026-11-05",
         "interet_commercial": "oui",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "id": "2026-11-12-finlande-tesla-assisted-driving-autorise",
+    "titre": "Finlande : Traficom autorise Tesla Assisted Driving (ex-FSD Supervised) sur les routes finlandaises",
+    "date_publication": "2026-11-11",
+    "date_verification": "2026-11-12",
+    "theme": "FSD",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": null,
+    "territoire": "Europe (Finlande)",
+    "fsd": {
+      "etape": "autorisation"
+    },
+    "resume": "L'agence finlandaise des transports Traficom indique avoir reconnu le 10 novembre 2026 l'homologation provisoire accordée par l'autorité néerlandaise au système Tesla Assisted Driving, qui peut être utilisé en Finlande comme système d'aide à la conduite ; Tesla peut le proposer immédiatement à ses clients finlandais. Selon Traficom, le système s'appelait auparavant FSD (Supervised), le conducteur ne peut plus demander de maintenir en permanence une vitesse supérieure à la limite (50 %), et les réglages de dépassement reviennent à zéro à chaque redémarrage. L'approbation finale dans l'UE exige un vote du comité technique TCMV, attendu cet hiver selon Traficom ; il faut ensuite environ trois semaines pour qu'elle s'applique dans toute l'UE. Tesla Europe a publié le 11/11 « Now approved in Finland, Rollout begins soon ». Selon Numerama, le vote TCMV est prévu le 1er décembre.",
+    "consequence": "Pas d'autorisation pour la France dans les sources lues ; une application en France dépend du vote européen TCMV.",
+    "statut": "Confirmé",
+    "alerte": false,
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Traficom — Tesla's driver assistance system is now permitted on Finnish roads",
+        "type": "autorité",
+        "url": "https://www.traficom.fi/en/news/teslas-driver-assistance-system-now-permitted-finnish-roads",
+        "date": "2026-11-11",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "complementaire",
+        "nom": "X @teslaeurope",
+        "type": "Tesla",
+        "url": "https://x.com/teslaeurope/status/2120400770952745439",
+        "date": "2026-11-11",
+        "interet_commercial": "oui",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Euronews (Europe)",
+        "type": "presse",
+        "url": "https://fr.euronews.com/2026/11/11/tesla-obtient-une-approbation-temporaire-pour-son-systeme-tesla-assisted-driving-en-finlan",
+        "date": "2026-11-11",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Numerama (France)",
+        "type": "presse",
+        "url": "https://www.numerama.com/vroom/2372089-tesla-fait-homologuer-le-fsd-dans-un-pays-aux-conditions-parmi-les-plus-hostiles-deurope.html",
+        "date": "2026-11-11",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "X @elonmusk",
+        "type": "réseau social",
+        "url": "https://x.com/elonmusk/status/2120565179276832797",
+        "date": "2026-11-11",
+        "interet_commercial": "oui",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
+  },
+  {
+    "id": "2026-11-12-france-eco-score-arrete-9-novembre-model-y",
+    "titre": "France : une version du Tesla Model Y ajoutée à la liste éco-score à compter du 12 novembre 2026",
+    "date_publication": "2026-11-10",
+    "date_verification": "2026-11-12",
+    "theme": "Aides",
+    "modeles": [
+      "Model Y"
+    ],
+    "hardware": null,
+    "territoire": "France",
+    "resume": "L'arrêté du 9 novembre 2026, publié au Journal officiel du 10 novembre 2026 et pris en application des articles D. 251-1 et D. 251-1-A du code de l'énergie, complète la liste des versions de voitures particulières électriques ayant atteint le score environnemental minimal. À compter du 12 novembre 2026, il y ajoute 31 versions, dont une version « TESLA Model Y » de code TVV 003YB6MNMb5s5T3X. Le texte ne précise ni la motorisation ni la batterie de cette version. Selon Numerama, l'inscription ne garantit pas la prime « coup de pouce », qui reste soumise à un plafond de prix de 47 000 euros.",
+    "consequence": "Une version supplémentaire du Model Y remplit, depuis le 12/11, le critère du score environnemental conditionnant certaines aides à l'achat ou à la location ; l'acheteur doit vérifier le code TVV de sa version et les autres conditions de l'aide.",
+    "statut": "Confirmé",
+    "alerte": true,
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Légifrance — Arrêté du 9 novembre 2026 (JORF du 10/11/2026)",
+        "type": "autorité",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000055075229",
+        "date": "2026-11-10",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Numerama (France)",
+        "type": "presse",
+        "url": "https://www.numerama.com/vroom/2372241-audi-a2-e-tron-lancia-gamma-leapmotor-b10-les-voitures-electriques-que-vous-allez-payer-moins-cher-grace-a-leco-score.html",
+        "date": "2026-11-11",
+        "interet_commercial": "non",
         "accessible": true
       }
     ],
