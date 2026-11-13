@@ -1012,5 +1012,53 @@
       }
     ],
     "contradictions": []
+  },
+  {
+    "id": "2026-11-13-etats-unis-robotaxi-24-7",
+    "titre": "États-Unis : le service Robotaxi de Tesla fonctionne désormais 24 h/24, 7 j/7, dans toutes ses villes, selon le compte officiel Robotaxi",
+    "date_publication": "2026-11-12",
+    "date_verification": "2026-11-13",
+    "theme": "FSD",
+    "modeles": [],
+    "hardware": null,
+    "territoire": "International (États-Unis)",
+    "fsd": {
+      "etape": "annonce"
+    },
+    "resume": "Le compte officiel @robotaxi de Tesla a annoncé le 12/11 (05:31, heure de Paris) : « Robotaxi now runs 24/7. Every city we're available in » (le service Robotaxi fonctionne désormais 24 h/24 dans toutes les villes où il est disponible). Le message ne liste pas les villes. Elon Musk a déclaré le même jour en citant ce message : « Robotaxi works 168 hours a week ». Benzinga (relayé par TradingView, 12/11) reprend l'annonce. Une déclaration prouve qu'elle a été faite, pas les conditions réelles du service.",
+    "consequence": "Pas d'annonce pour la France dans les sources lues.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "X @robotaxi (compte officiel Tesla Robotaxi)",
+        "type": "Tesla",
+        "url": "https://x.com/robotaxi/status/2120736143566344324",
+        "date": "2026-11-12",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "X @elonmusk",
+        "type": "réseau social",
+        "url": "https://x.com/elonmusk/status/2120746428720988408",
+        "date": "2026-11-12",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Benzinga via TradingView (États-Unis)",
+        "type": "presse",
+        "url": "https://fr.tradingview.com/news/benzinga:c5269a131094b:0-elon-musk-says-robotaxi-works-168-hours-a-week-as-tesla-highlights-24-7-operations-across-all-active-cities/",
+        "date": "2026-11-12",
+        "interet_commercial": "non",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
   }
 ]
