@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=dwxNqwybtGw",
+      "titre": "TESLA EN EUROPE : BERLIN PRÉPARE L’APRÈS MODEL Y",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "dwxNqwybtGw",
+      "date_publication": "2026-11-12"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=CGJsEWW8zzY",
       "titre": "Tesla Has a HUGE Surprise For 2027!",
       "chaine": "Robert Rosenfeld",
@@ -25,15 +34,6 @@
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "KDKelWoegkY",
-      "date_publication": "2026-11-10"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=ln9w3oSL0KE",
-      "titre": "XIAOMI ET TESLA : LES VENTES PLONGENT… L’ESSENCE CHANGE LA DONNE !",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "ln9w3oSL0KE",
       "date_publication": "2026-11-10"
     },
     {
