@@ -1,6 +1,24 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=Af2huhD-Pvk",
+      "titre": "Une nouvelle TESLA produite à la GIGA Berlin ?",
+      "chaine": "TESLA Geek",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "Af2huhD-Pvk",
+      "date_publication": "2026-11-13"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rREC9cYtJTw",
+      "titre": "TESLA MODEL Y  MAUVAISE NOUVELLE POUR LES ACHETEURS !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "rREC9cYtJTw",
+      "date_publication": "2026-11-13"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=dwxNqwybtGw",
       "titre": "TESLA EN EUROPE : BERLIN PRÉPARE L’APRÈS MODEL Y",
       "chaine": "Yoann en VE ⚡️",
@@ -16,15 +34,6 @@
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "CGJsEWW8zzY",
-      "date_publication": "2026-11-11"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=zeGG7DKHH9M",
-      "titre": "TESLA FSD : 11 PAYS DISENT OUI… LA FRANCE BLOQUE ENCORE !",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "zeGG7DKHH9M",
       "date_publication": "2026-11-11"
     },
     {
@@ -98,15 +107,6 @@
       "mot_cle": "général",
       "id_video": "rdRX4Q_rvTg",
       "date_publication": "2026-11-04"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=TTEavoK7WFo",
-      "titre": "Tesla : découvrez la web app CoDriver pour vos trajets et plus encore",
-      "chaine": "Tesla Astuces",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "TTEavoK7WFo",
-      "date_publication": "2026-11-03"
     }
   ]
 }
