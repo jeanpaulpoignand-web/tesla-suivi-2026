@@ -1060,5 +1060,60 @@
       }
     ],
     "contradictions": []
+  },
+  {
+    "id": "2026-11-14-cybercab-achat-usage-personnel-invitations",
+    "titre": "Cybercab : Tesla invite des clients sélectionnés à acheter un Cybercab pour un usage personnel, selon le compte officiel Robotaxi",
+    "date_publication": "2026-11-14",
+    "date_verification": "2026-11-14",
+    "theme": "Cybercab",
+    "modeles": [],
+    "hardware": null,
+    "territoire": "International (États-Unis)",
+    "fsd": null,
+    "resume": "Le compte officiel @robotaxi de Tesla a annoncé le 14/11 (00:27, heure de Paris) : « Select customers are now being invited to purchase Cybercab for personal use » (des clients sélectionnés sont invités à acheter un Cybercab pour un usage personnel). Les captures jointes montrent la page de commande : Cybercab à 29 990 $ (USD) hors taxes, abonnement « Autonomy Subscription » à 299 $/mois (un mois inclus, abonnement et entretien requis pour l'utiliser), acompte non remboursable de 1 000 $, livraison estimée en décembre 2026 à Austin (Texas) ; et l'e-mail d'invitation : « Early Access, Limited Release », deux places, écran central de 21 pouces, disponibilité limitée aux zones de service prises en charge. Le compte @Tesla et Elon Musk ont relayé le message. Selon Electrek, ces zones sont celles du service Robotaxi au Texas et en Floride. Il s'agit d'une ouverture de commandes sur invitation, pas de livraisons constatées.",
+    "consequence": "Sans effet pour l'acheteur de Model 3 ou de Model Y ; non vérifié pour la France.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "X @robotaxi (compte officiel Tesla Robotaxi), message et captures",
+        "type": "Tesla",
+        "url": "https://x.com/robotaxi/status/2121384435241402737",
+        "date": "2026-11-14",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "X @Tesla (citation du message)",
+        "type": "Tesla",
+        "url": "https://x.com/Tesla/status/2121389588736520545",
+        "date": "2026-11-14",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "X @elonmusk (repartage)",
+        "type": "réseau social",
+        "url": "https://x.com/elonmusk/status/2121389916948939141",
+        "date": "2026-11-14",
+        "interet_commercial": "non",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Electrek (États-Unis)",
+        "type": "presse",
+        "url": "https://electrek.co/2026/11/13/tesla-cybercab-personal-use-orders-299-subscription-geofence/",
+        "date": "2026-11-14",
+        "interet_commercial": "non",
+        "accessible": true
+      }
+    ],
+    "contradictions": []
   }
 ]
