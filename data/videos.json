@@ -1,6 +1,24 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=I1nWcIKgv4A",
+      "titre": "Fini la feutrine dans la Tesla : je recouvre TOUT PARTOUT !",
+      "chaine": "Tesla Astuces",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "I1nWcIKgv4A",
+      "date_publication": "2026-11-15"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=12sSDVFjTMc",
+      "titre": "TESLA CYBERCAB : LE PRIX EST OFFICIEL… ACHETEZ-LE, PUIS PAYEZ POUR ROULER !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "12sSDVFjTMc",
+      "date_publication": "2026-11-14"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=Af2huhD-Pvk",
       "titre": "Une nouvelle TESLA produite à la GIGA Berlin ?",
       "chaine": "TESLA Geek",
@@ -17,15 +35,6 @@
       "mot_cle": "Model Y",
       "id_video": "rREC9cYtJTw",
       "date_publication": "2026-11-13"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=dwxNqwybtGw",
-      "titre": "TESLA EN EUROPE : BERLIN PRÉPARE L’APRÈS MODEL Y",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "dwxNqwybtGw",
-      "date_publication": "2026-11-12"
     },
     {
       "url": "https://www.youtube.com/watch?v=CGJsEWW8zzY",
@@ -92,21 +101,12 @@
     },
     {
       "url": "https://www.youtube.com/watch?v=lUqbb758j-g",
-      "titre": "Superchargeurs Tesla V2, V3, V4 : les Erreurs qui font Perdre du Temps et de l'Argent !",
+      "titre": "J'ai testé les Superchargeurs Tesla : la vérité sur les tarifs et la vitesse",
       "chaine": "Tesla Sympa",
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "lUqbb758j-g",
       "date_publication": "2026-11-05"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=rdRX4Q_rvTg",
-      "titre": "Verne : Le robotaxi européen face à Tesla !",
-      "chaine": "The Choucroute Garage",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "rdRX4Q_rvTg",
-      "date_publication": "2026-11-04"
     }
   ]
 }
