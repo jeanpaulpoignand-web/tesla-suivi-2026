@@ -254,5 +254,182 @@
       }
     ],
     "note": "Relevé ponctuel du 31/10/2026, et non nouvelle consultation au moment de la correction : lectures réelles 05:48:43–05:57:01 Europe/Paris ; conditions jusqu'à 05:58 (précision à la minute). Personnel / Comptant, sans options ajoutées. Huit tarifs catalogue lus sur Tesla, indépendamment des lectures antérieures. Trois contextes par version : champ postal vide, Besançon 25000, Cannes 06400 ; déductions identiques. Statut partiel : champ vidé conservant les taxes de la ville précédente, donc aucune simulation fiable sans localisation. Les deux codes postaux sont reconnus. Aucun prix net calculé, estimé ou enregistré ; les totaux bruts du rapport ne sont pas importés. Bonus de reprise et économies de carburant décochés. Aides : nom conforme V1.2 et libelle identique conservé pour compatibilité avec le site existant. Fourchette positive en euros sur les seules lignes Coup de pouce, sans montant unique garanti. Rapport source validé : https://docs.google.com/document/d/1yWocalmdsiHvrjA6Tw44hngxIdFUsP1SO4yvhQW8YvE . Économies de carburant, information conservée uniquement dans cette note : ligne « Inclure les économies de carburant estimées », estimation commerciale Tesla personnalisable, non aide publique, case non cochée et montant non déduit du total lu, aucun calcul ChatGPT ; Model 3 Propulsion, Grande Autonomie Propulsion et Grande Autonomie Transmission Intégrale : −4 000 € chacune sur 4 ans ; Model 3 Performance : −3 600 € sur 4 ans ; Model Y Propulsion et Premium Grande Autonomie Propulsion : −6 000 € chacune sur 5 ans ; Model Y Grande Autonomie Transmission Intégrale et Performance : −5 500 € chacune sur 5 ans ; sources : configurateurs Tesla France cités dans cette lecture."
+  },
+  {
+    "date_releve": "2026-11-15T07:31:00+01:00",
+    "statut_lecture": "partiel",
+    "source_url_model3": "https://www.tesla.com/fr_fr/model3/design",
+    "source_url_modely": "https://www.tesla.com/fr_fr/modely/design",
+    "source": [
+      "https://www.tesla.com/fr_fr/model3/design",
+      "https://www.tesla.com/fr_fr/modely/design"
+    ],
+    "versions": [
+      {
+        "modele": "Model 3",
+        "version": "Propulsion",
+        "catalogue_eur": 36990,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichage commercial inclus au comptant, sans preuve d'éligibilité légale au Coup de pouce.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Ligne incluse dans le détail Personnel / Comptant, avec les taxes ; aucun complément cliquable sur cette ligne. Aucun revenu ni nombre de parts demandé dans les écrans visités. Ne permet pas de conclure à l'éligibilité légale au Coup de pouce."
+          },
+          {
+            "nom": "Bonus de reprise Tesla",
+            "libelle": "Bonus de reprise Tesla",
+            "montant_eur": -3000,
+            "condition": "Reprise Propulsion, commandes du 01/10 au 31/12/2026 selon stocks, financement/leasing Tesla exclus.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Propulsion seulement ; reprise d'un véhicule immatriculé dans le pays de livraison au nom de l'acheteur et/ou de son conjoint. Commandes du 01/10 au 31/12/2026 inclus, stocks disponibles ; livraison au 31/12/2026 et retrait sous 7 jours, avec exceptions en cas d'indisponibilité ou de retard imputable à Tesla. Occasion exclue ; démonstration/exposition admise. Comptant ou financement tiers admis ; financement/leasing Tesla exclus. Offre révocable selon stocks, indépendante des aides publiques. Case non cochée lors de la lecture."
+          }
+        ]
+      },
+      {
+        "modele": "Model 3",
+        "version": "Grande Autonomie, Propulsion",
+        "catalogue_eur": 44990,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichage commercial inclus au comptant, sans preuve d'éligibilité légale au Coup de pouce.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Ligne incluse dans le détail Personnel / Comptant, avec les taxes ; aucun complément cliquable sur cette ligne. Aucun revenu ni nombre de parts demandé dans les écrans visités. Ne permet pas de conclure à l'éligibilité légale au Coup de pouce."
+          }
+        ]
+      },
+      {
+        "modele": "Model 3",
+        "version": "Grande Autonomie Transmission Intégrale",
+        "catalogue_eur": 49990,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichage commercial inclus au comptant, sans preuve d'éligibilité légale au Coup de pouce.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Ligne incluse dans le détail Personnel / Comptant, avec les taxes ; aucun complément cliquable sur cette ligne. Aucun revenu ni nombre de parts demandé dans les écrans visités. Ne permet pas de conclure à l'éligibilité légale au Coup de pouce."
+          }
+        ]
+      },
+      {
+        "modele": "Model 3",
+        "version": "Performance",
+        "catalogue_eur": 57490,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichage commercial inclus au comptant, sans preuve d'éligibilité légale au Coup de pouce.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Ligne incluse dans le détail Personnel / Comptant, avec les taxes ; aucun complément cliquable sur cette ligne. Aucun revenu ni nombre de parts demandé dans les écrans visités. Ne permet pas de conclure à l'éligibilité légale au Coup de pouce."
+          }
+        ]
+      },
+      {
+        "modele": "Model Y",
+        "version": "Propulsion",
+        "catalogue_eur": 40990,
+        "aides": [
+          {
+            "nom": "Prime CEE (Coup de Pouce)",
+            "libelle": "Prime CEE (Coup de Pouce)",
+            "montant_eur": -3600,
+            "condition": "Selon revenus et critères gouvernementaux, sans garantie d'éligibilité légale ni de montant individuel.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "montant_min": 3600,
+            "montant_max": 5700,
+            "source": "Tesla France — bandeau du configurateur Model Y",
+            "conditions_fourchette": "Affichée sur Model Y Propulsion et Grande Autonomie Propulsion, dont Premium ; montant dépendant des revenus et des critères gouvernementaux. Prime incluse dans le total Comptant. Fourchette commerciale au bandeau ; aucun revenu ni nombre de parts renseigné. Ambiguïté conservée : texte près des versions hors prime, panneau Comptant prime incluse. Ces affichages commerciaux ne prouvent pas l'éligibilité légale.",
+            "condition_detail": "Affichée sur Model Y Propulsion et Grande Autonomie Propulsion, dont Premium ; montant dépendant des revenus et des critères gouvernementaux. Prime incluse dans le total Comptant. Fourchette commerciale au bandeau ; aucun revenu ni nombre de parts renseigné. Ambiguïté conservée : texte près des versions hors prime, panneau Comptant prime incluse. Ces affichages commerciaux ne prouvent pas l'éligibilité légale."
+          },
+          {
+            "nom": "Bonus de reprise Tesla",
+            "libelle": "Bonus de reprise Tesla",
+            "montant_eur": -4000,
+            "condition": "Reprise Propulsion, commandes du 01/10 au 31/12/2026 selon stocks, financement/leasing Tesla exclus. Lu à 4 000 € sur tesla.com le 15/11/2026 (5 000 € lus le 31/10).",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "lecture Grok du 15/11/2026 à 07:29–07:31 sur la page officielle Tesla France ; éligibilité légale non validée",
+            "condition_detail": "Propulsion seulement ; reprise d'un véhicule immatriculé dans le pays de livraison au nom de l'acheteur et/ou de son conjoint. Commandes du 01/10 au 31/12/2026 inclus, stocks disponibles ; livraison au 31/12/2026 et retrait sous 7 jours, avec exceptions en cas d'indisponibilité ou de retard imputable à Tesla. Occasion exclue ; démonstration/exposition admise. Comptant ou financement tiers admis ; financement/leasing Tesla exclus. Offre révocable selon stocks, indépendante des aides publiques. Case non cochée lors de la lecture."
+          }
+        ]
+      },
+      {
+        "modele": "Model Y",
+        "version": "Premium Grande Autonomie Propulsion",
+        "catalogue_eur": 46990,
+        "aides": [
+          {
+            "nom": "Prime CEE (Coup de Pouce)",
+            "libelle": "Prime CEE (Coup de Pouce)",
+            "montant_eur": -3600,
+            "condition": "Selon revenus et critères gouvernementaux, sans garantie d'éligibilité légale ni de montant individuel.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "montant_min": 3600,
+            "montant_max": 5700,
+            "source": "Tesla France — bandeau du configurateur Model Y",
+            "conditions_fourchette": "Affichée sur Model Y Propulsion et Grande Autonomie Propulsion, dont Premium ; montant dépendant des revenus et des critères gouvernementaux. Prime incluse dans le total Comptant. Fourchette commerciale au bandeau ; aucun revenu ni nombre de parts renseigné. Ambiguïté conservée : texte près des versions hors prime, panneau Comptant prime incluse. Ces affichages commerciaux ne prouvent pas l'éligibilité légale.",
+            "condition_detail": "Affichée sur Model Y Propulsion et Grande Autonomie Propulsion, dont Premium ; montant dépendant des revenus et des critères gouvernementaux. Prime incluse dans le total Comptant. Fourchette commerciale au bandeau ; aucun revenu ni nombre de parts renseigné. Ambiguïté conservée : texte près des versions hors prime, panneau Comptant prime incluse. Ces affichages commerciaux ne prouvent pas l'éligibilité légale."
+          }
+        ]
+      },
+      {
+        "modele": "Model Y",
+        "version": "Grande Autonomie Transmission Intégrale",
+        "catalogue_eur": 53990,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichage commercial inclus au comptant, sans preuve d'éligibilité légale au Coup de pouce.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Ligne incluse dans le détail Personnel / Comptant, avec les taxes ; aucun complément cliquable sur cette ligne. Aucun revenu ni nombre de parts demandé dans les écrans visités. Ne permet pas de conclure à l'éligibilité légale au Coup de pouce."
+          }
+        ]
+      },
+      {
+        "modele": "Model Y",
+        "version": "Performance",
+        "catalogue_eur": 62990,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Affichage commercial inclus au comptant, sans preuve d'éligibilité légale au Coup de pouce.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Ligne incluse dans le détail Personnel / Comptant, avec les taxes ; aucun complément cliquable sur cette ligne. Aucun revenu ni nombre de parts demandé dans les écrans visités. Ne permet pas de conclure à l'éligibilité légale au Coup de pouce."
+          }
+        ]
+      }
+    ],
+    "note": "Relevé du 15/11/2026, lecture Grok (navigateur, mode Personnel, version Propulsion), validée par Jean Paul comme lecture de référence. Seules les deux versions Propulsion ont été relues : Model Y Propulsion (catalogue 40 990 €, prime CEE 3 600 €, bonus de reprise Tesla passé de 5 000 € à 4 000 €) et Model 3 Propulsion (catalogue 36 990 €, prime CEE 400 €, bonus de reprise 3 000 €, inchangés). Les six autres versions sont reprises telles quelles du relevé du 31/10/2026 et n'ont pas été relues le 15/11. Aucun prix net calculé."
   }
 ]
