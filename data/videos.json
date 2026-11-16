@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=gQrUYj7JFjM",
+      "titre": "Une chambre IKEA dans le coffre d'une Tesla Model Y : ÇA PASSE OU ÇA CASSE  ?",
+      "chaine": "TESLA En Aparté",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "gQrUYj7JFjM",
+      "date_publication": "2026-11-15"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=I1nWcIKgv4A",
       "titre": "Fini la feutrine dans la Tesla : je recouvre TOUT PARTOUT !",
       "chaine": "Tesla Astuces",
@@ -98,15 +107,6 @@
       "mot_cle": "général",
       "id_video": "Dx7E_N3zMwc",
       "date_publication": "2026-11-06"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=lUqbb758j-g",
-      "titre": "J'ai testé les Superchargeurs Tesla : la vérité sur les tarifs et la vitesse",
-      "chaine": "Tesla Sympa",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "lUqbb758j-g",
-      "date_publication": "2026-11-05"
     }
   ]
 }
