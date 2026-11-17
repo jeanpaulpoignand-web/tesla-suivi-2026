@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=24wZuFbwqTo",
+      "titre": "S3XY Gadgets pour Tesla : Black Friday, MAJ 6.11 & Conseils d'achat. Commander, S3XY Buttons, Dash..",
+      "chaine": "Thomas - Blog Tesla",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "24wZuFbwqTo",
+      "date_publication": "2026-11-16"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=gQrUYj7JFjM",
       "titre": "Une chambre IKEA dans le coffre d'une Tesla Model Y : ÇA PASSE OU ÇA CASSE  ?",
       "chaine": "TESLA En Aparté",
@@ -98,15 +107,6 @@
       "mot_cle": "général",
       "id_video": "D0H5IAo026o",
       "date_publication": "2026-11-07"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=Dx7E_N3zMwc",
-      "titre": "This is BAD NEWS For Every Tesla Owner!",
-      "chaine": "Robert Rosenfeld",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "Dx7E_N3zMwc",
-      "date_publication": "2026-11-06"
     }
   ]
 }
