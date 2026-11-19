@@ -1,6 +1,33 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=v07a5jDZWTA",
+      "titre": "Tesla mise tout sur le Cybercab ? Je ne crois pas !",
+      "chaine": "The Choucroute Garage",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "v07a5jDZWTA",
+      "date_publication": "2026-11-18"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dlvzRbz8o1E",
+      "titre": "Tesla vend son Cybercab à 29.990 $… mais il y a un piège ! (plusieurs en fait)",
+      "chaine": "TESLA Geek",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "dlvzRbz8o1E",
+      "date_publication": "2026-11-18"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kggLNAh8FyM",
+      "titre": "C’EST OFFICIEL : TESLA VA FABRIQUER UNE PETITE VOITURE EN EUROPE !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "kggLNAh8FyM",
+      "date_publication": "2026-11-18"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=24wZuFbwqTo",
       "titre": "S3XY Gadgets pour Tesla : Black Friday, MAJ 6.11 & Conseils d'achat. Commander, S3XY Buttons, Dash..",
       "chaine": "Thomas - Blog Tesla",
@@ -28,30 +55,12 @@
       "date_publication": "2026-11-15"
     },
     {
-      "url": "https://www.youtube.com/watch?v=12sSDVFjTMc",
-      "titre": "TESLA CYBERCAB : LE PRIX EST OFFICIEL… ACHETEZ-LE, PUIS PAYEZ POUR ROULER !",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "12sSDVFjTMc",
-      "date_publication": "2026-11-14"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=Af2huhD-Pvk",
       "titre": "Une nouvelle TESLA produite à la GIGA Berlin ?",
       "chaine": "TESLA Geek",
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "Af2huhD-Pvk",
-      "date_publication": "2026-11-13"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=rREC9cYtJTw",
-      "titre": "TESLA MODEL Y  MAUVAISE NOUVELLE POUR LES ACHETEURS !",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "rREC9cYtJTw",
       "date_publication": "2026-11-13"
     },
     {
@@ -82,15 +91,6 @@
       "date_publication": "2026-11-09"
     },
     {
-      "url": "https://www.youtube.com/watch?v=ogFF52DgmqE",
-      "titre": "La fin du Cybertruck marque t elle la fin de Tesla ?",
-      "chaine": "The Choucroute Garage",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "ogFF52DgmqE",
-      "date_publication": "2026-11-09"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=6VYkXdAWtP0",
       "titre": "Conduite de nuit en Tesla Model Y : c'est comment ?",
       "chaine": "TESLA En Aparté",
@@ -100,13 +100,13 @@
       "date_publication": "2026-11-08"
     },
     {
-      "url": "https://www.youtube.com/watch?v=D0H5IAo026o",
-      "titre": "TESLA annonce l'arrêt du Cybertruck pour 2027 !",
-      "chaine": "TESLA Geek",
+      "url": "https://www.youtube.com/watch?v=Dx7E_N3zMwc",
+      "titre": "This is BAD NEWS For Every Tesla Owner!",
+      "chaine": "Robert Rosenfeld",
       "langue": "fr",
       "mot_cle": "général",
-      "id_video": "D0H5IAo026o",
-      "date_publication": "2026-11-07"
+      "id_video": "Dx7E_N3zMwc",
+      "date_publication": "2026-11-06"
     }
   ]
 }
