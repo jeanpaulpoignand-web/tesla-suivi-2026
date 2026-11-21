@@ -1,6 +1,24 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=M529iihwd34",
+      "titre": "J'ai testé Tespit : l'app que tout propriétaire de Tesla doit connaître",
+      "chaine": "Tesla Astuces",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "M529iihwd34",
+      "date_publication": "2026-11-19"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rx_UebMW_w8",
+      "titre": "TESLA FSD : LA FRANCE ACCUSÉE DE FREINER SON ARRIVÉE EN EUROPE",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "rx_UebMW_w8",
+      "date_publication": "2026-11-19"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=v07a5jDZWTA",
       "titre": "Tesla mise tout sur le Cybercab ? Je ne crois pas !",
       "chaine": "The Choucroute Garage",
@@ -73,15 +91,6 @@
       "date_publication": "2026-11-11"
     },
     {
-      "url": "https://www.youtube.com/watch?v=KDKelWoegkY",
-      "titre": "Ecran devant le volant d'une Tesla ? Regardez ceci avant d'acheter !",
-      "chaine": "Tesla Astuces",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "KDKelWoegkY",
-      "date_publication": "2026-11-10"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=tf3k9MCv_5E",
       "titre": "Tesla : 2 protections indispensables pour tes coffres !",
       "chaine": "Tesla Sympa",
@@ -98,15 +107,6 @@
       "mot_cle": "Model Y",
       "id_video": "6VYkXdAWtP0",
       "date_publication": "2026-11-08"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=Dx7E_N3zMwc",
-      "titre": "This is BAD NEWS For Every Tesla Owner!",
-      "chaine": "Robert Rosenfeld",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "Dx7E_N3zMwc",
-      "date_publication": "2026-11-06"
     }
   ]
 }

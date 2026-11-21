@@ -171,5 +171,15 @@
     "nouveautes": false,
     "entrees_ajoutees": 0,
     "message": "Correctif du 19/11 : passe de 9 h non faite. Vidéos recopiées depuis le fichier Make du jour ; prime CEE Model 3 Propulsion retirée selon la lecture Grok. Aucune fusion effectuée."
+  },
+  {
+    "date_execution": "2026-11-21T08:58:54+01:00",
+    "resultat": "succes",
+    "lot_id": "2026-11-21_Grok_Veille_Tesla-suivi_V1",
+    "lot_type": "quotidien",
+    "lot_presse_id": "2026-11-21_Grok_Veille-presse_Tesla-suivi_V1",
+    "nouveautes": false,
+    "entrees_ajoutees": 0,
+    "message": "Vidéos : conforme, copie brute Make ; actualités : non vérifié (entrée FSD Italie sans id et sources originales non ouvertes) ; information du jour : inchangé ; prix : inchangé selon lecture Grok du 21/11, pas de CEE Model 3 Propulsion ; LOA : inchangé (samedi) ; occasion : inchangé (hors fenêtre). Sauvegarde à vérifier ; aucune fusion effectuée."
   }
 ]
