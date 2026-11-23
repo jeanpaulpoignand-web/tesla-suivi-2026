@@ -598,5 +598,75 @@
       }
     ],
     "note": "Relevé du 19/11/2026, lecture Grok. Versions relues : Model 3 Propulsion et Model Y Propulsion. Les six autres versions sont reprises du relevé du 15/11 et n'ont pas été relues."
+  },
+  {
+    "date_releve": "2026-11-23T07:21:50+01:00",
+    "statut_lecture": "partiel",
+    "source_url_model3": "https://www.tesla.com/fr_fr/model3/design",
+    "source_url_modely": "https://www.tesla.com/fr_fr/modely/design",
+    "source": [
+      "https://www.tesla.com/fr_fr/model3/design",
+      "https://www.tesla.com/fr_fr/modely/design"
+    ],
+    "versions": [
+      {
+        "modele": "Model 3",
+        "version": "Propulsion",
+        "catalogue_eur": 36990,
+        "aides": [
+          {
+            "nom": "Prime CEE",
+            "libelle": "Prime CEE",
+            "montant_eur": -400,
+            "condition": "Ligne « Prime CEE -400 € » dans le détail « Inclus » du configurateur Tesla France, mode Personnel / Comptant, lecture Grok le 23/11/2026 à 07:21:50 ; aucun bandeau Coup de pouce et éligibilité légale non établie.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design",
+            "statut_verification": "lecture Grok du 23/11/2026 à 07:21:50 Europe/Paris ; éligibilité légale non validée"
+          },
+          {
+            "nom": "Bonus de reprise Tesla",
+            "libelle": "Bonus de reprise Tesla",
+            "montant_eur": -3000,
+            "condition": "Reprise Propulsion, commandes du 01/10 au 31/12/2026 selon stocks, financement/leasing Tesla exclus.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/model3/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "condition_detail": "Propulsion seulement ; reprise d'un véhicule immatriculé dans le pays de livraison au nom de l'acheteur et/ou de son conjoint. Commandes du 01/10 au 31/12/2026 inclus, stocks disponibles ; livraison au 31/12/2026 et retrait sous 7 jours, avec exceptions en cas d'indisponibilité ou de retard imputable à Tesla. Occasion exclue ; démonstration/exposition admise. Comptant ou financement tiers admis ; financement/leasing Tesla exclus. Offre révocable selon stocks, indépendante des aides publiques. Case non cochée lors de la lecture."
+          }
+        ]
+      },
+      {
+        "modele": "Model Y",
+        "version": "Propulsion",
+        "catalogue_eur": 40990,
+        "aides": [
+          {
+            "nom": "Prime CEE (Coup de Pouce)",
+            "libelle": "Prime CEE (Coup de Pouce)",
+            "montant_eur": -3600,
+            "condition": "Selon revenus et critères gouvernementaux, sans garantie d'éligibilité légale ni de montant individuel.",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "affichage Tesla lu ; éligibilité légale non validée",
+            "montant_min": 3600,
+            "montant_max": 5700,
+            "source": "Tesla France — bandeau du configurateur Model Y",
+            "conditions_fourchette": "Affichée sur Model Y Propulsion et Grande Autonomie Propulsion, dont Premium ; montant dépendant des revenus et des critères gouvernementaux. Prime incluse dans le total Comptant. Fourchette commerciale au bandeau ; aucun revenu ni nombre de parts renseigné. Ambiguïté conservée : texte près des versions hors prime, panneau Comptant prime incluse. Ces affichages commerciaux ne prouvent pas l'éligibilité légale.",
+            "condition_detail": "Affichée sur Model Y Propulsion et Grande Autonomie Propulsion, dont Premium ; montant dépendant des revenus et des critères gouvernementaux. Prime incluse dans le total Comptant. Fourchette commerciale au bandeau ; aucun revenu ni nombre de parts renseigné. Ambiguïté conservée : texte près des versions hors prime, panneau Comptant prime incluse. Ces affichages commerciaux ne prouvent pas l'éligibilité légale."
+          },
+          {
+            "nom": "Bonus de reprise Tesla",
+            "libelle": "Bonus de reprise Tesla",
+            "montant_eur": -4000,
+            "condition": "Reprise Propulsion, commandes du 01/10 au 31/12/2026 selon stocks, financement/leasing Tesla exclus. Lu à 4 000 € sur tesla.com le 15/11/2026 (5 000 € lus le 31/10).",
+            "nature": "affichage commercial Tesla, non preuve d'éligibilité légale",
+            "source_url": "https://www.tesla.com/fr_fr/modely/design#overview",
+            "statut_verification": "lecture Grok du 15/11/2026 à 07:29–07:31 sur la page officielle Tesla France ; éligibilité légale non validée",
+            "condition_detail": "Propulsion seulement ; reprise d'un véhicule immatriculé dans le pays de livraison au nom de l'acheteur et/ou de son conjoint. Commandes du 01/10 au 31/12/2026 inclus, stocks disponibles ; livraison au 31/12/2026 et retrait sous 7 jours, avec exceptions en cas d'indisponibilité ou de retard imputable à Tesla. Occasion exclue ; démonstration/exposition admise. Comptant ou financement tiers admis ; financement/leasing Tesla exclus. Offre révocable selon stocks, indépendante des aides publiques. Case non cochée lors de la lecture."
+          }
+        ]
+      }
+    ],
+    "note": "Relevé Grok du 23/11/2026 : Model 3 Propulsion, prime CEE -400 € lue dans le détail Inclus (absente au relevé du 19/11) ; Model Y Propulsion inchangée : catalogue 40 990 €, CEE 3 600 €, reprise 4 000 €. Model 3 catalogue 36 990 €, reprise 3 000 €. Autres versions non relues, historiques conservés. Écart entre les affichages de barre basse non assimilé à un prix catalogue."
   }
 ]

@@ -17,6 +17,15 @@
       "texte": "La prime CEE de 400 € n'est plus affichée sur la page Model 3 Propulsion du site officiel Tesla France (lecture du 19/11), alors que notre relevé précédent la comptait.",
       "source_nom": "Tesla France",
       "source_url": "https://www.tesla.com/fr_fr/model3/design"
+    },
+    {
+      "date": "2026-11-23",
+      "rubrique": "Prix",
+      "statut": "Confirmé",
+      "texte": "Le configurateur Tesla France affiche de nouveau une ligne « Prime CEE -400 € » pour la Model 3 Propulsion, selon la lecture Grok du 23 novembre à 7 h 21. Il ne s'agit pas de la prime « Coup de pouce » du Model Y et l'éligibilité individuelle reste à vérifier.",
+      "source_nom": "Tesla France — configurateur Model 3, lecture Grok",
+      "source_url": "https://www.tesla.com/fr_fr/model3/design",
+      "source_heure": "07:21"
     }
   ]
 }

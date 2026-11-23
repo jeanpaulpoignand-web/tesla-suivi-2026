@@ -1,21 +1,57 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=DSv58lf4SL8",
+      "titre": "Tesla's BIG Update is Here and It's WILD!",
+      "chaine": "Robert Rosenfeld",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "DSv58lf4SL8",
+      "date_publication": "2026-11-22"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=3m55hN334ss",
+      "titre": "Tous mes accessoires Tesla après des mois d’utilisation !",
+      "chaine": "Tesla Sympa",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "3m55hN334ss",
+      "date_publication": "2026-11-22"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ZE8_0OxtEFs",
+      "titre": "TESLA : POURQUOI INSTALLER UN PARE-SOLEIL EN HIVER ?",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "ZE8_0OxtEFs",
+      "date_publication": "2026-11-22"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GuuwR_Cu5bE",
+      "titre": "Tesla FSD V15 : Reality View remplace Tesla Vision et c'est une révolution !",
+      "chaine": "Tesla Astuces",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "GuuwR_Cu5bE",
+      "date_publication": "2026-11-22"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=vukhohq5qMQ",
+      "titre": "MES 3 ACTUALITÉS avec ma TESLA MODEL Y JUNIPER (+ 1 bonus)",
+      "chaine": "TESLA En Aparté",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "vukhohq5qMQ",
+      "date_publication": "2026-11-22"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=M529iihwd34",
       "titre": "J'ai testé Tespit : l'app que tout propriétaire de Tesla doit connaître",
       "chaine": "Tesla Astuces",
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "M529iihwd34",
-      "date_publication": "2026-11-19"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=rx_UebMW_w8",
-      "titre": "TESLA FSD : LA FRANCE ACCUSÉE DE FREINER SON ARRIVÉE EN EUROPE",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "rx_UebMW_w8",
       "date_publication": "2026-11-19"
     },
     {
@@ -55,15 +91,6 @@
       "date_publication": "2026-11-15"
     },
     {
-      "url": "https://www.youtube.com/watch?v=I1nWcIKgv4A",
-      "titre": "Fini la feutrine dans la Tesla : je recouvre TOUT PARTOUT !",
-      "chaine": "Tesla Astuces",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "I1nWcIKgv4A",
-      "date_publication": "2026-11-15"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=Af2huhD-Pvk",
       "titre": "Une nouvelle TESLA produite à la GIGA Berlin ?",
       "chaine": "TESLA Geek",
@@ -80,33 +107,6 @@
       "mot_cle": "général",
       "id_video": "CGJsEWW8zzY",
       "date_publication": "2026-11-11"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=tf3k9MCv_5E",
-      "titre": "Tesla : 2 protections indispensables pour tes coffres !",
-      "chaine": "Tesla Sympa",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "tf3k9MCv_5E",
-      "date_publication": "2026-11-09"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=6VYkXdAWtP0",
-      "titre": "Conduite de nuit en Tesla Model Y : c'est comment ?",
-      "chaine": "TESLA En Aparté",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "6VYkXdAWtP0",
-      "date_publication": "2026-11-08"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=Dx7E_N3zMwc",
-      "titre": "This is BAD NEWS For Every Tesla Owner!",
-      "chaine": "Robert Rosenfeld",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "Dx7E_N3zMwc",
-      "date_publication": "2026-11-06"
     }
   ]
 }
