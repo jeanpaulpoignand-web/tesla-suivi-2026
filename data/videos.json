@@ -1,6 +1,15 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=3hzy3CnEhDw",
+      "titre": "TESLA FSD V15 : UNE RÉVOLUTION VISUELLE DIGNE DE GTA !",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "3hzy3CnEhDw",
+      "date_publication": "2026-11-23"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=DSv58lf4SL8",
       "titre": "Tesla's BIG Update is Here and It's WILD!",
       "chaine": "Robert Rosenfeld",
@@ -98,15 +107,6 @@
       "mot_cle": "général",
       "id_video": "Af2huhD-Pvk",
       "date_publication": "2026-11-13"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=CGJsEWW8zzY",
-      "titre": "Tesla Has a HUGE Surprise For 2027!",
-      "chaine": "Robert Rosenfeld",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "CGJsEWW8zzY",
-      "date_publication": "2026-11-11"
     }
   ]
 }
