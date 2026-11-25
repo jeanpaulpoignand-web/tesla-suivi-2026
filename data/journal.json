@@ -201,5 +201,15 @@
     "nouveautes": false,
     "entrees_ajoutees": 0,
     "message": "Correctif par Claude 24/11 (passe ChatGPT de 9 h absente) : vidéos mises à jour (12, copie du fichier Make du jour), actualités inchangées (lot quotidien sans entrée), information du jour inchangée, prix et LOA conformes au relevé Grok du 24/11 (inchangés), occasion inchangée ; aucune fusion effectuée."
+  },
+  {
+    "date_execution": "2026-11-25T10:30:00+01:00",
+    "resultat": "succes",
+    "lot_id": "2026-11-25_Grok_Veille_Tesla-suivi_V1",
+    "lot_type": "quotidien",
+    "lot_presse_id": "2026-11-25_Grok_Veille-presse_Tesla-suivi_V1",
+    "nouveautes": false,
+    "entrees_ajoutees": 0,
+    "message": "Correctif par Claude 25/11 (passe ChatGPT de 9 h inachevée) : vidéos mises à jour (12, copie du fichier Make du jour), actualités inchangées (lot quotidien sans entrée), information du jour inchangée, prix et LOA conformes au relevé Grok du 25/11 (inchangés), occasion inchangée ; aucune fusion effectuée."
   }
 ]
