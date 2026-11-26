@@ -1115,5 +1115,49 @@
       }
     ],
     "contradictions": []
+  },
+  {
+    "id": "2026-11-25-fsd-europe-tcmv-report-15-decembre",
+    "titre": "FSD Europe : selon Reuters, la réunion TCMV est reportée au 15 décembre 2026",
+    "date_publication": "2026-11-25",
+    "date_verification": "2026-11-26",
+    "theme": "FSD",
+    "modeles": [
+      "Model 3",
+      "Model Y"
+    ],
+    "hardware": null,
+    "territoire": "Europe",
+    "resume": "Reuters rapporte le 25 novembre qu'un porte-parole de la Commission européenne a indiqué que la réunion du comité technique des véhicules à moteur consacrée à la demande d'approbation européenne de Tesla Assisted Driving est reportée au 15 décembre. Deux réunions précédentes se sont achevées sans vote, selon Reuters ; aucun vote ni résultat favorable n'est garanti à cette nouvelle date.",
+    "consequence": "Cette échéance concerne l'examen de l'homologation européenne, pas une autorisation ni un déploiement en France.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": true,
+    "fsd": {
+      "etape": "annonce"
+    },
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "Reuters — déclaration rapportée d'un porte-parole de la Commission européenne",
+        "type": "presse",
+        "url": "https://www.reuters.com/business/autos-transportation/eu-postpones-discussion-approve-teslas-self-driving-tech-2026-11-25/",
+        "date": "2026-11-25",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      },
+      {
+        "role": "reprise",
+        "nom": "Reuters via Euronext",
+        "type": "presse",
+        "url": "https://live.euronext.com/en/financial-news/eu-postpones-discussion-approve-teslas-self-driving-tech",
+        "date": "2026-11-25",
+        "interet_commercial": "inconnu",
+        "accessible": true
+      }
+    ],
+    "contradictions": [
+      "La Commission européenne n'a pas été lue directement ; report attribué à Reuters. L'identifiant du lot daté du 26/11 est aligné sur la date de publication réelle du 25/11 dans la proposition ; lot original inchangé."
+    ]
   }
 ]

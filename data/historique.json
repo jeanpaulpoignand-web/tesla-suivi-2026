@@ -53,5 +53,20 @@
     },
     "motif": "Proposition du lot Grok 7 h du 04/11, source primaire RDW du 03/11 ; audit Claude requis. Information partiellement voisine d'entrées FSD préexistantes, dédoublonnage éditorial à contrôler avant fusion.",
     "source_url": "https://www.rdw.nl/en/news/2026/rdw-approves-changes-to-tesla-driver-assistance-system"
+  },
+  {
+    "date": "2026-11-26",
+    "id_entree": "2026-11-25-fsd-europe-tcmv-report-15-decembre",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "FSD Europe : selon Reuters, la réunion TCMV est reportée au 15 décembre 2026",
+      "statut": "Annoncé, déploiement à vérifier"
+    },
+    "motif": "Lot Grok du 26/11 ; Reuters original et reprise Euronext ouverts, attribution explicite, identifiant aligné sur date source ; audit Claude requis.",
+    "source_url": "https://www.reuters.com/business/autos-transportation/eu-postpones-discussion-approve-teslas-self-driving-tech-2026-11-25/"
   }
 ]
