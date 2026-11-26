@@ -1,13 +1,31 @@
 {
   "videos": [
     {
-      "url": "https://www.youtube.com/watch?v=3hzy3CnEhDw",
-      "titre": "TESLA FSD V15 : UNE RÉVOLUTION VISUELLE DIGNE DE GTA !",
+      "url": "https://www.youtube.com/watch?v=T3Ftdjcot8o",
+      "titre": "XPENG va faire PAYER sa conduite assistée NGP, comme Tesla",
       "chaine": "Yoann en VE ⚡️",
       "langue": "fr",
       "mot_cle": "général",
-      "id_video": "3hzy3CnEhDw",
-      "date_publication": "2026-11-23"
+      "id_video": "T3Ftdjcot8o",
+      "date_publication": "2026-11-25"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=XPrifyFV2UE",
+      "titre": "RAFRAÎCHIR L’INTÉRIEUR DE SA « VIEILLE » TESLA POUR PAS CHER",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "XPrifyFV2UE",
+      "date_publication": "2026-11-25"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=JZmQtCyyRAw",
+      "titre": "Tesla FSD V15 - Reality View : La Model Y en Mode GTA 6 !",
+      "chaine": "Juste Tomy",
+      "langue": "fr",
+      "mot_cle": "Model Y",
+      "id_video": "JZmQtCyyRAw",
+      "date_publication": "2026-11-24"
     },
     {
       "url": "https://www.youtube.com/watch?v=DSv58lf4SL8",
@@ -25,15 +43,6 @@
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "3m55hN334ss",
-      "date_publication": "2026-11-22"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=ZE8_0OxtEFs",
-      "titre": "TESLA : POURQUOI INSTALLER UN PARE-SOLEIL EN HIVER ?",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "ZE8_0OxtEFs",
       "date_publication": "2026-11-22"
     },
     {
@@ -92,21 +101,12 @@
     },
     {
       "url": "https://www.youtube.com/watch?v=gQrUYj7JFjM",
-      "titre": "Une chambre IKEA dans le coffre d'une Tesla Model Y : ÇA PASSE OU ÇA CASSE  ?",
+      "titre": "Peut-on mettre une chambre IKEA dans le coffre d'une Tesla Model Y ?",
       "chaine": "TESLA En Aparté",
       "langue": "fr",
       "mot_cle": "Model Y",
       "id_video": "gQrUYj7JFjM",
       "date_publication": "2026-11-15"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=Af2huhD-Pvk",
-      "titre": "Une nouvelle TESLA produite à la GIGA Berlin ?",
-      "chaine": "TESLA Geek",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "Af2huhD-Pvk",
-      "date_publication": "2026-11-13"
     }
   ]
 }
