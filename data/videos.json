@@ -1,21 +1,21 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=vC8dmyVaqlc",
+      "titre": "BATTERIES LFP : TESLA DÉJÀ DÉPASSÉE PAR RENAULT ET XPENG ?",
+      "chaine": "Yoann en VE ⚡️",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "vC8dmyVaqlc",
+      "date_publication": "2026-11-26"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=T3Ftdjcot8o",
       "titre": "XPENG va faire PAYER sa conduite assistée NGP, comme Tesla",
       "chaine": "Yoann en VE ⚡️",
       "langue": "fr",
       "mot_cle": "général",
       "id_video": "T3Ftdjcot8o",
-      "date_publication": "2026-11-25"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=XPrifyFV2UE",
-      "titre": "RAFRAÎCHIR L’INTÉRIEUR DE SA « VIEILLE » TESLA POUR PAS CHER",
-      "chaine": "Yoann en VE ⚡️",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "XPrifyFV2UE",
       "date_publication": "2026-11-25"
     },
     {
