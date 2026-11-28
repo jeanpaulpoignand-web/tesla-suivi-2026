@@ -1,6 +1,24 @@
 {
   "videos": [
     {
+      "url": "https://www.youtube.com/watch?v=9PaypvTcORg",
+      "titre": "I Found The BEST Tesla Deals of 2026!",
+      "chaine": "Robert Rosenfeld",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "9PaypvTcORg",
+      "date_publication": "2026-11-27"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Lpaf6f_axf4",
+      "titre": "Mise à jour TESLA 2026.44.1 : bien plus de nouveautés que Tesla ne l'annonce !",
+      "chaine": "Tesla Sympa",
+      "langue": "fr",
+      "mot_cle": "général",
+      "id_video": "Lpaf6f_axf4",
+      "date_publication": "2026-11-27"
+    },
+    {
       "url": "https://www.youtube.com/watch?v=vC8dmyVaqlc",
       "titre": "BATTERIES LFP : TESLA DÉJÀ DÉPASSÉE PAR RENAULT ET XPENG ?",
       "chaine": "Yoann en VE ⚡️",
@@ -73,15 +91,6 @@
       "date_publication": "2026-11-19"
     },
     {
-      "url": "https://www.youtube.com/watch?v=v07a5jDZWTA",
-      "titre": "Tesla mise tout sur le Cybercab ? Je ne crois pas !",
-      "chaine": "The Choucroute Garage",
-      "langue": "fr",
-      "mot_cle": "général",
-      "id_video": "v07a5jDZWTA",
-      "date_publication": "2026-11-18"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=dlvzRbz8o1E",
       "titre": "Tesla vend son Cybercab à 29.990 $… mais il y a un piège ! (plusieurs en fait)",
       "chaine": "TESLA Geek",
@@ -98,15 +107,6 @@
       "mot_cle": "général",
       "id_video": "24wZuFbwqTo",
       "date_publication": "2026-11-16"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=gQrUYj7JFjM",
-      "titre": "Peut-on mettre une chambre IKEA dans le coffre d'une Tesla Model Y ?",
-      "chaine": "TESLA En Aparté",
-      "langue": "fr",
-      "mot_cle": "Model Y",
-      "id_video": "gQrUYj7JFjM",
-      "date_publication": "2026-11-15"
     }
   ]
 }

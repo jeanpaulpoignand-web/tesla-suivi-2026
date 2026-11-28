@@ -1159,5 +1159,40 @@
     "contradictions": [
       "La Commission européenne n'a pas été lue directement ; report attribué à Reuters. L'identifiant du lot daté du 26/11 est aligné sur la date de publication réelle du 25/11 dans la proposition ; lot original inchangé."
     ]
+  },
+  {
+    "id": "2026-11-28-fsd-v15-pointer-ecran-musk",
+    "titre": "FSD v15 : Elon Musk annonce une fonction permettant de désigner une destination à l'écran",
+    "date_publication": "2026-11-28",
+    "date_verification": "2026-11-28",
+    "theme": "FSD",
+    "modeles": [],
+    "hardware": null,
+    "territoire": "International",
+    "resume": "Elon Musk a déclaré le 28 novembre à 04:06 (Paris) que la possibilité de pointer un endroit à l’écran dans Reality View pour que la voiture s’y rende arriverait dans une mise à jour intermédiaire dans une semaine ou deux.",
+    "consequence": "Non vérifié pour la France. Le post ne précise ni pays, ni modèles, ni matériel ; aucun déploiement effectif n'est établi.",
+    "statut": "Annoncé, déploiement à vérifier",
+    "alerte": false,
+    "fsd": {
+      "etape": "annonce"
+    },
+    "prix": null,
+    "sources": [
+      {
+        "role": "originale",
+        "nom": "@elonmusk sur X",
+        "type": "réseau social",
+        "url": "https://x.com/elonmusk/status/2126513022080631259",
+        "date": "2026-11-28",
+        "interet_commercial": "oui",
+        "accessible": true,
+        "id_post": "2126513022080631259",
+        "auteur": "@elonmusk",
+        "statut_verifie": "oui (verified=true, verified_type=blue, lu via API X par Grok)",
+        "heure_publication": "2026-11-28T04:06:27+01:00",
+        "texte_exact": "@BLKMDL3 The ability to point at a spot on the screen in reality view and have the car go there is coming out in a point release in a week or two"
+      }
+    ],
+    "contradictions": []
   }
 ]
