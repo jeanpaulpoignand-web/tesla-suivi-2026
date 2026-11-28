@@ -26,6 +26,15 @@
       "source_nom": "Tesla France — configurateur Model 3, lecture Grok",
       "source_url": "https://www.tesla.com/fr_fr/model3/design",
       "source_heure": "07:21"
+    },
+    {
+      "date": "2026-11-28",
+      "rubrique": "FSD",
+      "statut": "Annoncé, déploiement à vérifier",
+      "texte": "Elon Musk a déclaré qu’une fonction permettant de désigner un endroit à l’écran pour que la voiture s’y rende arriverait dans une mise à jour intermédiaire dans une semaine ou deux. Non vérifié pour la France.",
+      "source_nom": "@elonmusk sur X — lecture Grok",
+      "source_url": "https://x.com/elonmusk/status/2126513022080631259",
+      "source_heure": "04:06"
     }
   ]
 }

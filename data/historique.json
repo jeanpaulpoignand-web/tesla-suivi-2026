@@ -68,5 +68,20 @@
     },
     "motif": "Lot Grok du 26/11 ; Reuters original et reprise Euronext ouverts, attribution explicite, identifiant aligné sur date source ; audit Claude requis.",
     "source_url": "https://www.reuters.com/business/autos-transportation/eu-postpones-discussion-approve-teslas-self-driving-tech-2026-11-25/"
+  },
+  {
+    "date": "2026-11-28",
+    "id_entree": "2026-11-28-fsd-v15-pointer-ecran-musk",
+    "type": "ajout",
+    "champs_modifies": [
+      "nouvelle_entree"
+    ],
+    "ancienne_valeur": null,
+    "nouvelle_valeur": {
+      "titre": "FSD v15 : Elon Musk annonce une fonction permettant de désigner une destination à l'écran",
+      "statut": "Annoncé, déploiement à vérifier"
+    },
+    "motif": "Lot quotidien Grok du 28/11 ; preuve officielle X complète selon V3 ; aucun déploiement confirmé ; audit Claude requis.",
+    "source_url": "https://x.com/elonmusk/status/2126513022080631259"
   }
 ]
